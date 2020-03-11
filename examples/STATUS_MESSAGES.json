@@ -22,7 +22,41 @@
           },
           {
             "name": "status_type",
-            "type": "uint8"
+            "type": "uint8",
+            "labels": [
+              {
+                "label": "STATUS_NONE",
+                "value": 0
+              },
+              {
+                "label": "STATUS_GET_LAST_MESSAGE",
+                "value": 1
+              },
+              {
+                "label": "STATUS_ADVISORY",
+                "value": 2
+              },
+              {
+                "label": "STATUS_WARNING",
+                "value": 3
+              },
+              {
+                "label": "STATUS_ERROR",
+                "value": 4
+              },
+              {
+                "label": "STATUS_ADVISORY_CLEARED",
+                "value": 18
+              },
+              {
+                "label": "STATUS_WARNING_CLEARED",
+                "value": 19
+              },
+              {
+                "label": "STATUS_ERROR_CLEARED",
+                "value": 20
+              }
+            ]
           },
           {
             "name": "status_message_id",

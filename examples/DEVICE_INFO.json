@@ -19,12 +19,6 @@
           "minimum": 0,
           "maximum": 512
         }
-      ],
-      "labels": [
-        {
-          "label": "No footprint",
-          "value": 65535
-        }
       ]
     },
     { "name": "current_personality", "type": "uint8" },
@@ -40,6 +34,12 @@
         {
           "minimum": 65535,
           "maximum": 65535
+        }
+      ],
+      "labels": [
+        {
+          "label": "No footprint",
+          "value": 65535
         }
       ]
     },

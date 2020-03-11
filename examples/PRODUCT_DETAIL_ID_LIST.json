@@ -9,7 +9,7 @@
       "name": "product_detail_ids",
       "type": "list",
       "itemType": {
-        "name": "produce_detail_id",
+        "name": "product_detail_id",
         "type": "uint16"
       }
     }

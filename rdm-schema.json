@@ -9,6 +9,7 @@
       "type": "object",
       "properties": {
         "name": { "$ref": "#/$defs/nameType" },
+        "displayName": { "$ref": "#/$defs/nameType" },
         "index": {
           "type": "integer",
           "minimum": 0
@@ -26,6 +27,7 @@
       "type": "object",
       "properties": {
         "name": { "$ref": "#/$defs/nameType" },
+        "displayName": { "$ref": "#/$defs/nameType" },
         "type": { "const": "bitField" },
         "bits": {
           "type": "array",
@@ -46,6 +48,7 @@
       "type": "object",
       "properties": {
         "name": { "$ref": "#/$defs/nameType" },
+        "displayName": { "$ref": "#/$defs/nameType" },
         "type": { "const": "compound" },
         "subtypes": {
           "type": "array",
@@ -70,6 +73,7 @@
       "type": "object",
       "properties": {
         "name": { "$ref": "#/$defs/nameType" },
+        "displayName": { "$ref": "#/$defs/nameType" },
         "type": {
           "enum": [
             "int8",
@@ -114,6 +118,7 @@
       "type": "object",
       "properties": {
         "name": { "$ref": "#/$defs/nameType" },
+        "displayName": { "$ref": "#/$defs/nameType" },
         "value": { "type": "integer" }
       },
       "required": [ "name", "value" ]
@@ -123,6 +128,7 @@
       "type": "object",
       "properties": {
         "name": { "$ref": "#/$defs/nameType" },
+        "displayName": { "$ref": "#/$defs/nameType" },
         "type": { "const": "list" },
         "itemType": { "$ref": "#/$defs/oneOfTypes" },
         "minItems": {
@@ -197,10 +203,11 @@
       "required": [ "ref" ]
     },
     "simpleType": {
-      "description": "Simple type that has no fields other than a name and type. This is intended as a catch-all list for likely values. Any values not in the enum list will be considered a manufacturer-specific definition.",
+      "description": "Simple type that has no fields other than a name and type. This is intended as a catch-all list for likely values. Any values not in the enum list will be considered a manufacturer-specific definition. This list is tied to \"Table A-15: Data Type Defines\" in the RDM specification.",
       "type": "object",
       "properties": {
         "name": { "$ref": "#/$defs/nameType" },
+        "displayName": { "$ref": "#/$defs/nameType" },
         "type": {
           "anyOf": [
             {
@@ -225,6 +232,7 @@
       "type": "object",
       "properties": {
         "name": { "$ref": "#/$defs/nameType" },
+        "displayName": { "$ref": "#/$defs/nameType" },
         "type": { "const": "string" },
         "minLength": {
           "description": "The minimum string length.",
@@ -255,6 +263,7 @@
   "type": "object",
   "properties": {
     "name": { "$ref": "#/$defs/nameType" },
+    "displayName": { "$ref": "#/$defs/nameType" },
     "pid": {
       "description": "The parameter ID.",
       "type": "integer",
