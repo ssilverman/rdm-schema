@@ -111,3 +111,32 @@ v6:
 
 v7:
 * Removed the word, "informative", from the description and title.
+
+v8:
+* Updated the "bitFieldType" description to add the sentence: "Implementations
+  are likely to store the values in a structure having a multiple of 8 bits."
+  It's not possible using the JSON schema to restrict an array count to a
+  multiple of 8. Additionally, if we added the "size" property as before,
+  there's currently no clean way of guaranteeing its value is at least as large
+  as the array element count.
+* Added a "reserved" property to "bitType" to indicate that a bit is unused or
+  reserved. This helps with padding the bit count in a bit field to be a
+  multiple of 8.
+* Changed the "bool" item in "simpleType" to "boolean" so that it matches the
+  JSON schema word, for consistency.
+* Updated the "stringType" description to add the sentence: "Implementations
+  might need to use a NUL terminator for multi-field messages where a string is
+  followed by another field so that its boundary can be determined."
+* Updated the SUPPORTED_PARAMETERS_ENHANCED example to use a bit field.
+* Added an "$id" field with the value "#placeholder".
+* Need to discuss:
+  * Either removing these: "int128, uint128, hostname, mac, uri, uuid", or
+    defining them in Table A-15 of the new RDM spec.
+  * What will the value of "$id" be?
+  * Clarifying that any string-based types (eg. uuid, mac, hostname, random
+    other strings) need to be NUL-terminated if the field is followed by
+    another, so that its length can be determined.
+  * Clarifying that a version number is an 8-bit byte instead of "the version
+    shall start at zero". The second seems too proscriptive and the first
+    accomplishes the same thing without inflaming those whose opinion says that
+    versions MUST start at 1.
