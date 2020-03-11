@@ -140,3 +140,9 @@ v8:
     shall start at zero". The second seems too proscriptive and the first
     accomplishes the same thing without inflaming those whose opinion says that
     versions MUST start at 1.
+
+v9:
+* Using "http://estalink.us/jsonschema" for the "$id" value.
+* Need to discuss:
+  * Should the ID link "https" instead of "http"? (Obviously, would change in
+    the spec too.)
