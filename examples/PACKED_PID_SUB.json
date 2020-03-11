@@ -2,6 +2,7 @@
   "name": "PACKED_PID_SUB",
   "pid": #undefined,
   "version": 1,
+  "get_request_subdevice_range": [ "root" ],
   "get_request": [
     { "name": "pid", "type": "uint16" },
     { "name": "index_requested", "type": "uint16" },

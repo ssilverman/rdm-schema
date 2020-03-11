@@ -81,3 +81,24 @@ v3:
 v4:
 * Added "url" and "mac" to "simpleType".
 * Changed "version" minimum to 1 from 0.
+
+v5:
+* Changed "version" minimum back to 0 because I'm not convinced it should be a
+  schema check. It's just a two-byte number. There's no reason to put this
+  restriction on someone's message.
+* Added a "uri" "simpleType". Yes, it's a superset of a URL, but people may wish
+  to use one or both because URLs are so common.
+* Added "name" to the "required" list in "labeledIntegerType", per Peter N.
+* Added "int128" and "uint128" to "integerType".
+* Added a "length" maximum of 255, per Peter N.
+* Updated the description for "commandType" to clarify that it represents the
+  contents of a command.
+* Changed "definitions" to "$defs", per the 2019-09 draft.
+* Added missing "type": "object" to "stringType", "bitFieldType",
+  and "integerType".
+* Added "uuid" to "simpleType".
+* Updated the "simpleType" description to state its purpose as a catch-all list
+  of likely values.
+* Added a "subdeviceType" for specifying which subdevices a GET or SET request
+  can be sent to. The default is the union of all of the enum values.
+* Changed "$schema" to "https://json-schema.org/draft/2019-09/schema".

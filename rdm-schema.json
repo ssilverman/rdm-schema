@@ -1,13 +1,13 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
   "title": "Parameter Metadata Language Schema, Informative",
   "description": "The (informative) schema for the Parameter Metadata Language from Section 5 of E1.37-5. This schema is subject to change.",
-  "definitions": {
+  "$defs": {
     "bitType": {
       "description": "Describes the meaning of one bit in a bit field.",
       "type": "object",
       "properties": {
-        "name": { "$ref": "#/definitions/nameType" },
+        "name": { "$ref": "#/$defs/nameType" },
         "index": {
           "type": "integer",
           "minimum": 0
@@ -17,33 +17,34 @@
     },
     "bitFieldType": {
       "description": "A bit field, a collection of 'bit' items.",
+      "type": "object",
       "properties": {
-        "name": { "$ref": "#/definitions/nameType" },
+        "name": { "$ref": "#/$defs/nameType" },
         "type": { "const": "bitField" },
         "bits": {
           "type": "array",
-          "items": { "$ref": "#/definitions/bitType" },
+          "items": { "$ref": "#/$defs/bitType" },
           "uniqueItems": true
         }
       },
       "required": [ "type", "bits" ]
     },
     "commandType": {
-      "description": "Represents an RDM command, a collection of 'field' items, each a simple or compound type.",
+      "description": "Represents the contents of an RDM command, a collection of 'field' items, each a simple or compound type.",
       "type": "array",
-      "items": { "$ref": "#/definitions/oneOfTypes" },
+      "items": { "$ref": "#/$defs/oneOfTypes" },
       "uniqueItems": true
     },
     "compoundType": {
       "description": "Defines a compound type, a type used to combine other types. This is useful for including in lists.",
       "type": "object",
       "properties": {
-        "name": { "$ref": "#/definitions/nameType" },
+        "name": { "$ref": "#/$defs/nameType" },
         "type": { "const": "compound" },
         "subtypes": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/oneOfTypes"
+            "$ref": "#/$defs/oneOfTypes"
           }
         }
       },
@@ -51,24 +52,27 @@
     },
     "integerType": {
       "description": "A signed or unsigned integer, can have an optional prefix, unit, and range.",
+      "type": "object",
       "properties": {
-        "name": { "$ref": "#/definitions/nameType" },
+        "name": { "$ref": "#/$defs/nameType" },
         "type": {
           "enum": [
             "int8",
             "int16",
             "int32",
             "int64",
+            "int128",
             "uint8",
             "uint16",
             "uint32",
-            "uint64"
+            "uint64",
+            "uint128"
           ]
         },
         "labels": {
           "description": "A list of labels that name special values.",
           "type": "array",
-          "items": { "$ref": "#/definitions/labeledIntegerType" },
+          "items": { "$ref": "#/$defs/labeledIntegerType" },
           "uniqueItems": true
         },
         "prefix": {
@@ -80,7 +84,7 @@
         "ranges": {
           "description": "A list of possible ranges for the value. The complete range is the union of all the ranges.",
           "type": "array",
-          "items": { "$ref": "#/definitions/rangeType" },
+          "items": { "$ref": "#/$defs/rangeType" },
           "uniqueItems": true
         },
         "unit": {
@@ -96,19 +100,19 @@
       "description": "Associates a name to an integer value.",
       "type": "object",
       "properties": {
-        "name": { "$ref": "#/definitions/nameType" },
+        "name": { "$ref": "#/$defs/nameType" },
         "value": { "type": "integer" }
       },
-      "required": [ "value" ]
+      "required": [ "name", "value" ]
     },
     "listType": {
       "description": "A list of objects all having the same type.",
       "type": "object",
       "properties": {
-        "name": { "$ref": "#/definitions/nameType" },
+        "name": { "$ref": "#/$defs/nameType" },
         "type": { "const": "list" },
         "itemType": {
-          "$ref": "#/definitions/oneOfTypes"
+          "$ref": "#/$defs/oneOfTypes"
         },
         "minItems": {
           "description": "The minimum list size.",
@@ -131,13 +135,13 @@
     "oneOfTypes": {
       "description": "One of any of the types. This provides a single location to keep the list.",
       "oneOf": [
-        { "$ref": "#/definitions/bitFieldType" },
-        { "$ref": "#/definitions/compoundType" },
-        { "$ref": "#/definitions/integerType" },
-        { "$ref": "#/definitions/listType" },
-        { "$ref": "#/definitions/pdEnvelopeType" },
-        { "$ref": "#/definitions/simpleType" },
-        { "$ref": "#/definitions/stringType" }
+        { "$ref": "#/$defs/bitFieldType" },
+        { "$ref": "#/$defs/compoundType" },
+        { "$ref": "#/$defs/integerType" },
+        { "$ref": "#/$defs/listType" },
+        { "$ref": "#/$defs/pdEnvelopeType" },
+        { "$ref": "#/$defs/simpleType" },
+        { "$ref": "#/$defs/stringType" }
       ]
     },
     "pdEnvelopeType": {
@@ -148,7 +152,8 @@
         "length": {
           "description": "The data length can be optionally specified.",
           "type": "integer",
-          "minimum": 0
+          "minimum": 0,
+          "maximum": 255
         }
       },
       "required": [ "type" ]
@@ -169,10 +174,10 @@
       "required": [ "minimum", "maximum" ]
     },
     "simpleType": {
-      "description": "Simple type that has no fields other than a name and type.",
+      "description": "Simple type that has no fields other than a name and type. This is intended as a catch-all list for likely values.",
       "type": "object",
       "properties": {
-        "name": { "$ref": "#/definitions/nameType" },
+        "name": { "$ref": "#/$defs/nameType" },
         "type": {
           "enum": [
             "bool",
@@ -181,7 +186,9 @@
             "ipv6",
             "mac",
             "uid",
-            "url"
+            "uri",
+            "url",
+            "uuid"
           ]
         }
       },
@@ -189,8 +196,9 @@
     },
     "stringType": {
       "description": "A string having a possibly bounded size.",
+      "type": "object",
       "properties": {
-        "name": { "$ref": "#/definitions/nameType" },
+        "name": { "$ref": "#/$defs/nameType" },
         "type": { "const": "string" },
         "minLength": {
           "description": "The minimum string length.",
@@ -204,11 +212,23 @@
         }
       },
       "required": [ "type" ]
+    },
+    "subdeviceType": {
+      "description": "Possible ranges for the subdevice in a GET or SET command. It is a list and its final value is the union of all the values in the list. An empty list means allow nothing.",
+      "type": "array",
+      "items": {
+        "enum": [
+          "root",
+          "subdevices",
+          "broadcast"
+        ]
+      },
+      "uniqueItems": true
     }
   },
   "type": "object",
   "properties": {
-    "name": { "$ref": "#/definitions/nameType" },
+    "name": { "$ref": "#/$defs/nameType" },
     "pid": {
       "type": "integer",
       "minimum": 0,
@@ -216,13 +236,21 @@
     },
     "version": {
       "type": "integer",
-      "minimum": 1,
+      "minimum": 0,
       "maximum": 65535
     },
-    "get_request": { "$ref": "#/definitions/commandType" },
-    "get_response": { "$ref": "#/definitions/commandType" },
-    "set_request": { "$ref": "#/definitions/commandType" },
-    "set_response": { "$ref": "#/definitions/commandType" }
+    "get_request_subdevice_range": {
+      "$ref": "#/$defs/subdeviceType",
+      "default": [ "root", "subdevices" ]
+    },
+    "get_request": { "$ref": "#/$defs/commandType" },
+    "get_response": { "$ref": "#/$defs/commandType" },
+    "set_request_subdevice_range": {
+      "$ref": "#/$defs/subdeviceType",
+      "default": ["root", "subdevices", "broadcast" ]
+    },
+    "set_request": { "$ref": "#/$defs/commandType" },
+    "set_response": { "$ref": "#/$defs/commandType" }
   },
   "required": [ "name", "pid", "version" ],
   "dependencies": {

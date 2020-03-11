@@ -2,6 +2,7 @@
   "name": "DEFAULT_SLOT_VALUE",
   "pid": 290,
   "version": 1,
+  "get_request_subdevice_range": [ "root", "subdevices" ],
   "get_request": [],
   "get_response": [
     {

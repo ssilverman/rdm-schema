@@ -2,6 +2,7 @@
   "name": "DEVICE_INFO",
   "pid": 96,
   "version": 1,
+  "get_request_subdevice_range": [ "root", "subdevices" ],
   "get_request": [],
   "get_response": [
     { "name": "protocol_major", "type": "uint8" },

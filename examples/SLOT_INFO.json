@@ -2,6 +2,7 @@
   "name": "SLOT_INFO",
   "pid": 288,
   "version": 1,
+  "get_request_subdevice_range": [ "root", "subdevices" ],
   "get_request": [],
   "get_response": [
     {

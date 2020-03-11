@@ -2,6 +2,7 @@
   "name": "STATUS_MESSAGES",
   "pid": 48,
   "version": 1,
+  "get_request_subdevice_range": [ "root" ],
   "get_request": [
     {
       "name": "status_type_requested",
