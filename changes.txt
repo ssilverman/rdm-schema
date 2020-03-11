@@ -76,4 +76,8 @@ v2:
 
 v3:
 * Removed "fieldType" and instead made "commandType" be a collection
-  of "oneOfType".
+  of "oneOfTypes".
+
+v4:
+* Added "url" and "mac" to "simpleType".
+* Changed "version" minimum to 1 from 0.

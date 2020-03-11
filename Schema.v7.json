@@ -179,7 +179,9 @@
             "hostname",
             "ipv4",
             "ipv6",
-            "uid"
+            "mac",
+            "uid",
+            "url"
           ]
         }
       },
@@ -214,7 +216,7 @@
     },
     "version": {
       "type": "integer",
-      "minimum": 0,
+      "minimum": 1,
       "maximum": 65535
     },
     "get_request": { "$ref": "#/definitions/commandType" },
