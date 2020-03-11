@@ -146,3 +146,8 @@ v9:
 * Need to discuss:
   * Should the ID link "https" instead of "http"? (Obviously, would change in
     the spec too.)
+
+v10: [This was the latest after the discussion.]
+* Removed integer types "int128" and "uint128", and removed simple type "uri"
+  because, sadly, they're not in the current E1.20 spec. :(
+* Changed the word "might" to "may" in the description for "stringType".
