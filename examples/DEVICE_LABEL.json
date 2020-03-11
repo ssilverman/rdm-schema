@@ -12,12 +12,6 @@
     }
   ],
   "set_request_subdevice_range": [ "root", "subdevices", "broadcast" ],
-  "set_request": [
-    {
-      "name": "label",
-      "type": "string",
-      "maxLength": 32
-    }
-  ],
+  "set_request": "get_response",
   "set_response": []
 }

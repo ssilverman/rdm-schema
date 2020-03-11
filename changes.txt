@@ -151,3 +151,16 @@ v10: [This was the latest after the discussion.]
 * Removed integer types "int128" and "uint128", and removed simple type "uri"
   because, sadly, they're not in the current E1.20 spec. :(
 * Changed the word "might" to "may" in the description for "stringType".
+
+v11:
+* Added a "duplicateCommandType" that can specify that one command has the same
+  contents as another command. The GET/SET request/response commands can now
+  either be a "commandType" or a "duplicateCommandType".
+* Updated the DEVICE_LABEL.json example to illustrate using a duplicate command.
+* Added a "refType" to the "oneOfTypes" list so that other parts can also be
+  duplicated. For example, maybe one of the items in a command needs to
+  duplicate another command item, either in the same or a different commmand.
+  It is of type "json-pointer", see https://tools.ietf.org/html/rfc6901.
+* Changed "simpleType" to be of type "anyOf an enum". In other words, other
+  strings not in the list are allowed, so that there can exist manufacturer-
+  specific types.

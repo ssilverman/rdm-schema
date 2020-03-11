@@ -56,6 +56,15 @@
       },
       "required": [ "type", "subtypes" ]
     },
+    "duplicateCommandType": {
+      "description": "Indicates that a command is a duplicate of one of the other commands. Using this feature can potentially save space.",
+      "enum": [
+        "get_request",
+        "get_response",
+        "set_request",
+        "set_response"
+      ]
+    },
     "integerType": {
       "description": "A signed or unsigned integer, can have an optional prefix, unit, and range.",
       "type": "object",
@@ -142,6 +151,7 @@
         { "$ref": "#/$defs/integerType" },
         { "$ref": "#/$defs/listType" },
         { "$ref": "#/$defs/pdEnvelopeType" },
+        { "$ref": "#/$defs/refType" },
         { "$ref": "#/$defs/simpleType" },
         { "$ref": "#/$defs/stringType" }
       ]
@@ -175,21 +185,36 @@
       },
       "required": [ "minimum", "maximum" ]
     },
+    "refType": {
+      "description": "Defines a reference to the contents of another object or array. See RFC 6901.",
+      "type": "object",
+      "proprties": {
+        "ref": {
+          "description": "The reference pointer.",
+          "type": "json-pointer"
+        }
+      },
+      "required": [ "ref" ]
+    },
     "simpleType": {
-      "description": "Simple type that has no fields other than a name and type. This is intended as a catch-all list for likely values.",
+      "description": "Simple type that has no fields other than a name and type. This is intended as a catch-all list for likely values. Any values not in the enum list will be considered a manufacturer-specific definition.",
       "type": "object",
       "properties": {
         "name": { "$ref": "#/$defs/nameType" },
         "type": {
-          "enum": [
-            "boolean",
-            "hostname",
-            "ipv4",
-            "ipv6",
-            "mac",
-            "uid",
-            "url",
-            "uuid"
+          "anyOf": [
+            {
+              "enum": [
+                "boolean",
+                "hostname",
+                "ipv4",
+                "ipv6",
+                "mac",
+                "uid",
+                "url",
+                "uuid"
+              ]
+            }
           ]
         }
       },
@@ -246,14 +271,34 @@
       "$ref": "#/$defs/subdeviceType",
       "default": [ "root" ]
     },
-    "get_request": { "$ref": "#/$defs/commandType" },
-    "get_response": { "$ref": "#/$defs/commandType" },
+    "get_request": {
+      "oneOf": [
+        { "$ref": "#/$defs/commandType" },
+        { "$ref": "#/$defs/duplicateCommandType" }
+      ]
+    },
+    "get_response": {
+      "oneOf": [
+        { "$ref": "#/$defs/commandType" },
+        { "$ref": "#/$defs/duplicateCommandType" }
+      ]
+    },
     "set_request_subdevice_range": {
       "$ref": "#/$defs/subdeviceType",
       "default": [ "root" ]
     },
-    "set_request": { "$ref": "#/$defs/commandType" },
-    "set_response": { "$ref": "#/$defs/commandType" }
+    "set_request": {
+      "oneOf": [
+        { "$ref": "#/$defs/commandType" },
+        { "$ref": "#/$defs/duplicateCommandType" }
+      ]
+    },
+    "set_response": {
+      "oneOf": [
+        { "$ref": "#/$defs/commandType" },
+        { "$ref": "#/$defs/duplicateCommandType" }
+      ]
+    }
   },
   "required": [ "name", "pid", "version" ],
   "dependencies": {
