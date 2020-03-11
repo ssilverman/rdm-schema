@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2019-09/schema",
-  "title": "Parameter Metadata Language Schema, Informative",
-  "description": "The (informative) schema for the Parameter Metadata Language from Section 5 of E1.37-5. This schema is subject to change.",
+  "title": "Parameter Metadata Language Schema",
+  "description": "The schema for the Parameter Metadata Language from Section 5 of E1.37-5. This schema is subject to change.",
   "$defs": {
     "bitType": {
       "description": "Describes the meaning of one bit in a bit field.",

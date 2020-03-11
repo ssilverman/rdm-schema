@@ -108,3 +108,6 @@ v6:
 * Improved the description of "subdeviceType".
 * Changed default subdevice ranges in GET and SET to just ["root"].
   Comments on this choice welcome.
+
+v7:
+* Removed the word, "informative", from the description and title.
