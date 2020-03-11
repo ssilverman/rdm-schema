@@ -1,7 +1,8 @@
 # Changes to the Schema
 
-This file details the changes I've made to the schama.
+This file details the changes I've made to the schema.
 
+v1:
 * Changed spacing to make it easier to read.
 * Added a schema "title".
 * Added "description" values.
@@ -60,3 +61,15 @@ This file details the changes I've made to the schama.
 * Added 12 examples, most with lists of compound (packed) types.
 * Think of "listType" as a holder for a "packed" list of things, where each
   "thing" can be a simple or compound type.
+
+v2:
+* Factored all the types into a "oneOf" so that it can be referenced from
+  "compoundType", "listType", and "fieldType".
+* Changed "boundedIntegerType" to "integerType" and "boundedStringType"
+  to "stringType".
+* Removed "name" from the "required" list of "labeledIntegerType"
+  and "listType".
+* Changed some descriptions.
+* Changed "upper" and "lower" in "rangeType" to "maximum" and "minimum",
+  respectively, for consistency with JSON schema naming conventions.
+* Added an optional "length" property to "pdEnvelope".

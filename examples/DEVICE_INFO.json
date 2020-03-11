@@ -15,8 +15,8 @@
       "type": "uint16",
       "ranges": [
         {
-          "lower": 0,
-          "upper": 512
+          "minimum": 0,
+          "maximum": 512
         }
       ],
       "labels": [
@@ -33,12 +33,12 @@
       "type": "uint16",
       "ranges": [
         {
-          "lower": 1,
-          "upper": 512
+          "minimum": 1,
+          "maximum": 512
         },
         {
-          "lower": 65535,
-          "upper": 65535
+          "minimum": 65535,
+          "maximum": 65535
         }
       ]
     },

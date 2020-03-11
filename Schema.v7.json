@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Parameter Metadata Language Schema, Informative",
-  "description": "The (informative) schema for the Parameter Metadata Language from Section 5 of E1.37-5.",
+  "description": "The (informative) schema for the Parameter Metadata Language from Section 5 of E1.37-5. This schema is subject to change.",
   "definitions": {
     "bitType": {
       "description": "Describes the meaning of one bit in a bit field.",
@@ -28,7 +28,32 @@
       },
       "required": [ "type", "bits" ]
     },
-    "boundedIntegerType": {
+    "commandType": {
+      "description": "Represents an RDM command, a collection of 'field' items.",
+      "type": "array",
+      "items": { "$ref": "#/definitions/fieldType" },
+      "uniqueItems": true
+    },
+    "compoundType": {
+      "description": "Defines a compound type, a type used to combine other types. This is useful for including in lists.",
+      "type": "object",
+      "properties": {
+        "name": { "$ref": "#/definitions/nameType" },
+        "type": { "const": "compound" },
+        "subtypes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/oneOfTypes"
+          }
+        }
+      },
+      "required": [ "type", "subtypes" ]
+    },
+    "fieldType": {
+      "description": "Represents one field in an RDM command. This may be a simple or compound type.",
+      "$ref": "#/definitions/oneOfTypes"
+    },
+    "integerType": {
       "description": "A signed or unsigned integer, can have an optional prefix, unit, and range.",
       "properties": {
         "name": { "$ref": "#/definitions/nameType" },
@@ -71,75 +96,23 @@
       },
       "required": [ "type" ]
     },
-    "boundedStringType": {
-      "description": "A string having a possibly bounded size.",
-      "properties": {
-        "name": { "$ref": "#/definitions/nameType" },
-        "type": { "const": "string" },
-        "minLength": {
-          "description": "The minimum string length.",
-          "type": "integer",
-          "minimum": 0
-        },
-        "maxLength": {
-          "description": "The maximum string length.",
-          "type": "integer",
-          "minimum": 0
-        }
-      },
-      "required": [ "type" ]
-    },
-    "commandType": {
-      "description": "Represents an RDM command, a collection of 'field' items.",
-      "type": "array",
-      "items": { "$ref": "#/definitions/fieldType" },
-      "uniqueItems": true
-    },
-    "compoundType": {
-      "description": "Defines a compound type, a type used to combine other types. This is useful for lists. This version does not allow nesting of other compoundTypes.",
-      "type": "object",
-      "properties": {
-        "name": { "$ref": "#/definitions/nameType" },
-        "type": { "const": "compound" },
-        "subtypes": {
-          "type": "array",
-          "items": {
-            "oneOf": [
-            { "$ref": "#/definitions/bitFieldType" },
-            { "$ref": "#/definitions/boundedIntegerType" },
-            { "$ref": "#/definitions/boundedStringType" },
-            { "$ref": "#/definitions/pdEnvelopeType" },
-            { "$ref": "#/definitions/simpleType" }
-            ]
-          }
-        }
-      },
-      "required": [ "type", "subtypes" ]
-    },
     "labeledIntegerType": {
-      "description": "Associates a name to an integer field value.",
+      "description": "Associates a name to an integer value.",
       "type": "object",
       "properties": {
         "name": { "$ref": "#/definitions/nameType" },
         "value": { "type": "integer" }
       },
-      "required": [ "name", "value" ]
+      "required": [ "value" ]
     },
     "listType": {
-      "description": "A list of fields having the same non-list type.",
+      "description": "A list of objects all having the same type.",
       "type": "object",
       "properties": {
         "name": { "$ref": "#/definitions/nameType" },
         "type": { "const": "list" },
         "itemType": {
-          "oneOf": [
-            { "$ref": "#/definitions/bitFieldType" },
-            { "$ref": "#/definitions/boundedIntegerType" },
-            { "$ref": "#/definitions/boundedStringType" },
-            { "$ref": "#/definitions/compoundType" },
-            { "$ref": "#/definitions/pdEnvelopeType" },
-            { "$ref": "#/definitions/simpleType" }
-          ]
+          "$ref": "#/definitions/oneOfTypes"
         },
         "minItems": {
           "description": "The minimum list size.",
@@ -152,18 +125,35 @@
           "minimum": 0
         }
       },
-      "required": [ "name", "type", "itemType" ]
+      "required": [ "type", "itemType" ]
     },
     "nameType": {
       "description": "A name is a string having a length of at least 1.",
       "type": "string",
       "minLength": 1
     },
+    "oneOfTypes": {
+      "description": "One of any of the types. This provides a single location to keep the list.",
+      "oneOf": [
+        { "$ref": "#/definitions/bitFieldType" },
+        { "$ref": "#/definitions/compoundType" },
+        { "$ref": "#/definitions/integerType" },
+        { "$ref": "#/definitions/listType" },
+        { "$ref": "#/definitions/pdEnvelopeType" },
+        { "$ref": "#/definitions/simpleType" },
+        { "$ref": "#/definitions/stringType" }
+      ]
+    },
     "pdEnvelopeType": {
       "description": "Contains a length/data pair for one Parameter Data item, where the length is an unsigned 8-bit value and the data has 'length' bytes. This exists to provide a schema definition for the 'envelope' of a PDL/PD pair.",
       "type": "object",
       "properties": {
-        "type": { "const": "pdEnvelope" }
+        "type": { "const": "pdEnvelope" },
+        "length": {
+          "description": "The data length can be optionally specified.",
+          "type": "integer",
+          "minimum": 0
+        }
       },
       "required": [ "type" ]
     },
@@ -171,16 +161,16 @@
       "description": "Defines an inclusive range of numbers.",
       "type": "object",
       "properties": {
-        "lower": {
-          "description": "The lower bound.",
+        "minimum": {
+          "description": "The lower bound, inclusive.",
           "type": "integer"
         },
-        "upper": {
-          "description": "The upper bound.",
+        "maximum": {
+          "description": "The upper bound, inclusive.",
           "type": "integer"
         }
       },
-      "required": [ "lower", "upper" ]
+      "required": [ "minimum", "maximum" ]
     },
     "simpleType": {
       "description": "Simple type that has no fields other than a name and type.",
@@ -199,17 +189,23 @@
       },
       "required": [ "type" ]
     },
-    "fieldType": {
-      "description": "Represents one field in an RDM command. Note that one of the field types is 'pdEnvelope', and that represents an item containing a length/data pair. Also note that this does not support 'compountType' values.",
-      "type": "object",
-      "oneOf": [
-        { "$ref": "#/definitions/bitFieldType" },
-        { "$ref": "#/definitions/boundedIntegerType" },
-        { "$ref": "#/definitions/boundedStringType" },
-        { "$ref": "#/definitions/listType" },
-        { "$ref": "#/definitions/pdEnvelopeType" },
-        { "$ref": "#/definitions/simpleType" }
-      ]
+    "stringType": {
+      "description": "A string having a possibly bounded size.",
+      "properties": {
+        "name": { "$ref": "#/definitions/nameType" },
+        "type": { "const": "string" },
+        "minLength": {
+          "description": "The minimum string length.",
+          "type": "integer",
+          "minimum": 0
+        },
+        "maxLength": {
+          "description": "The maximum string length.",
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [ "type" ]
     }
   },
   "type": "object",
