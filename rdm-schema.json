@@ -214,7 +214,7 @@
       "required": [ "type" ]
     },
     "subdeviceType": {
-      "description": "Possible ranges for the subdevice in a GET or SET command. It is a list and its final value is the union of all the values in the list. An empty list means allow nothing.",
+      "description": "Acceptable values for the subdevice in a GET or SET command. An empty list means allow nothing.",
       "type": "array",
       "items": {
         "enum": [
@@ -230,24 +230,26 @@
   "properties": {
     "name": { "$ref": "#/$defs/nameType" },
     "pid": {
+      "description": "The parameter ID.",
       "type": "integer",
       "minimum": 0,
       "maximum": 65535
     },
     "version": {
+      "description": "This is the parameter descriptor version.",
       "type": "integer",
       "minimum": 0,
       "maximum": 65535
     },
     "get_request_subdevice_range": {
       "$ref": "#/$defs/subdeviceType",
-      "default": [ "root", "subdevices" ]
+      "default": [ "root" ]
     },
     "get_request": { "$ref": "#/$defs/commandType" },
     "get_response": { "$ref": "#/$defs/commandType" },
     "set_request_subdevice_range": {
       "$ref": "#/$defs/subdeviceType",
-      "default": ["root", "subdevices", "broadcast" ]
+      "default": [ "root" ]
     },
     "set_request": { "$ref": "#/$defs/commandType" },
     "set_response": { "$ref": "#/$defs/commandType" }

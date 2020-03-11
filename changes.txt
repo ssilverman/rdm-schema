@@ -94,7 +94,7 @@ v5:
 * Updated the description for "commandType" to clarify that it represents the
   contents of a command.
 * Changed "definitions" to "$defs", per the 2019-09 draft.
-* Added missing "type": "object" to "stringType", "bitFieldType",
+* Added missing "type":"object" to "stringType", "bitFieldType",
   and "integerType".
 * Added "uuid" to "simpleType".
 * Updated the "simpleType" description to state its purpose as a catch-all list
@@ -102,3 +102,9 @@ v5:
 * Added a "subdeviceType" for specifying which subdevices a GET or SET request
   can be sent to. The default is the union of all of the enum values.
 * Changed "$schema" to "https://json-schema.org/draft/2019-09/schema".
+
+v6:
+* Added a description to "pid" and "version".
+* Improved the description of "subdeviceType".
+* Changed default subdevice ranges in GET and SET to just ["root"].
+  Comments on this choice welcome.
