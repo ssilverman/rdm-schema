@@ -10,6 +10,7 @@
       "properties": {
         "name": { "$ref": "#/$defs/nameType" },
         "displayName": { "$ref": "#/$defs/nameType" },
+        "notes": { "type": "string" },
         "index": {
           "type": "integer",
           "minimum": 0
@@ -28,6 +29,7 @@
       "properties": {
         "name": { "$ref": "#/$defs/nameType" },
         "displayName": { "$ref": "#/$defs/nameType" },
+        "notes": { "type": "string" },
         "type": { "const": "bitField" },
         "bits": {
           "type": "array",
@@ -49,6 +51,7 @@
       "properties": {
         "name": { "$ref": "#/$defs/nameType" },
         "displayName": { "$ref": "#/$defs/nameType" },
+        "notes": { "type": "string" },
         "type": { "const": "compound" },
         "subtypes": {
           "type": "array",
@@ -74,6 +77,7 @@
       "properties": {
         "name": { "$ref": "#/$defs/nameType" },
         "displayName": { "$ref": "#/$defs/nameType" },
+        "notes": { "type": "string" },
         "type": {
           "enum": [
             "int8",
@@ -119,6 +123,7 @@
       "properties": {
         "name": { "$ref": "#/$defs/nameType" },
         "displayName": { "$ref": "#/$defs/nameType" },
+        "notes": { "type": "string" },
         "value": { "type": "integer" }
       },
       "required": [ "name", "value" ]
@@ -129,6 +134,7 @@
       "properties": {
         "name": { "$ref": "#/$defs/nameType" },
         "displayName": { "$ref": "#/$defs/nameType" },
+        "notes": { "type": "string" },
         "type": { "const": "list" },
         "itemType": { "$ref": "#/$defs/oneOfTypes" },
         "minItems": {
@@ -208,6 +214,7 @@
       "properties": {
         "name": { "$ref": "#/$defs/nameType" },
         "displayName": { "$ref": "#/$defs/nameType" },
+        "notes": { "type": "string" },
         "type": {
           "anyOf": [
             {
@@ -233,6 +240,7 @@
       "properties": {
         "name": { "$ref": "#/$defs/nameType" },
         "displayName": { "$ref": "#/$defs/nameType" },
+        "notes": { "type": "string" },
         "type": { "const": "string" },
         "minLength": {
           "description": "The minimum string length.",
@@ -264,6 +272,7 @@
   "properties": {
     "name": { "$ref": "#/$defs/nameType" },
     "displayName": { "$ref": "#/$defs/nameType" },
+    "notes": { "type": "string" },
     "pid": {
       "description": "The parameter ID.",
       "type": "integer",

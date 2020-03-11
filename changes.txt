@@ -173,3 +173,7 @@ v12:
 * Updated the description in "simpleType" to reference "Table A-15: Data Type
   Defines" in the RDM spec.
 * Added labels to "status_type" in STATUS_MESSAGES.json.
+
+v13:
+* Added a "notes" everywhere there's a "name". This might help with how-to's in
+  a UI.
