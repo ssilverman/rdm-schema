@@ -73,3 +73,7 @@ v2:
 * Changed "upper" and "lower" in "rangeType" to "maximum" and "minimum",
   respectively, for consistency with JSON schema naming conventions.
 * Added an optional "length" property to "pdEnvelope".
+
+v3:
+* Removed "fieldType" and instead made "commandType" be a collection
+  of "oneOfType".

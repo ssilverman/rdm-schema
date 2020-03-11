@@ -29,9 +29,9 @@
       "required": [ "type", "bits" ]
     },
     "commandType": {
-      "description": "Represents an RDM command, a collection of 'field' items.",
+      "description": "Represents an RDM command, a collection of 'field' items, each a simple or compound type.",
       "type": "array",
-      "items": { "$ref": "#/definitions/fieldType" },
+      "items": { "$ref": "#/definitions/oneOfTypes" },
       "uniqueItems": true
     },
     "compoundType": {
@@ -48,10 +48,6 @@
         }
       },
       "required": [ "type", "subtypes" ]
-    },
-    "fieldType": {
-      "description": "Represents one field in an RDM command. This may be a simple or compound type.",
-      "$ref": "#/definitions/oneOfTypes"
     },
     "integerType": {
       "description": "A signed or unsigned integer, can have an optional prefix, unit, and range.",
