@@ -1,0 +1,25 @@
+{
+  "name": "DEFAULT_SLOT_VALUE",
+  "pid": 290,
+  "version": 1,
+  "get_request": [],
+  "get_response": [
+    {
+      "name": "slots",
+      "type": "list",
+      "itemType": {
+        "type": "compound",
+        "subtypes": [
+          {
+            "name": "slot_offset",
+            "type": "uint16"
+          },
+          {
+            "name": "default_slot_value",
+            "type": "uint8"
+          }
+        ]
+      }
+    }
+  ]
+}

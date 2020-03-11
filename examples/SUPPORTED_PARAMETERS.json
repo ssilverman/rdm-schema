@@ -1,0 +1,16 @@
+{
+  "name": "SUPPORTED_PARAMETERS",
+  "pid": 80,
+  "version": 1,
+  "get_request": [],
+  "get_response": [
+    {
+      "name": "pids",
+      "type": "list",
+      "itemType": {
+        "name": "pid",
+        "type": "uint16"
+      }
+    }
+  ]
+}

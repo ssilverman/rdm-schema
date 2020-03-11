@@ -1,247 +1,240 @@
-Appendix B: JSON Schema (Normative)
-The following is the JSON Schema that shall be used for the Parameter Metadata Language as detailed in Section 5.
-
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Parameter Metadata Language Schema, Informative",
+  "description": "The (informative) schema for the Parameter Metadata Language from Section 5 of E1.37-5.",
   "definitions": {
-    "bitfield": {
+    "bitType": {
+      "description": "Describes the meaning of one bit in a bit field.",
       "type": "object",
       "properties": {
+        "name": { "$ref": "#/definitions/nameType" },
         "index": {
           "type": "integer",
           "minimum": 0
-        },
-        "name": {
-          "$ref": "#/definitions/name"
         }
       },
-      "required": ["index", "name"]
+      "required": [ "name", "index" ]
     },
-    "command": {
-      "type": "object",
+    "bitFieldType": {
+      "description": "A bit field, a collection of 'bit' items.",
       "properties": {
-        "fields": {
+        "name": { "$ref": "#/definitions/nameType" },
+        "type": { "const": "bitField" },
+        "bits": {
           "type": "array",
-          "items": {
-            "$ref": "#/definitions/field"
-          }
+          "items": { "$ref": "#/definitions/bitType" },
+          "uniqueItems": true
         }
       },
-      "required": ["fields"]
+      "required": [ "type", "bits" ]
     },
-    "field": {
-      "type": "object",
-      "oneOf": [
-        {
-          "properties": {
-            "type": {
-              "enum": ["bitfield"]
-            },
-            "bits": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/bitfield"
-              }
-            },
-            "size": {
-              "type": "integer",
-              "multipleOf": 8
-            }
-          },
-          "required": ["bits", "type", "size"]
-        },
-        {
-          "properties": {
-            "type": {
-              "enum": ["bool"]
-            },
-            "name": {
-              "$ref": "#/definitions/name"
-            }
-          },
-          "required": ["name", "type"]
-        },
-        {
-          "properties": {
-            "type": {
-              "enum": ["int8", "int16", "int32", "int64",
-                       "uint8", "uint16", "uint32", "uint64"]
-            },
-            "name": {
-              "$ref": "#/definitions/name"
-            },
-            "labels": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/label"
-              }
-            },
-            "prefix": {
-              "type": "integer",
-              "maximum": 255,
-              "minimum": 0
-            },
-            "ranges": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/range"
-              }
-            },
-            "unit": {
-              "type": "integer",
-              "maximum": 255,
-              "minimum": 0
-            }
-          },
-          "required": ["name", "type"]
-        },
-        {
-          "properties": {
-            "type": {
-              "enum": ["string"]
-            },
-            "name": {
-              "$ref": "#/definitions/name"
-            },
-            "max_size": {
-              "type": "integer",
-              "minimum": 0,
-              "exclusiveMinimum": true
-            },
-            "min_size": {
-              "type": "integer",
-              "minimum": 0
-            }
-          },
-          "required": ["name", "type"]
-        },
-        {
-          "properties": {
-            "type": {
-              "enum": ["ipv4"]
-            },
-            "name": {
-              "$ref": "#/definitions/name"
-            }
-          },
-          "required": ["name", "type"]
-        },
-        {
-          "properties": {
-            "type": {
-              "enum": ["uid"]
-            },
-            "name": {
-              "$ref": "#/definitions/name"
-            }
-          },
-          "required": ["name", "type"]
-        },
-        {
-          "properties": {
-            "type": {
-              "enum": ["group"]
-            },
-            "name": {
-              "$ref": "#/definitions/name"
-            },
-            "fields": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/field"
-              }
-            },
-            "max_size": {
-              "type": "integer",
-              "minimum": 0,
-              "exclusiveMinimum": true
-            },
-            "min_size": {
-              "type": "integer",
-              "minimum": 0
-            }
-          },
-          "required": ["name", "fields", "type"]
-        }
-      ]
-    },
-    "label": {
-      "type": "object",
+    "boundedIntegerType": {
+      "description": "A signed or unsigned integer, can have an optional prefix, unit, and range.",
       "properties": {
-        "label": {
-          "minLength": 1,
-          "type": "string"
+        "name": { "$ref": "#/definitions/nameType" },
+        "type": {
+          "enum": [
+            "int8",
+            "int16",
+            "int32",
+            "int64",
+            "uint8",
+            "uint16",
+            "uint32",
+            "uint64"
+          ]
         },
-        "value": {
+        "labels": {
+          "description": "A list of labels that name special values.",
+          "type": "array",
+          "items": { "$ref": "#/definitions/labeledIntegerType" },
+          "uniqueItems": true
+        },
+        "prefix": {
+          "description": "The unit prefix, defined in Table A-14 of E1.20.",
           "type": "integer",
-          "maximum": 4294967295,
+          "minimum": 0,
+          "maximum": 255
+        },
+        "ranges": {
+          "description": "A list of possible ranges for the value. The complete range is the union of all the ranges.",
+          "type": "array",
+          "items": { "$ref": "#/definitions/rangeType" },
+          "uniqueItems": true
+        },
+        "unit": {
+          "description": "The unit type, defined in Table A-13 of E1.20.",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        }
+      },
+      "required": [ "type" ]
+    },
+    "boundedStringType": {
+      "description": "A string having a possibly bounded size.",
+      "properties": {
+        "name": { "$ref": "#/definitions/nameType" },
+        "type": { "const": "string" },
+        "minLength": {
+          "description": "The minimum string length.",
+          "type": "integer",
+          "minimum": 0
+        },
+        "maxLength": {
+          "description": "The maximum string length.",
+          "type": "integer",
           "minimum": 0
         }
       },
-      "required": ["label", "value"]
+      "required": [ "type" ]
     },
-    "name": {
+    "commandType": {
+      "description": "Represents an RDM command, a collection of 'field' items.",
+      "type": "array",
+      "items": { "$ref": "#/definitions/fieldType" },
+      "uniqueItems": true
+    },
+    "compoundType": {
+      "description": "Defines a compound type, a type used to combine other types. This is useful for lists. This version does not allow nesting of other compoundTypes.",
+      "type": "object",
+      "properties": {
+        "name": { "$ref": "#/definitions/nameType" },
+        "type": { "const": "compound" },
+        "subtypes": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+            { "$ref": "#/definitions/bitFieldType" },
+            { "$ref": "#/definitions/boundedIntegerType" },
+            { "$ref": "#/definitions/boundedStringType" },
+            { "$ref": "#/definitions/pdEnvelopeType" },
+            { "$ref": "#/definitions/simpleType" }
+            ]
+          }
+        }
+      },
+      "required": [ "type", "subtypes" ]
+    },
+    "labeledIntegerType": {
+      "description": "Associates a name to an integer field value.",
+      "type": "object",
+      "properties": {
+        "name": { "$ref": "#/definitions/nameType" },
+        "value": { "type": "integer" }
+      },
+      "required": [ "name", "value" ]
+    },
+    "listType": {
+      "description": "A list of fields having the same non-list type.",
+      "type": "object",
+      "properties": {
+        "name": { "$ref": "#/definitions/nameType" },
+        "type": { "const": "list" },
+        "itemType": {
+          "oneOf": [
+            { "$ref": "#/definitions/bitFieldType" },
+            { "$ref": "#/definitions/boundedIntegerType" },
+            { "$ref": "#/definitions/boundedStringType" },
+            { "$ref": "#/definitions/compoundType" },
+            { "$ref": "#/definitions/pdEnvelopeType" },
+            { "$ref": "#/definitions/simpleType" }
+          ]
+        },
+        "minItems": {
+          "description": "The minimum list size.",
+          "type": "integer",
+          "minimum": 0
+        },
+        "maxItems": {
+          "description": "The maximum list size.",
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [ "name", "type", "itemType" ]
+    },
+    "nameType": {
+      "description": "A name is a string having a length of at least 1.",
       "type": "string",
       "minLength": 1
     },
-    "range": {
+    "pdEnvelopeType": {
+      "description": "Contains a length/data pair for one Parameter Data item, where the length is an unsigned 8-bit value and the data has 'length' bytes. This exists to provide a schema definition for the 'envelope' of a PDL/PD pair.",
+      "type": "object",
+      "properties": {
+        "type": { "const": "pdEnvelope" }
+      },
+      "required": [ "type" ]
+    },
+    "rangeType": {
+      "description": "Defines an inclusive range of numbers.",
       "type": "object",
       "properties": {
         "lower": {
+          "description": "The lower bound.",
           "type": "integer"
         },
         "upper": {
+          "description": "The upper bound.",
           "type": "integer"
         }
       },
-      "required": ["lower", "upper"]
+      "required": [ "lower", "upper" ]
+    },
+    "simpleType": {
+      "description": "Simple type that has no fields other than a name and type.",
+      "type": "object",
+      "properties": {
+        "name": { "$ref": "#/definitions/nameType" },
+        "type": {
+          "enum": [
+            "bool",
+            "hostname",
+            "ipv4",
+            "ipv6",
+            "uid"
+          ]
+        }
+      },
+      "required": [ "type" ]
+    },
+    "fieldType": {
+      "description": "Represents one field in an RDM command. Note that one of the field types is 'pdEnvelope', and that represents an item containing a length/data pair. Also note that this does not support 'compountType' values.",
+      "type": "object",
+      "oneOf": [
+        { "$ref": "#/definitions/bitFieldType" },
+        { "$ref": "#/definitions/boundedIntegerType" },
+        { "$ref": "#/definitions/boundedStringType" },
+        { "$ref": "#/definitions/listType" },
+        { "$ref": "#/definitions/pdEnvelopeType" },
+        { "$ref": "#/definitions/simpleType" }
+      ]
     }
   },
   "type": "object",
   "properties": {
-    "get_request": {
-      "$ref": "#/definitions/command"
-    },
-    "get_response": {
-      "$ref": "#/definitions/command"
-    },
-    "get_subdevice_range": {
-      "maximum": 3,
-      "minimum": 0,
-      "type": "integer"
-    },
-    "name": {
-      "minLength": 1,
-      "type": "string"
-    },
+    "name": { "$ref": "#/definitions/nameType" },
     "pid": {
-      "maximum": 65535,
+      "type": "integer",
       "minimum": 0,
-      "type": "integer"
-    },
-    "set_request": {
-      "$ref": "#/definitions/command"
-    },
-    "set_response": {
-      "$ref": "#/definitions/command"
-    },
-    "set_subdevice_range": {
-      "maximum": 3,
-      "minimum": 0,
-      "type": "integer"
+      "maximum": 65535
     },
     "version": {
+      "type": "integer",
       "minimum": 0,
-      "type": "integer"
-    }
+      "maximum": 65535
+    },
+    "get_request": { "$ref": "#/definitions/commandType" },
+    "get_response": { "$ref": "#/definitions/commandType" },
+    "set_request": { "$ref": "#/definitions/commandType" },
+    "set_response": { "$ref": "#/definitions/commandType" }
   },
-  "required": ["name", "pid", "version"],
+  "required": [ "name", "pid", "version" ],
   "dependencies": {
-    "get_request": ["get_response", "get_subdevice_range"],
-    "get_response": ["get_request", "get_subdevice_range"],
-    "get_subdevice_range": ["get_request", "get_response"],
-    "set_request": ["set_response", "set_subdevice_range"],
-    "set_response": ["set_request", "set_subdevice_range"],
-    "set_subdevice_range": ["set_request", "set_response"]
+    "get_request": [ "get_response" ],
+    "get_response": [ "get_request" ],
+    "set_request": [ "set_response" ],
+    "set_response": [ "set_request" ]
   }
 } 

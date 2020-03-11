@@ -1,0 +1,16 @@
+{
+  "name": "PRODUCT_DETAIL_ID_LIST",
+  "pid": 112,
+  "version": 1,
+  "get_request": [],
+  "get_response": [
+    {
+      "name": "product_detail_ids",
+      "type": "list",
+      "itemType": {
+        "name": "produce_detail_id",
+        "type": "uint16"
+      }
+    }
+  ]
+}

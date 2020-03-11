@@ -1,0 +1,18 @@
+{
+  "name": "LANGUAGE_CAPABILITIES",
+  "pid": 160,
+  "version": 1,
+  "get_request": [],
+  "get_response": [
+    {
+      "name": "language_codes",
+      "type": "list",
+      "itemType": {
+        "name": "language_code",
+        "type": "string",
+        "minLength": 2,
+        "maxLength": 2
+      }
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "name": "STATUS_MESSAGES",
+  "pid": 48,
+  "version": 1,
+  "get_request": [
+    {
+      "name": "status_type_requested",
+      "type": "uint8"
+    }
+  ],
+  "get_response": [
+    {
+      "name": "slots",
+      "type": "list",
+      "itemType": {
+        "type": "compound",
+        "subtypes": [
+          {
+            "name": "subdevice_id",
+            "type": "uint16"
+          },
+          {
+            "name": "status_type",
+            "type": "uint8"
+          },
+          {
+            "name": "status_message_id",
+            "type": "uint16"
+          },
+          {
+            "name": "data_value_1",
+            "type": "uint16"
+          },
+          {
+            "name": "data_value_2",
+            "type": "uint16"
+          }
+        ]
+      }
+    }
+  ]
+}

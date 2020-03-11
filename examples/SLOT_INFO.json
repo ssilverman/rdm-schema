@@ -1,0 +1,29 @@
+{
+  "name": "SLOT_INFO",
+  "pid": 288,
+  "version": 1,
+  "get_request": [],
+  "get_response": [
+    {
+      "name": "slots",
+      "type": "list",
+      "itemType": {
+        "type": "compound",
+        "subtypes": [
+          {
+            "name": "slot_offset",
+            "type": "uint16"
+          },
+          {
+            "name": "slot_type",
+            "type": "uint8"
+          },
+          {
+            "name": "slot_label_id",
+            "type": "uint16"
+          }
+        ]
+      }
+    }
+  ]
+}

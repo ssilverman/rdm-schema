@@ -1,0 +1,16 @@
+{
+  "name": "PROXIED_DEVICES",
+  "pid": 16,
+  "version": 1,
+  "get_request": [],
+  "get_response": [
+    {
+      "name": "device_uids",
+      "type": "list",
+      "itemType": {
+        "name": "device_uid",
+        "type": "uid"
+      }
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "name": "PACKED_PID_INDEX",
+  "pid": #undefined,
+  "version": 1,
+  "get_request": [
+    { "name": "pid", "type": "uint16" },
+    { "name": "first_item_requested", "type": "uint16" },
+    { "name": "requested_item_count", "type": "uint16" }
+  ],
+  "get_response": [
+    { "name": "pid", "type": "uint16" },
+    { "name": "first_item_encoded", "type": "uint16" },
+    { "name": "entry_count", "type": "uint8" },
+    {
+      "name": "parameter_data_entries",
+      "type": "list",
+      "itemType": { "type": "pdEnvelope" }
+    }
+  ]
+}

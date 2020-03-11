@@ -1,0 +1,16 @@
+{
+  "name": "QUEUED_MESSAGE_SENSOR_SUBSCRIBE",
+  "pid": #undefined,
+  "version": 1,
+  "get_request": [],
+  "get_response": [
+    {
+      "name": "sensor_numbers",
+      "type": "list",
+      "itemType": {
+        "name": "sensor_number",
+        "type": "uint8"
+      }
+    }
+  ]
+}

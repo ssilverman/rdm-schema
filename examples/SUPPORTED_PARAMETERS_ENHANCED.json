@@ -1,0 +1,25 @@
+{
+  "name": "SUPPORTED_PARAMETERS_ENHANCED",
+  "pid": #undefined,
+  "version": 1,
+  "get_request": [],
+  "get_response": [
+    {
+      "name": "pids",
+      "type": "list",
+      "itemType": {
+        "type": "compound",
+        "subtypes": [
+          {
+            "name": "pid",
+            "type": "uint16"
+          },
+          {
+            "name": "pid_support",
+            "type": "uint16"
+          }
+        ]
+      }
+    }
+  ]
+}

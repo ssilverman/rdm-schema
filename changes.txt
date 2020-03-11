@@ -1,0 +1,62 @@
+# Changes to the Schema
+
+This file details the changes I've made to the schama.
+
+* Changed spacing to make it easier to read.
+* Added a schema "title".
+* Added "description" values.
+* Changed single-value enums to "const".
+* Changed "bitfield" to "bit" because a "bitfield" is technically a collection
+  of bits.
+* Removed the "size" property of the "bitfield" type in "field". This can be
+  inferred from the data.
+* Combined all the simple types into one. This contains:
+  * bool
+  * hostname
+  * ipv4
+  * ipv6
+  * uid
+* Reordered things to make it match the mental model and also to make it easier
+  to read.
+* Removed "minimum" and "maximum" from the "label" type because there shouldn't
+  be assumptions about the possible values. For example, the range 0-(2^31-1)
+  disregards negative values. This is mixing the "layers" in how to define a
+  schema: I think what was intended was for two additional fields: "minimum" and
+  "maximum" at the user level, not this schema level. However, this is not
+  appropriate either because it's up to the user to define the value and its
+  range, not us.
+* Changed the "label" property in the "label" type to "name", for consistency.
+* Changed "label" to "labeledInteger".
+* Changed "max_size" and "min_size" to "maxLength" and "minLength", for
+  consistency with JSON schema naming conventions.
+* Changed "bitfield" to "bitField" because it's two words.
+* Added '"uniqueItems": true' to the "bits" field of the "bitField" field type.
+* Added '"uniqueItems": true' to the integer field type.
+* Deleted "get_subdevice_range" and "set_subdevice_range" because it's not clear
+  what they're for.
+* Factoring out all the possible "field" types.
+* Added a new "packedFields" field type that represents a list of length/data
+  pairs. Note that there's no minimum/maximum count as it's unneeded.
+* Changed all names to use the "name" type reference.
+* Added a "maximum" of 65535 to the "version" field.
+* Changed the "command" type to "array" and removing the intermediary "fields"
+  property. There's no minimum size because, in theory, a message may contain
+  zero bytes.
+* Added a "name" to the "bitField" type.
+* Added '"uniqueItems": true' to "command".
+* Added '"uniqueItems": true' to "ranges".
+* Added a new "pdEnvelope" type.
+* Added a new "list" type that represents a list of any valid non-list
+  field type.
+* Removed the requirement of having "name" for some of the types so they can
+  also be used in lists.
+* Suffixed all the types with "Type" so that naming is consistent. These aren't
+  the words that will be used when writing a schema and they don't have to be
+  the same as the constant names, eg. "uint8" or "string" or "list".
+* Added a "compoundType" type so that we don't have to make a special type for
+  all possibilities. For example, the list of 3-field items returned
+  in SLOT_INFO. These compound types are only supported in the list type,
+  "listType", because a field is only used in "commandType".
+* Added 12 examples, most with lists of compound (packed) types.
+* Think of "listType" as a holder for a "packed" list of things, where each
+  "thing" can be a simple or compound type.
