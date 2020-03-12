@@ -177,3 +177,6 @@ v12:
 v13:
 * Added a "notes" everywhere there's a "name". This might help with how-to's in
   a UI.
+
+v14:
+* Fixed up the "simpleType" logic.
