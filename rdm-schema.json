@@ -229,7 +229,15 @@
                 "uuid"
               ]
             },
-            { "not": { "const": "string" } }
+            {
+              "not": {
+                "anyOf": [
+                  { "$ref": "#/$defs/integerType/properties/type" },
+                  { "const": "pdEnvelope" },
+                  { "const": "string" }
+                ]
+              }
+            }
           ]
         }
       },
