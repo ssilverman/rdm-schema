@@ -227,7 +227,7 @@
         "notes": { "type": "string" },
         "type": { "const": "string" },
         "interpretation": {
-          "description": "This field describes how to interpret the string value. It can be one of the string types defined in \"Table A-15: Data Type Defines\" of the RDM E1.20 specification (or other add-on specifications), or it can be something manufacturer-specific. Be aware, however, that anything not defined here may not be understood by a controller. The known string types include: hostname, domain-name, ipv4, ipv6, mac, string, uid, and url.",
+          "description": "This field describes how to interpret the string value. It can be one of the string types defined in \"Table A-15: Data Type Defines\" of the RDM E1.20 specification (or other add-on specifications), or it can be something manufacturer-specific. Be aware, however, that anything not defined here may not be understood by a controller. The known string types include: hostname, domain-name, ipv4, ipv6, mac, string, uid, url, and uuid.",
           "type": "string"
         },
         "pattern": {

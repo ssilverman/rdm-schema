@@ -203,3 +203,6 @@ v15:
   QUEUED_MESSAGE_SENSOR_SUBSCRIBE, and SUPPORTED_PARAMETERS_ENHANCED.
 * Fixed "labeledIntegerType" by changing "name" to "label" and removing
   "displayName" and "notes".
+
+v16:
+* Added back the known string interpretation type, "uuid".
