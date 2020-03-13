@@ -206,3 +206,15 @@ v15:
 
 v16:
 * Added back the known string interpretation type, "uuid".
+
+v17:
+* Improving the "pattern", "minLength", and "maxLength" descriptions
+  in "stringType".
+* Improving the "reference" description in "stringType": Changing "URI" to "URL"
+  and adding the word, "informative".
+* Added a new "bytesType" type.
+* Moved "ipv4", "ipv6", "mac", "uid", and "uuid" to the new "bytesType" type.
+* Updated the PROXIED_DEVICES example to use the new "bytes" type.
+* TODO: Add implicit patterns for each of the known string types.
+* TODO: Use correct "pid" for PACKED_PID_INDEX, PACKED_PID_SUB,
+  QUEUED_MESSAGE_SENSOR_SUBSCRIBE, and SUPPORTED_PARAMETERS_ENHANCED.

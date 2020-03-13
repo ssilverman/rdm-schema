@@ -10,7 +10,7 @@
       "type": "list",
       "itemType": {
         "name": "device_uid",
-        "type": "string",
+        "type": "bytes",
         "interpretation": "uid"
       }
     }

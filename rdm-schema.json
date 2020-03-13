@@ -50,6 +50,36 @@
       },
       "required": [ "type" ]
     },
+    "bytesType": {
+      "description": "A list of bytes. The minimum and maximum length properties are not required, but it is a good idea to specify their values for unknown bytes types.",
+      "type": "object",
+      "properties": {
+        "name": { "$ref": "#/$defs/nameType" },
+        "displayName": { "$ref": "#/$defs/nameType" },
+        "notes": { "type": "string" },
+        "type": { "const": "bytes" },
+        "interpretation": {
+          "description": "This field describes how to interpret the value. It can be one of the bytes types defined in \"Table A-15: Data Type Defines\" of the RDM E1.20 specification (or other add-on specifications), or it can be something manufacturer-specific. Be aware, however, that anything not defined here may not be understood by a controller or UI. The known bytes types include: ipv4 (4 bytes), ipv6 (16 bytes), mac (6 bytes), uid (6 bytes), and uuid (16 bytes).",
+          "type": "string"
+        },
+        "reference": {
+          "description": "An informative URL pointing to a specification or more information for this field type.",
+          "type": "string",
+          "format": "uri-reference"
+        },
+        "minLength": {
+          "description": "The minimum bytes length. Care must be taken to make sure this doesn't contradict any \"maxLength\" value.",
+          "type": "integer",
+          "minimum": 0
+        },
+        "maxLength": {
+          "description": "The maximum bytes length. Care must be taken to make sure this doesn't contradict any \"minLength\" value.",
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [ "type" ]
+    },
     "commandType": {
       "description": "Represents the contents of an RDM command, a collection of 'field' items, each a simple or compound type.",
       "type": "array",
@@ -169,6 +199,7 @@
       "oneOf": [
         { "$ref": "#/$defs/bitFieldType" },
         { "$ref": "#/$defs/booleanType" },
+        { "$ref": "#/$defs/bytesType" },
         { "$ref": "#/$defs/compoundType" },
         { "$ref": "#/$defs/integerType" },
         { "$ref": "#/$defs/listType" },
@@ -227,26 +258,26 @@
         "notes": { "type": "string" },
         "type": { "const": "string" },
         "interpretation": {
-          "description": "This field describes how to interpret the string value. It can be one of the string types defined in \"Table A-15: Data Type Defines\" of the RDM E1.20 specification (or other add-on specifications), or it can be something manufacturer-specific. Be aware, however, that anything not defined here may not be understood by a controller. The known string types include: hostname, domain-name, ipv4, ipv6, mac, string, uid, url, and uuid.",
+          "description": "This field describes how to interpret the string value. It can be one of the string types defined in \"Table A-15: Data Type Defines\" of the RDM E1.20 specification (or other add-on specifications), or it can be something manufacturer-specific. Be aware, however, that anything not defined here may not be understood by a controller or UI. The known string types include: hostname, domain-name, string, and url",
           "type": "string"
         },
         "pattern": {
-          "description": "An ECMA 262 regular expression that can be used to validate the contents of this field. It is not necessary to provide a pattern for known \"interpretation\" types, and they are helpful for assisting a controller in validating a message. Note that care must be taken for patterns that contradict any \"minLength\" and \"maxLength\" values.",
+          "description": "An ECMA 262 regular expression that can be used to validate the contents of this field. They're helpful for assisting a controller or UI do message validation. It's not necessary to provide a pattern for known \"interpretation\" types. Note that care must be taken to make sure that patterns don't contradict any \"minLength\" and \"maxLength\" values. As well, if there are maximum or minimum sizes, it is suggested that an instance makes use of the \"minLength\" and \"maxLength\" sizes in order to support those UIs that don't support regexes.",
           "type": "string",
           "format": "regex"
         },
         "reference": {
-          "description": "A URI pointing to a specification or more information for this field type.",
+          "description": "An informative URL pointing to a specification or more information for this field type.",
           "type": "string",
           "format": "uri-reference"
         },
         "minLength": {
-          "description": "The minimum string length. Care must be taken to make sure this doesn't contradict any \"pattern\" or \"maxLength\" values.",
+          "description": "The minimum string length. Care must be taken to make sure this doesn't contradict any \"pattern\" or \"maxLength\" values. If there are maximum or minimum sizes, it is suggested that an instance makes use of the \"minLength\" and \"maxLength\" sizes in order to support those UIs that don't support regexes.",
           "type": "integer",
           "minimum": 0
         },
         "maxLength": {
-          "description": "The maximum string length. Care must be taken to make sure this doesn't contradict any \"pattern\" or \"minLength\" values.",
+          "description": "The maximum string length. Care must be taken to make sure this doesn't contradict any \"pattern\" or \"minLength\" values. If there are maximum or minimum sizes, it is suggested that an instance makes use of the \"minLength\" and \"maxLength\" sizes in order to support those UIs that don't support regexes.",
           "type": "integer",
           "minimum": 0
         }
