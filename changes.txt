@@ -180,3 +180,26 @@ v13:
 
 v14:
 * Fixed up the "simpleType" logic.
+
+v15:
+* Added to the "stringType" description:
+  * Another suggestion for delimiting strings: another "length" field.
+  * UTF-8 encoding.
+* Added a "booleanType" in the drive to simplify "simpleType".
+* Added "interpretation" and "pattern" fields to "stringType". The first is an
+  optional description of how to interpret the value, for example, "url". The
+  second is an optional way for the value to be validated using a regex.
+* Removed "simpleType".
+* Added "domain-name" (1.37-2) to and removed "uuid" (because I can't find it in
+  any RDM-related spec) from the "known string types" list.
+* Fixed "refType" to be of type "string" with a "format" of "json-pointer".
+* Added a "reference" field to "stringType" so that a URI can be used as the
+  source for the field's specification.
+* Updated the descriptions for "stringType"'s "minLength" and "maxLength" to
+  state that care should be taken to not contradict each other nor "pattern".
+* TODO: Add implicit patterns for each of the known string types.
+* Updated LANGUAGE_CAPABILITIES and PROXIED_DEVICES examples.
+* TODO: Use correct "pid" for PACKED_PID_INDEX, PACKED_PID_SUB,
+  QUEUED_MESSAGE_SENSOR_SUBSCRIBE, and SUPPORTED_PARAMETERS_ENHANCED.
+* Fixed "labeledIntegerType" by changing "name" to "label" and removing
+  "displayName" and "notes".

@@ -39,6 +39,17 @@
       },
       "required": [ "type", "bits" ]
     },
+    "booleanType": {
+      "description": "A Boolean value.",
+      "type": "object",
+      "properties": {
+        "name": { "$ref": "#/$defs/nameType" },
+        "displayName": { "$ref": "#/$defs/nameType" },
+        "notes": { "type": "string" },
+        "type": { "const": "boolean" }
+      },
+      "required": [ "type" ]
+    },
     "commandType": {
       "description": "Represents the contents of an RDM command, a collection of 'field' items, each a simple or compound type.",
       "type": "array",
@@ -121,12 +132,10 @@
       "description": "Associates a name to an integer value.",
       "type": "object",
       "properties": {
-        "name": { "$ref": "#/$defs/nameType" },
-        "displayName": { "$ref": "#/$defs/nameType" },
-        "notes": { "type": "string" },
+        "label": { "$ref": "#/$defs/nameType" },
         "value": { "type": "integer" }
       },
-      "required": [ "name", "value" ]
+      "required": [ "label", "value" ]
     },
     "listType": {
       "description": "A list of objects all having the same type.",
@@ -159,12 +168,12 @@
       "description": "One of any of the types. This provides a single location to keep the list.",
       "oneOf": [
         { "$ref": "#/$defs/bitFieldType" },
+        { "$ref": "#/$defs/booleanType" },
         { "$ref": "#/$defs/compoundType" },
         { "$ref": "#/$defs/integerType" },
         { "$ref": "#/$defs/listType" },
         { "$ref": "#/$defs/pdEnvelopeType" },
         { "$ref": "#/$defs/refType" },
-        { "$ref": "#/$defs/simpleType" },
         { "$ref": "#/$defs/stringType" }
       ]
     },
@@ -203,61 +212,41 @@
       "proprties": {
         "ref": {
           "description": "The reference pointer.",
-          "type": "json-pointer"
+          "type": "string",
+          "format": "json-pointer"
         }
       },
       "required": [ "ref" ]
     },
-    "simpleType": {
-      "description": "Simple type that has no fields other than a name and type. This is intended as a catch-all list for likely values. Any values not in the enum list will be considered a manufacturer-specific definition. This list is tied to \"Table A-15: Data Type Defines\" in the RDM specification.",
-      "type": "object",
-      "properties": {
-        "name": { "$ref": "#/$defs/nameType" },
-        "displayName": { "$ref": "#/$defs/nameType" },
-        "notes": { "type": "string" },
-        "type": {
-          "anyOf": [
-            {
-              "enum": [
-                "boolean",
-                "hostname",
-                "ipv4",
-                "ipv6",
-                "mac",
-                "uid",
-                "url",
-                "uuid"
-              ]
-            },
-            {
-              "not": {
-                "anyOf": [
-                  { "$ref": "#/$defs/integerType/properties/type" },
-                  { "const": "pdEnvelope" },
-                  { "const": "string" }
-                ]
-              }
-            }
-          ]
-        }
-      },
-      "required": [ "type" ]
-    },
     "stringType": {
-      "description": "A string having a possibly bounded size. Implementations may need to use a NUL terminator for multi-field messages where a string is followed by another field so that its boundary can be determined.",
+      "description": "A UTF-8-encoded string having a possibly bounded size. Implementations may need to use either a NUL terminator or another \"length\" field for multi-field messages where a string is followed by another field, so that its boundary can be determined.",
       "type": "object",
       "properties": {
         "name": { "$ref": "#/$defs/nameType" },
         "displayName": { "$ref": "#/$defs/nameType" },
         "notes": { "type": "string" },
         "type": { "const": "string" },
+        "interpretation": {
+          "description": "This field describes how to interpret the string value. It can be one of the string types defined in \"Table A-15: Data Type Defines\" of the RDM E1.20 specification (or other add-on specifications), or it can be something manufacturer-specific. Be aware, however, that anything not defined here may not be understood by a controller. The known string types include: hostname, domain-name, ipv4, ipv6, mac, string, uid, and url.",
+          "type": "string"
+        },
+        "pattern": {
+          "description": "An ECMA 262 regular expression that can be used to validate the contents of this field. It is not necessary to provide a pattern for known \"interpretation\" types, and they are helpful for assisting a controller in validating a message. Note that care must be taken for patterns that contradict any \"minLength\" and \"maxLength\" values.",
+          "type": "string",
+          "format": "regex"
+        },
+        "reference": {
+          "description": "A URI pointing to a specification or more information for this field type.",
+          "type": "string",
+          "format": "uri-reference"
+        },
         "minLength": {
-          "description": "The minimum string length.",
+          "description": "The minimum string length. Care must be taken to make sure this doesn't contradict any \"pattern\" or \"maxLength\" values.",
           "type": "integer",
           "minimum": 0
         },
         "maxLength": {
-          "description": "The maximum string length.",
+          "description": "The maximum string length. Care must be taken to make sure this doesn't contradict any \"pattern\" or \"minLength\" values.",
           "type": "integer",
           "minimum": 0
         }
