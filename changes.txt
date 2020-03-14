@@ -218,3 +218,6 @@ v17:
 * TODO: Add implicit patterns for each of the known string types.
 * TODO: Use correct "pid" for PACKED_PID_INDEX, PACKED_PID_SUB,
   QUEUED_MESSAGE_SENSOR_SUBSCRIBE, and SUPPORTED_PARAMETERS_ENHANCED.
+
+v18:
+* Added a reference to DS_BOOLEAN in the "booleanType" description.

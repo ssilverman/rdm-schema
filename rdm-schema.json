@@ -40,7 +40,7 @@
       "required": [ "type", "bits" ]
     },
     "booleanType": {
-      "description": "A Boolean value.",
+      "description": "A Boolean value. This corresponds to the DS_BOOLEAN type in \"Table A-15: Data Type Defines\" of the RDM E1.20 specification, a 1-byte zero-or-one value.",
       "type": "object",
       "properties": {
         "name": { "$ref": "#/$defs/nameType" },
