@@ -15,10 +15,7 @@
       "name": "dmx_footprint",
       "type": "uint16",
       "ranges": [
-        {
-          "minimum": 0,
-          "maximum": 512
-        }
+        { "minimum": 0, "maximum": 512 }
       ]
     },
     { "name": "current_personality", "type": "uint8" },
@@ -27,20 +24,11 @@
       "name": "dmx_start_address",
       "type": "uint16",
       "ranges": [
-        {
-          "minimum": 1,
-          "maximum": 512
-        },
-        {
-          "minimum": 65535,
-          "maximum": 65535
-        }
+        { "minimum": 1, "maximum": 512 },
+        { "minimum": 65535, "maximum": 65535 }
       ],
       "labels": [
-        {
-          "label": "No footprint",
-          "value": 65535
-        }
+        { "label": "No footprint", "value": 65535 }
       ]
     },
     { "name": "sub_device_count", "type": "uint16" },

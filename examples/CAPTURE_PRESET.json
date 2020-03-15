@@ -1,0 +1,14 @@
+{
+  "name": "CAPTURE_PRESET",
+  "notes": "Either the first field or all four fields can be given.",
+  "pid": 4144,
+  "version": 1,
+  "set_request_subdevice_range": [ "root", "subdevices", "broadcast" ],
+  "set_request": [
+    { "name": "scene_num", "type": "uint16" },
+    { "name": "up_fade_time", "type": "uint16" },
+    { "name": "down_fade_time", "type": "uint16" },
+    { "name": "wait_time", "type": "uint16" }
+  ],
+  "set_response": []
+}

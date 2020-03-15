@@ -1,0 +1,11 @@
+{
+  "name": "STATUS_ID_DESCRIPTION",
+  "pid": 49,
+  "version": 1,
+  "get_request": [
+    { "name": "status_id", "type": "uint16" }
+  ],
+  "get_response": [
+    { "name": "description", "type": "string" }
+  ]
+}

@@ -11,7 +11,7 @@
       "itemType": {
         "name": "device_uid",
         "type": "bytes",
-        "interpretation": "uid"
+        "format": "uid"
       }
     }
   ]

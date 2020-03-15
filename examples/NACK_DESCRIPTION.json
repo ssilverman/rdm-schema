@@ -1,0 +1,16 @@
+{
+  "name": "NACK_DESCRIPTION",
+  "pid": #undefined,
+  "version": 1,
+  "get_request": [
+      { "name": "nack_reason_number", "type": "uint16" }
+  ],
+  "get_response": [
+    {"name": "nack_reason_number", "type": "uint16" },
+    {
+      "name": "description",
+      "type": "string",
+      "maxLength": 32
+    }
+  ]
+}

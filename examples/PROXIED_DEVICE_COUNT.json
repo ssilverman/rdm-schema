@@ -1,0 +1,10 @@
+{
+  "name": "PROXIED_DEVICE_COUNT",
+  "pid": 17,
+  "version": 1,
+  "get_request": [],
+  "get_response": [
+    { "name": "device_count", "type": "uint16" },
+    { "name": "list_change", "type": "boolean" }
+  ]
+}

@@ -19,12 +19,17 @@
           "description": "Indicates that this bit is unused or reserved.",
           "type": "boolean",
           "default": false
+        },
+        "reservedValue": {
+          "description": "The assumed value when the bit is marked as reserved.",
+          "type": "boolean",
+          "default": false
         }
       },
       "required": [ "name", "index" ]
     },
     "bitFieldType": {
-      "description": "A bit field, a collection of 'bit' items. Implementations are likely to store the values in a structure having a multiple of 8 bits.",
+      "description": "A bit field, a collection of 'bit' items. The \"size\" field is used to specify the number of bits, a multiple of 8, in this bit field. It is an error if the size is less than the number of defined bits. Bits that are not specified are assumed to be reserved, with a value equal to the \"unspecifiedValues\" value.",
       "type": "object",
       "properties": {
         "name": { "$ref": "#/$defs/nameType" },
@@ -35,9 +40,20 @@
           "type": "array",
           "items": { "$ref": "#/$defs/bitType" },
           "uniqueItems": true
+        },
+        "size": {
+          "description": "The size, in multiples-of-8 bits, of this bit field. It is an error if the size is less than the number of defined bits.",
+          "type": "integer",
+          "minimum": 0,
+          "multipleOf": 8
+        },
+        "unspecifiedValues": {
+          "description": "The default value to use for any unspecified bits.",
+          "type": "boolean",
+          "default": false
         }
       },
-      "required": [ "type", "bits" ]
+      "required": [ "type", "size", "bits" ]
     },
     "booleanType": {
       "description": "A Boolean value. This corresponds to the DS_BOOLEAN type in \"Table A-15: Data Type Defines\" of the RDM E1.20 specification, a 1-byte zero-or-one value.",
@@ -58,7 +74,7 @@
         "displayName": { "$ref": "#/$defs/nameType" },
         "notes": { "type": "string" },
         "type": { "const": "bytes" },
-        "interpretation": {
+        "format": {
           "description": "This field describes how to interpret the value. It can be one of the bytes types defined in \"Table A-15: Data Type Defines\" of the RDM E1.20 specification (or other add-on specifications), or it can be something manufacturer-specific. Be aware, however, that anything not defined here may not be understood by a controller or UI. The known bytes types include: ipv4 (4 bytes), ipv6 (16 bytes), mac (6 bytes), uid (6 bytes), and uuid (16 bytes).",
           "type": "string"
         },
@@ -68,12 +84,12 @@
           "format": "uri-reference"
         },
         "minLength": {
-          "description": "The minimum bytes length. Care must be taken to make sure this doesn't contradict any \"maxLength\" value.",
+          "description": "The minimum bytes length. Care must be taken to make sure this doesn't contradict any \"maxLength\" value. It is an error if there is a contradiction.",
           "type": "integer",
           "minimum": 0
         },
         "maxLength": {
-          "description": "The maximum bytes length. Care must be taken to make sure this doesn't contradict any \"minLength\" value.",
+          "description": "The maximum bytes length. Care must be taken to make sure this doesn't contradict any \"minLength\" value. It is an error if there is a contradiction.",
           "type": "integer",
           "minimum": 0
         }
@@ -81,10 +97,24 @@
       "required": [ "type" ]
     },
     "commandType": {
-      "description": "Represents the contents of an RDM command, a collection of 'field' items, each a simple or compound type.",
-      "type": "array",
-      "items": { "$ref": "#/$defs/oneOfTypes" },
-      "uniqueItems": true
+      "description": "Represents the contents of an RDM command: 1. a collection of 'field' items, each a simple or compound type, 2. a duplicate command, or 3. a reference to another array value.",
+      "oneOf": [
+        {
+          "type": "array",
+          "items": { "$ref": "#/$defs/oneOfTypes" },
+          "uniqueItems": true
+        },
+        {
+          "description": "Indicates that a command is a duplicate of one of the other commands. Using this feature can potentially save space.",
+          "enum": [
+            "get_request",
+            "get_response",
+            "set_request",
+            "set_response"
+          ]
+        },
+        { "$ref": "#/$defs/refType" }
+      ]
     },
     "compoundType": {
       "description": "Defines a compound type, a type used to combine other types. This is useful for including in lists.",
@@ -102,15 +132,6 @@
         }
       },
       "required": [ "type", "subtypes" ]
-    },
-    "duplicateCommandType": {
-      "description": "Indicates that a command is a duplicate of one of the other commands. Using this feature can potentially save space.",
-      "enum": [
-        "get_request",
-        "get_response",
-        "set_request",
-        "set_response"
-      ]
     },
     "integerType": {
       "description": "A signed or unsigned integer, can have an optional prefix, unit, and range.",
@@ -137,6 +158,11 @@
           "items": { "$ref": "#/$defs/labeledIntegerType" },
           "uniqueItems": true
         },
+        "restrictToLabeled": {
+          "description": "Whether to restrict the allowed values to the those that have labels. This is useful to not have to additionally specify a set of ranges. If this is set to \"true\" then \"ranges\" should not be specified.",
+          "type": "boolean",
+          "default": false
+        },
         "prefix": {
           "description": "The unit prefix, defined in Table A-14 of E1.20.",
           "type": "integer",
@@ -144,7 +170,7 @@
           "maximum": 255
         },
         "ranges": {
-          "description": "A list of possible ranges for the value. The complete range is the union of all the ranges.",
+          "description": "A list of possible ranges for the value. The complete range is the union of all the ranges. This should not be specified if \"restrictToLabeled\" is set to \"true\".",
           "type": "array",
           "items": { "$ref": "#/$defs/rangeType" },
           "uniqueItems": true
@@ -163,7 +189,8 @@
       "type": "object",
       "properties": {
         "label": { "$ref": "#/$defs/nameType" },
-        "value": { "type": "integer" }
+        "value": { "type": "integer" },
+        "notes": { "type": "string" }
       },
       "required": [ "label", "value" ]
     },
@@ -238,13 +265,12 @@
       "required": [ "minimum", "maximum" ]
     },
     "refType": {
-      "description": "Defines a reference to the contents of another object or array. See RFC 6901.",
+      "description": "Specifies a reference to another value, a URI whose fragment part, if present, is a JSON pointer. See RFCs 3986 (URI Syntax) and 6901 (JSON Pointer).",
       "type": "object",
       "proprties": {
         "ref": {
-          "description": "The reference pointer.",
           "type": "string",
-          "format": "json-pointer"
+          "format": "uri-reference"
         }
       },
       "required": [ "ref" ]
@@ -257,12 +283,12 @@
         "displayName": { "$ref": "#/$defs/nameType" },
         "notes": { "type": "string" },
         "type": { "const": "string" },
-        "interpretation": {
+        "format": {
           "description": "This field describes how to interpret the string value. It can be one of the string types defined in \"Table A-15: Data Type Defines\" of the RDM E1.20 specification (or other add-on specifications), or it can be something manufacturer-specific. Be aware, however, that anything not defined here may not be understood by a controller or UI. The known string types include: hostname, domain-name, string, and url",
           "type": "string"
         },
         "pattern": {
-          "description": "An ECMA 262 regular expression that can be used to validate the contents of this field. They're helpful for assisting a controller or UI do message validation. It's not necessary to provide a pattern for known \"interpretation\" types. Note that care must be taken to make sure that patterns don't contradict any \"minLength\" and \"maxLength\" values. As well, if there are maximum or minimum sizes, it is suggested that an instance makes use of the \"minLength\" and \"maxLength\" sizes in order to support those UIs that don't support regexes.",
+          "description": "An ECMA 262 regular expression that can be used to validate the contents of this field. They're helpful for assisting a controller or UI do message validation. It's not necessary to provide a pattern for known \"format\" types. Note that care must be taken to make sure that patterns don't contradict any \"minLength\" and \"maxLength\" values. It is an error if there is a contradiction. As well, if there are maximum or minimum sizes, it is suggested that an instance makes use of the \"minLength\" and \"maxLength\" sizes in order to support those UIs that don't support regexes.",
           "type": "string",
           "format": "regex"
         },
@@ -272,12 +298,12 @@
           "format": "uri-reference"
         },
         "minLength": {
-          "description": "The minimum string length. Care must be taken to make sure this doesn't contradict any \"pattern\" or \"maxLength\" values. If there are maximum or minimum sizes, it is suggested that an instance makes use of the \"minLength\" and \"maxLength\" sizes in order to support those UIs that don't support regexes.",
+          "description": "The minimum string length. Care must be taken to make sure this doesn't contradict any \"pattern\" or \"maxLength\" values. It is an error if there is a contradiction. If there are maximum or minimum sizes, it is suggested that an instance makes use of the \"minLength\" and \"maxLength\" sizes in order to support those UIs that don't support regexes.",
           "type": "integer",
           "minimum": 0
         },
         "maxLength": {
-          "description": "The maximum string length. Care must be taken to make sure this doesn't contradict any \"pattern\" or \"minLength\" values. If there are maximum or minimum sizes, it is suggested that an instance makes use of the \"minLength\" and \"maxLength\" sizes in order to support those UIs that don't support regexes.",
+          "description": "The maximum string length. Care must be taken to make sure this doesn't contradict any \"pattern\" or \"minLength\" values. It is an error if there is a contradiction. If there are maximum or minimum sizes, it is suggested that an instance makes use of the \"minLength\" and \"maxLength\" sizes in order to support those UIs that don't support regexes.",
           "type": "integer",
           "minimum": 0
         }
@@ -302,6 +328,11 @@
     "name": { "$ref": "#/$defs/nameType" },
     "displayName": { "$ref": "#/$defs/nameType" },
     "notes": { "type": "string" },
+    "reference": {
+      "description": "An informative URL pointing to a specification or more information for this message.",
+      "type": "string",
+      "format": "uri-reference"
+    },
     "pid": {
       "description": "The parameter ID.",
       "type": "integer",
@@ -318,37 +349,25 @@
       "$ref": "#/$defs/subdeviceType",
       "default": [ "root" ]
     },
-    "get_request": {
-      "oneOf": [
-        { "$ref": "#/$defs/commandType" },
-        { "$ref": "#/$defs/duplicateCommandType" }
-      ]
-    },
+    "get_request": { "$ref": "#/$defs/commandType" },
     "get_response": {
       "oneOf": [
         { "$ref": "#/$defs/commandType" },
-        { "$ref": "#/$defs/duplicateCommandType" }
+        {
+          "description": "Indicates that the response has a different PID.",
+          "const": "different_pid"
+        }
       ]
     },
     "set_request_subdevice_range": {
       "$ref": "#/$defs/subdeviceType",
       "default": [ "root" ]
     },
-    "set_request": {
-      "oneOf": [
-        { "$ref": "#/$defs/commandType" },
-        { "$ref": "#/$defs/duplicateCommandType" }
-      ]
-    },
-    "set_response": {
-      "oneOf": [
-        { "$ref": "#/$defs/commandType" },
-        { "$ref": "#/$defs/duplicateCommandType" }
-      ]
-    }
+    "set_request": { "$ref": "#/$defs/commandType" },
+    "set_response": { "$ref": "#/$defs/commandType" }
   },
   "required": [ "name", "pid", "version" ],
-  "dependencies": {
+  "dependentRequired": {
     "get_request": [ "get_response" ],
     "get_response": [ "get_request" ],
     "set_request": [ "set_response" ],

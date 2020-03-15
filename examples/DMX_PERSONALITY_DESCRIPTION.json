@@ -1,0 +1,24 @@
+{
+  "name": "DMX_PERSONALITY_DESCRIPTION",
+  "pid": 225,
+  "version": 1,
+  "get_request_subdevice_range": [ "root", "subdevices" ],
+  "get_request": [
+    { "name": "personality", "type": "uint8" }
+  ],
+  "get_response": [
+    { "name": "personality", "type": "uint8" },
+    {
+      "name": "dmx_slots_required",
+      "type": "uint16",
+      "ranges": [
+        { "minimum": 0, "maximum": 512 }
+      ]
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "maxLength": 32
+    }
+  ]
+}

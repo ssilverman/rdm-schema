@@ -1,0 +1,33 @@
+{
+  "name": "SENSOR_DEFINITION",
+  "pid": 512,
+  "version": 1,
+  "get_request_subdevice_range": [ "root", "subdevices" ],
+  "get_request": [
+    { "name": "sensor", "type": "uint8" }
+  ],
+  "get_response": [
+    { "name": "sensor", "type": "uint8" },
+    { "name": "type", "type": "uint8" },
+    { "name": "unit", "type": "uint8" },
+    { "name": "unit_prefix", "type": "uint8" },
+    { "name": "range_min_value", "type": "uint16" },
+    { "name": "range_max_value", "type": "uint16" },
+    { "name": "normal_min_value", "type": "uint16" },
+    { "name": "normal_max_value", "type": "uint16" },
+    {
+      "name": "recorded_value_support",
+      "type": "bitField",
+      "size": 8,
+      "bits": [
+        { "name": "recorded_value_supported", "index": 0 },
+        { "name": "low_high_detected_values_supported", "index": 1 }
+      ]
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "maxLength": 32
+    }
+  ]
+}

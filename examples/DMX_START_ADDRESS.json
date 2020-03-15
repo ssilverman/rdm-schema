@@ -1,0 +1,34 @@
+{
+  "name": "DMX_START_ADDRESS",
+  "pid": 240,
+  "version": 1,
+  "get_request_subdevice_range": [ "root", "subdevices" ],
+  "get_request": [],
+  "get_response": [
+    {
+      "name": "dmx_address",
+      "type": "uint16",
+      "ranges": [
+        { "minimum": 1, "maximum": 512 },
+        { "minimum": 65535, "maximum": 65535 }
+      ],
+      "labels": [
+        {
+          "label": "No footprint",
+          "value": 65535
+        }
+      ]
+    }
+  ],
+  "set_request_subdevice_range": [ "root", "subdevices", "broadcast" ],
+  "set_request": [
+    {
+      "name": "dmx_address",
+      "type": "uint16",
+      "ranges": [
+        { "minimum": 1, "maximum": 512 }
+      ]
+    }
+  ],
+  "set_response": []
+}

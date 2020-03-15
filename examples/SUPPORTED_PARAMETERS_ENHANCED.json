@@ -11,30 +11,18 @@
       "itemType": {
         "type": "compound",
         "subtypes": [
-          {
-            "name": "pid",
-            "type": "uint16"
-          },
+          { "name": "pid", "type": "uint16" },
           {
             "name": "pid_support",
             "type": "bitField",
+            "size": 16,
             "bits": [
               { "name": "get_supported", "index": 0 },
               { "name": "set_supported", "index": 1 },
               { "name": "packed_pid_sub_get_supported", "index": 2 },
               { "name": "packed_pid_sub_set_supported", "index": 3 },
               { "name": "packed_pid_index_get_supported", "index": 4 },
-              { "name": "packed_pid_index_set_supported", "index": 5 },
-              { "name": "unused", "index": 6, "reserved": true },
-              { "name": "unused", "index": 7, "reserved": true },
-              { "name": "unused", "index": 8, "reserved": true },
-              { "name": "unused", "index": 9, "reserved": true },
-              { "name": "unused", "index": 10, "reserved": true },
-              { "name": "unused", "index": 11, "reserved": true },
-              { "name": "unused", "index": 12, "reserved": true },
-              { "name": "unused", "index": 13, "reserved": true },
-              { "name": "unused", "index": 14, "reserved": true },
-              { "name": "unused", "index": 15, "reserved": true }
+              { "name": "packed_pid_index_set_supported", "index": 5 }
             ]
           }
         ]

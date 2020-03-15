@@ -1,0 +1,25 @@
+{
+  "name": "PARAMETER_DESCRIPTION",
+  "pid": 81,
+  "version": 1,
+  "get_request": [
+    { "name": "pid", "type": "uint16" }
+  ],
+  "get_response": [
+    { "name": "pid", "type": "uint16" },
+    { "name": "pdl", "type": "uint8" },
+    { "name": "data_type", "type": "uint8" },
+    { "name": "command_class", "type": "uint8" },
+    { "name": "type", "type": "uint8" },
+    { "name": "unit", "type": "uint8" },
+    { "name": "unit_prefix", "type": "uint16" },
+    { "name": "min_valid_value", "type": "uint32" },
+    { "name": "max_valid_value", "type": "uint32" },
+    { "name": "default_value", "type": "uint32" },
+    {
+      "name": "description",
+      "type": "string",
+      "maxLength": 32
+    }
+  ]
+}

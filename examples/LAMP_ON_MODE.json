@@ -1,0 +1,22 @@
+{
+  "name": "LAMP_ON_MODE",
+  "pid": 1028,
+  "version": 1,
+  "get_request_subdevice_range": [ "root", "subdevices" ],
+  "get_request": [],
+  "get_response": [
+    {
+      "name": "mode",
+      "type": "uint8",
+      "labels": [
+        { "label": "LAMP_ON_MODE_OFF", "value": 0 },
+        { "label": "LAMP_ON_MODE_DMX", "value": 1 },
+        { "label": "LAMP_ON_MODE_ON", "value": 2 },
+        { "label": "LAMP_ON_MODE_AFTER_CAL", "value": 3 }
+      ]
+    }
+  ],
+  "set_request_subdevice_range": [ "root", "subdevices", "broadcast" ],
+  "set_request": "get_response",
+  "set_response": []
+}

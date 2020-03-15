@@ -1,0 +1,23 @@
+{
+  "name": "POWER_STATE",
+  "pid": 4112,
+  "version": 1,
+  "get_request_subdevice_range": [ "root", "subdevices" ],
+  "get_request": [],
+  "get_response": [
+    {
+      "name": "state",
+      "type": "uint8",
+      "labels": [
+        { "label": "POWER_STATE_FULL_OFF", "value": 0 },
+        { "label": "POWER_STATE_SHUTDOWN", "value": 1 },
+        { "label": "POWER_STATE_STANDBY", "value": 2 },
+        { "label": "POWER_STATE_NORMAL", "value": 255 }
+      ],
+      "restrictToLabeled": true
+    }
+  ],
+  "set_request_subdevice_range": [ "root", "subdevices", "broadcast" ],
+  "set_request": "get_response",
+  "set_response": []
+}

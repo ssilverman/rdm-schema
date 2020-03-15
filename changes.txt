@@ -221,3 +221,36 @@ v17:
 
 v18:
 * Added a reference to DS_BOOLEAN in the "booleanType" description.
+
+v19:
+* Added a "restrictToLabeled" field that specifies whether valid values should
+  be restricted to those in the "labeled" list.
+* Updated the "ranges" (inside "integerType") description to mention that it
+  should not be specified if "restrictToLabeled" is "true".
+* Added a choice for "get_response" to be "different_pid" in the case of
+  messages having GET responses that don't match the GET request PID, for
+  example, QUEUED_MESSAGE has this.
+* Changed the format of "refType" to "uri-reference" from "json-pointer". This
+  allows cross-document references.
+* Improved the "refType" description.
+* Improved "commandType" to define all the "oneOf"'s there: array of types,
+  duplicate command, or reference. Removed "duplicateCommand" and updated the
+  four commands.
+* Added a "reference" field, a uri-reference, to the main message.
+* Fixed "dependencies" to be "dependentRequired".
+* Changed "interpretation" in "bytesType" and "stringType" to "format".
+* Added "reservedValue" to "bitType" to indicate what value a reserved bit is
+  supposed to be.
+* Updated the description for "bitFieldType" to discuss multiples of 8 bits and
+  the other new things.
+* Added a "size" field to "bitFieldType". Also added to the description that
+  it's an error if the size is less than the number of defined bits. Also added
+  this to the list of required fields.
+* Added a sentence to "pattern", "minLength", and "maxLength" of "stringType",
+  and to "minLength" and "maxLength" of "bytesType", stating that it's an error
+  if there's a contradiction.
+* Added an "unspecifiedValues" field to "bitFieldType".
+* Added "notes" to "labeledIntegerType".
+* TODO: How to do optional fields, for example in CAPTURE_PRESET?
+* All kinds of changes to current messages plus new example messages. All the
+  E1.20 messages are included plus one from E1.37-1, IDENTIFY_MODE.

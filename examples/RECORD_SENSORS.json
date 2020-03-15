@@ -1,0 +1,10 @@
+{
+  "name": "RECORD_SENSORS",
+  "pid": 514,
+  "version": 1,
+  "set_request_subdevice_range": [ "root", "subdevices", "broadcast" ],
+  "set_request": [
+    { "name": "sensor", "type": "uint8" }
+  ],
+  "set_response": []
+}

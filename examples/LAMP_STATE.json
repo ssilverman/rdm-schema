@@ -1,0 +1,24 @@
+{
+  "name": "LAMP_STATE",
+  "pid": 1027,
+  "version": 1,
+  "get_request_subdevice_range": [ "root", "subdevices" ],
+  "get_request": [],
+  "get_response": [
+    {
+      "name": "state",
+      "type": "uint8",
+      "labels": [
+        { "label": "LAMP_OFF", "value": 0 },
+        { "label": "LAMP_ON", "value": 1 },
+        { "label": "LAMP_STRIKE", "value": 2 },
+        { "label": "LAMP_STANDBY", "value": 3 },
+        { "label": "LAMP_NOT_PRESENT", "value": 4 },
+        { "label": "LAMP_ERROR", "value": 127 }
+      ]
+    }
+  ],
+  "set_request_subdevice_range": [ "root", "subdevices", "broadcast" ],
+  "set_request": "get_response",
+  "set_response": []
+}

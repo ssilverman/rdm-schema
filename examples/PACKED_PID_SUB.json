@@ -2,22 +2,27 @@
   "name": "PACKED_PID_SUB",
   "pid": #undefined,
   "version": 1,
-  "get_request_subdevice_range": [ "root" ],
   "get_request": [
     { "name": "pid", "type": "uint16" },
-    { "name": "index_requested", "type": "uint16" },
-    { "name": "first_subdevice_requested", "type": "uint16" },
-    { "name": "requested_subdevice_count", "type": "uint16" }
+    { "name": "index", "type": "uint16" },
+    { "name": "first_subdevice", "type": "uint16" },
+    { "name": "subdevice_count", "type": "uint16" }
   ],
   "get_response": [
     { "name": "pid", "type": "uint16" },
-    { "name": "index_requested", "type": "uint16" },
-    { "name": "first_subdevice_encoded", "type": "uint16" },
-    { "name": "entry_count", "type": "uint8" },
+    { "name": "index", "type": "uint16" },
     {
-      "name": "parameter_data_entries",
+      "name": "entries",
       "type": "list",
-      "itemType": { "type": "pdEnvelope" }
+      "itemType": {
+        "type": "compound",
+        "subtypes": [
+          { "name": "subdevice", "type": "uint16" },
+          { "name": "subdevice_entry", "type": "pdEnvelope" }
+        ]
+      }
     }
-  ]
+  ],
+  "set_request": "get_response",
+  "set_response": []
 }
