@@ -1,0 +1,37 @@
+{
+  "name": "DMX_BLOCK_ADDRESS",
+  "notes": "E1.37-1",
+  "pid": 320,
+  "version": 1,
+  "get_request": [],
+  "get_response": [
+    {
+      "name": "total_subdevice_footprint",
+      "type": "uint16",
+      "ranges": [
+        { "minimum": 0, "maximum": 512 }
+      ]
+    },
+    {
+      "name": "base_dmx_address",
+      "type": "uint16",
+      "ranges": [
+        { "minimum": 1, "maximum": 512 },
+        { "minimum": 65535, "maximum": 65535 }
+      ],
+      "labels": [
+        { "label": "No footprint", "value": 65535 }
+      ]
+    }
+  ],
+  "set_request": [
+    {
+      "name": "base_dmx_address",
+      "type": "uint16",
+      "ranges": [
+        { "minimum": 1, "maximum": 512 }
+      ]
+    }
+  ],
+  "set_response": []
+}

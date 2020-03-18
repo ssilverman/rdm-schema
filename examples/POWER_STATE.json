@@ -9,10 +9,10 @@
       "name": "state",
       "type": "uint8",
       "labels": [
-        { "label": "POWER_STATE_FULL_OFF", "value": 0 },
-        { "label": "POWER_STATE_SHUTDOWN", "value": 1 },
-        { "label": "POWER_STATE_STANDBY", "value": 2 },
-        { "label": "POWER_STATE_NORMAL", "value": 255 }
+        { "label": "FULL_OFF", "value": 0 },
+        { "label": "SHUTDOWN", "value": 1 },
+        { "label": "STANDBY", "value": 2 },
+        { "label": "NORMAL", "value": 255 }
       ],
       "restrictToLabeled": true
     }

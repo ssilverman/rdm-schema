@@ -254,3 +254,16 @@ v19:
 * TODO: How to do optional fields, for example in CAPTURE_PRESET?
 * All kinds of changes to current messages plus new example messages. All the
   E1.20 messages are included plus one from E1.37-1, IDENTIFY_MODE.
+
+v20:
+* Added labelled values to PRODUCT_DETAIL_ID_LIST.
+* Replaced "prefix" with "prefixPower" in "integerType" and also changed its
+  meaning to the power of 10 instead of a value from Table A-14 of E1.20.
+* Renamed "unit" to "units" in "integerType".
+* Updated DMX_FAIL_MODE, DMX_STARTUP_MODE, and CAPTURE_PRESET examples to use
+  the new "units" and "prefixPower" fields for their times.
+* Changed the product category to a single field in the DEVICE_INFO example and
+  added some labels.
+* Removed obvious label prefixes from: LAMP_ON_MODE, POWER_STATE,
+  PRESET_PLAYBACK, and PRODUCT_DETAIL_ID_LIST.
+* New E1.37-1 examples.

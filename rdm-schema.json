@@ -163,23 +163,21 @@
           "type": "boolean",
           "default": false
         },
-        "prefix": {
-          "description": "The unit prefix, defined in Table A-14 of E1.20.",
-          "type": "integer",
-          "minimum": 0,
-          "maximum": 255
-        },
         "ranges": {
           "description": "A list of possible ranges for the value. The complete range is the union of all the ranges. This should not be specified if \"restrictToLabeled\" is set to \"true\".",
           "type": "array",
           "items": { "$ref": "#/$defs/rangeType" },
           "uniqueItems": true
         },
-        "unit": {
-          "description": "The unit type, defined in Table A-13 of E1.20.",
+        "units": {
+          "description": "The units type, defined in Table A-13 of E1.20.",
           "type": "integer",
           "minimum": 0,
           "maximum": 255
+        },
+        "prefixPower": {
+          "description": "The power of 10 to be used as the prefix for the value. For example, -2 is used to represent 10^(-2) or the prefix centi-.",
+          "type": "integer"
         }
       },
       "required": [ "type" ]

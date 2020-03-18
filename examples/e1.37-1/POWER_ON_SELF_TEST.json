@@ -1,19 +1,19 @@
 {
-  "name": "PRESET_PLAYBACK",
-  "pid": 4145,
+  "name": "POWER_ON_SELF_TEST",
+  "notes": "E1.37-1",
+  "pid": 4164,
   "version": 1,
   "get_request_subdevice_range": [ "root", "subdevices" ],
   "get_request": [],
   "get_response": [
     {
-      "name": "mode",
-      "type": "uint16",
+      "name": "parameter",
+      "type": "uint8",
       "labels": [
-        { "label": "OFF", "value": 0 },
-        { "label": "ALL", "value": 65535 }
+        { "label": "Disabled", "value": 0 },
+        { "label": "Enabled", "value": 1 }
       ]
-    },
-    { "name": "level", "type": "uint8" }
+    }
   ],
   "set_request_subdevice_range": [ "root", "subdevices", "broadcast" ],
   "set_request": "get_response",

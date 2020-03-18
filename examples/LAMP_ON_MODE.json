@@ -9,10 +9,10 @@
       "name": "mode",
       "type": "uint8",
       "labels": [
-        { "label": "LAMP_ON_MODE_OFF", "value": 0 },
-        { "label": "LAMP_ON_MODE_DMX", "value": 1 },
-        { "label": "LAMP_ON_MODE_ON", "value": 2 },
-        { "label": "LAMP_ON_MODE_AFTER_CAL", "value": 3 }
+        { "label": "OFF", "value": 0 },
+        { "label": "DMX", "value": 1 },
+        { "label": "ON", "value": 2 },
+        { "label": "AFTER_CAL", "value": 3 }
       ]
     }
   ],

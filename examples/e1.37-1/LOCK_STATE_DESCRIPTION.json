@@ -1,0 +1,30 @@
+{
+  "name": "LOCK_STATE_DESCRIPTION",
+  "notes": "E1.37-1",
+  "pid": 1602,
+  "version": 1,
+  "get_request_subdevice_range": [ "root", "subdevices" ],
+  "get_request": [
+    {
+      "name": "state",
+      "type": "uint8",
+      "ranges": [
+        { "minimum": 1, "maximum": 255 }
+      ]
+    }
+  ],
+  "get_response": [
+    {
+      "name": "state",
+      "type": "uint8",
+      "ranges": [
+        { "minimum": 1, "maximum": 255 }
+      ]
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "maxLength": 32
+    }
+  ]
+}
