@@ -1,0 +1,25 @@
+{
+  "name": "PRESET_MERGE_MODE",
+  "notes": "E1.37-1",
+  "pid": 4163,
+  "version": 1,
+  "get_request_subdevice_range": [ "root", "subdevices" ],
+  "get_request": [],
+  "get_response": [
+    {
+      "name": "mode",
+      "type": "uint8",
+      "labels": [
+        { "label": "DEFAULT", "value": 0 },
+        { "label": "HTP", "value": 1 },
+        { "label": "LTP", "value": 2 },
+        { "label": "DMX_ONLY", "value": 3 },
+        { "label": "OTHER", "value": 255 }
+      ],
+      "restrictToLabeled": true
+    }
+  ],
+  "set_request_subdevice_range": [ "root", "subdevices", "broadcast" ],
+  "set_request": "get_response",
+  "set_response": []
+}

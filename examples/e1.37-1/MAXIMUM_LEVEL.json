@@ -1,18 +1,12 @@
 {
-  "name": "PAN_INVERT",
-  "pid": 1536,
+  "name": "MAXIMUM_LEVEL",
+  "notes": "E1.37-1",
+  "pid": 834,
   "version": 1,
   "get_request_subdevice_range": [ "root", "subdevices" ],
   "get_request": [],
   "get_response": [
-    {
-      "name": "setting",
-      "type": "boolean",
-      "labels": [
-        { "label": "Off", "value": false },
-        { "label": "On", "value": true }
-      ]
-    }
+    { "name": "max_level", "type": "uint16" }
   ],
   "set_request_subdevice_range": [ "root", "subdevices", "broadcast" ],
   "set_request": "get_response",

@@ -7,12 +7,11 @@
   "get_response": [
     {
       "name": "state",
-      "type": "uint8",
+      "type": "boolean",
       "labels": [
-        { "label": "Off", "value": 0 },
-        { "label": "On", "value": 1 }
-      ],
-      "restrictToLabeled": true
+        { "label": "Off", "value": false },
+        { "label": "On", "value": true }
+      ]
     }
   ],
   "set_request_subdevice_range": [ "root", "subdevices", "broadcast" ],

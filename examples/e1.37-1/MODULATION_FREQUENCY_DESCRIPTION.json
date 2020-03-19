@@ -1,0 +1,41 @@
+{
+  "name": "MODULATION_FREQUENCY_DESCRIPTION",
+  "notes": "E1.37-1",
+  "pid": 840,
+  "version": 1,
+  "get_request_subdevice_range": [ "root", "subdevices" ],
+  "get_request": [
+        {
+      "name": "setting",
+      "type": "uint8",
+      "notes": "The value isn't restricted in the spec, but MODULATION_FREQUENCY restricts this.",
+      "ranges": [
+        { "minimum": 1, "maximum": 255 }
+      ]
+    },
+    { "name": "response_time_setting_count", "type": "uint8" }
+  ],
+  "get_response": [
+    {
+      "name": "setting",
+      "type": "uint8",
+      "notes": "The value isn't restricted in the spec, but MODULATION_FREQUENCY restricts this.",
+      "ranges": [
+        { "minimum": 1, "maximum": 255 }
+      ]
+    },
+    {
+      "name": "frequency",
+      "type": "uint32",
+      "units": 8,
+      "labels": [
+        { "label": "Not Declared", "value": 4294967295 }
+      ]
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "maxLength": 32
+    }
+  ]
+}

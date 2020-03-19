@@ -26,6 +26,7 @@
           "default": false
         }
       },
+      "additionalProperties": false,
       "required": [ "name", "index" ]
     },
     "bitFieldType": {
@@ -53,6 +54,7 @@
           "default": false
         }
       },
+      "additionalProperties": false,
       "required": [ "type", "size", "bits" ]
     },
     "booleanType": {
@@ -62,8 +64,16 @@
         "name": { "$ref": "#/$defs/nameType" },
         "displayName": { "$ref": "#/$defs/nameType" },
         "notes": { "type": "string" },
-        "type": { "const": "boolean" }
+        "type": { "const": "boolean" },
+        "labels": {
+          "description": "A list of labels that name special values.",
+          "type": "array",
+          "items": { "$ref": "#/$defs/labeledBooleanType" },
+          "uniqueItems": true,
+          "maxItems": 2
+        }
       },
+      "additionalProperties": false,
       "required": [ "type" ]
     },
     "bytesType": {
@@ -94,6 +104,7 @@
           "minimum": 0
         }
       },
+      "additionalProperties": false,
       "required": [ "type" ]
     },
     "commandType": {
@@ -131,6 +142,7 @@
           }
         }
       },
+      "additionalProperties": false,
       "required": [ "type", "subtypes" ]
     },
     "integerType": {
@@ -159,7 +171,7 @@
           "uniqueItems": true
         },
         "restrictToLabeled": {
-          "description": "Whether to restrict the allowed values to the those that have labels. This is useful to not have to additionally specify a set of ranges. If this is set to \"true\" then \"ranges\" should not be specified.",
+          "description": "Whether to restrict the allowed values to those that have labels. This is useful to not have to additionally specify a set of ranges. If this is set to \"true\" then \"ranges\" should not be specified.",
           "type": "boolean",
           "default": false
         },
@@ -178,9 +190,26 @@
         "prefixPower": {
           "description": "The power of 10 to be used as the prefix for the value. For example, -2 is used to represent 10^(-2) or the prefix centi-.",
           "type": "integer"
+        },
+        "prefixBase": {
+          "description": "The base of the prefix. For example, to express \"kilo\", specify prefixPower=3 and prefixBase=10, and to express \"kibi\", specify prefixPower=10 and prefixBase=2 or prefixPower=1 and prefixBase=1024.",
+          "type": "integer",
+          "default": 10
         }
       },
+      "additionalProperties": false,
       "required": [ "type" ]
+    },
+    "labeledBooleanType": {
+      "description": "Associates a name to a Boolean value.",
+      "type": "object",
+      "properties": {
+        "label": { "$ref": "#/$defs/nameType" },
+        "value": { "type": "boolean" },
+        "notes": { "type": "string" }
+      },
+      "additionalProperties": false,
+      "required": [ "label", "value" ]
     },
     "labeledIntegerType": {
       "description": "Associates a name to an integer value.",
@@ -190,6 +219,7 @@
         "value": { "type": "integer" },
         "notes": { "type": "string" }
       },
+      "additionalProperties": false,
       "required": [ "label", "value" ]
     },
     "listType": {
@@ -212,6 +242,7 @@
           "minimum": 0
         }
       },
+      "additionalProperties": false,
       "required": [ "type", "itemType" ]
     },
     "nameType": {
@@ -245,6 +276,7 @@
           "maximum": 255
         }
       },
+      "additionalProperties": false,
       "required": [ "type" ]
     },
     "rangeType": {
@@ -260,17 +292,19 @@
           "type": "integer"
         }
       },
+      "additionalProperties": false,
       "required": [ "minimum", "maximum" ]
     },
     "refType": {
       "description": "Specifies a reference to another value, a URI whose fragment part, if present, is a JSON pointer. See RFCs 3986 (URI Syntax) and 6901 (JSON Pointer).",
       "type": "object",
-      "proprties": {
+      "properties": {
         "ref": {
           "type": "string",
           "format": "uri-reference"
         }
       },
+      "additionalProperties": false,
       "required": [ "ref" ]
     },
     "stringType": {
@@ -306,6 +340,7 @@
           "minimum": 0
         }
       },
+      "additionalProperties": false,
       "required": [ "type" ]
     },
     "subdeviceType": {
@@ -348,15 +383,7 @@
       "default": [ "root" ]
     },
     "get_request": { "$ref": "#/$defs/commandType" },
-    "get_response": {
-      "oneOf": [
-        { "$ref": "#/$defs/commandType" },
-        {
-          "description": "Indicates that the response has a different PID.",
-          "const": "different_pid"
-        }
-      ]
-    },
+    "get_response": { "$ref": "#/$defs/commandType" },
     "set_request_subdevice_range": {
       "$ref": "#/$defs/subdeviceType",
       "default": [ "root" ]
@@ -364,6 +391,7 @@
     "set_request": { "$ref": "#/$defs/commandType" },
     "set_response": { "$ref": "#/$defs/commandType" }
   },
+  "additionalProperties": false,
   "required": [ "name", "pid", "version" ],
   "dependentRequired": {
     "get_request": [ "get_response" ],
