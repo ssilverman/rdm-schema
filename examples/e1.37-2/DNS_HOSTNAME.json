@@ -1,17 +1,18 @@
 {
-  "name": "LANGUAGE",
-  "pid": 176,
+  "name": "DNS_HOSTNAME",
+  "notes": "E1.37-2",
+  "pid": 1804,
   "version": 1,
   "get_request_subdevice_range": [ "root", "subdevices" ],
   "get_request": [],
   "get_response": [
     {
-      "name": "language_code",
+      "name": "hostname",
       "type": "string",
-      "pattern": "^[a-zA-Z]{2}$",
-      "references": [ "https://en.wikipedia.org/wiki/ISO_639-1" ],
-      "minLength": 2,
-      "maxLength": 2
+      "references": [ "https://tools.ietf.org/html/rfc1123#section-2.1" ],
+      "format": "hostname",
+      "minLength": 1,
+      "maxLength": 63
     }
   ],
   "set_request_subdevice_range": [ "root", "subdevices", "broadcast" ],

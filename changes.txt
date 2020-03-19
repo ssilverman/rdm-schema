@@ -284,3 +284,9 @@ v21:
 * Finished adding all the E1.37-1 messages to the examples.
 * Setting all "additionalProperties" to false for every defined object.
 * Fixed "properties" spelling in "refType".
+
+v22:
+* Added a "reference" field to "bitFieldType", "booleanType", and "integerType".
+* Changed "mac" in the "bytesType" type to "mac-address".
+* Changed the single string "reference" to "references", an array of the same.
+* Added all the E1.37-2 messages to the examples.

@@ -37,6 +37,14 @@
         "displayName": { "$ref": "#/$defs/nameType" },
         "notes": { "type": "string" },
         "type": { "const": "bitField" },
+        "references": {
+          "description": "Informative URLs pointing to a specification or more information for this field type.",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uri-reference"
+          }
+        },
         "bits": {
           "type": "array",
           "items": { "$ref": "#/$defs/bitType" },
@@ -65,6 +73,14 @@
         "displayName": { "$ref": "#/$defs/nameType" },
         "notes": { "type": "string" },
         "type": { "const": "boolean" },
+        "references": {
+          "description": "Informative URLs pointing to a specification or more information for this field type.",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uri-reference"
+          }
+        },
         "labels": {
           "description": "A list of labels that name special values.",
           "type": "array",
@@ -85,13 +101,16 @@
         "notes": { "type": "string" },
         "type": { "const": "bytes" },
         "format": {
-          "description": "This field describes how to interpret the value. It can be one of the bytes types defined in \"Table A-15: Data Type Defines\" of the RDM E1.20 specification (or other add-on specifications), or it can be something manufacturer-specific. Be aware, however, that anything not defined here may not be understood by a controller or UI. The known bytes types include: ipv4 (4 bytes), ipv6 (16 bytes), mac (6 bytes), uid (6 bytes), and uuid (16 bytes).",
+          "description": "This field describes how to interpret the value. It can be one of the bytes types defined in \"Table A-15: Data Type Defines\" of the RDM E1.20 specification (or other add-on specifications), or it can be something manufacturer-specific. Be aware, however, that anything not defined here may not be understood by a controller or UI. The known bytes types include: ipv4 (4 bytes), ipv6 (16 bytes), mac-address (6 bytes), uid (6 bytes), and uuid (16 bytes).",
           "type": "string"
         },
-        "reference": {
-          "description": "An informative URL pointing to a specification or more information for this field type.",
-          "type": "string",
-          "format": "uri-reference"
+        "references": {
+          "description": "Informative URLs pointing to a specification or more information for this field type.",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uri-reference"
+          }
         },
         "minLength": {
           "description": "The minimum bytes length. Care must be taken to make sure this doesn't contradict any \"maxLength\" value. It is an error if there is a contradiction.",
@@ -163,6 +182,14 @@
             "uint32",
             "uint64"
           ]
+        },
+        "references": {
+          "description": "Informative URLs pointing to a specification or more information for this field type.",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uri-reference"
+          }
         },
         "labels": {
           "description": "A list of labels that name special values.",
@@ -316,7 +343,7 @@
         "notes": { "type": "string" },
         "type": { "const": "string" },
         "format": {
-          "description": "This field describes how to interpret the string value. It can be one of the string types defined in \"Table A-15: Data Type Defines\" of the RDM E1.20 specification (or other add-on specifications), or it can be something manufacturer-specific. Be aware, however, that anything not defined here may not be understood by a controller or UI. The known string types include: hostname, domain-name, string, and url",
+          "description": "This field describes how to interpret the string value. It can be one of the string types defined in \"Table A-15: Data Type Defines\" of the RDM E1.20 specification (or other add-on specifications), or it can be something manufacturer-specific. Be aware, however, that anything not defined here may not be understood by a controller or UI. The known string types include: domain-name, hostname, string, and url",
           "type": "string"
         },
         "pattern": {
@@ -324,10 +351,13 @@
           "type": "string",
           "format": "regex"
         },
-        "reference": {
-          "description": "An informative URL pointing to a specification or more information for this field type.",
-          "type": "string",
-          "format": "uri-reference"
+        "references": {
+          "description": "Informative URLs pointing to a specification or more information for this field type.",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uri-reference"
+          }
         },
         "minLength": {
           "description": "The minimum string length. Care must be taken to make sure this doesn't contradict any \"pattern\" or \"maxLength\" values. It is an error if there is a contradiction. If there are maximum or minimum sizes, it is suggested that an instance makes use of the \"minLength\" and \"maxLength\" sizes in order to support those UIs that don't support regexes.",
@@ -361,10 +391,13 @@
     "name": { "$ref": "#/$defs/nameType" },
     "displayName": { "$ref": "#/$defs/nameType" },
     "notes": { "type": "string" },
-    "reference": {
-      "description": "An informative URL pointing to a specification or more information for this message.",
-      "type": "string",
-      "format": "uri-reference"
+    "references": {
+      "description": "Informative URLs pointing to a specification or more information for this field type.",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uri-reference"
+      }
     },
     "pid": {
       "description": "The parameter ID.",
