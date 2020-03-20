@@ -3,6 +3,52 @@
   "$schema": "https://json-schema.org/draft/2019-09/schema",
   "title": "Parameter Metadata Language Schema",
   "description": "The schema for the Parameter Metadata Language from Section 5 of E1.37-5. This schema is subject to change.",
+  "type": "object",
+  "properties": {
+    "name": { "$ref": "#/$defs/nameType" },
+    "displayName": { "$ref": "#/$defs/nameType" },
+    "notes": { "type": "string" },
+    "references": {
+      "description": "Informative URLs pointing to a specification or more information for this field type.",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "format": "uri-reference"
+      }
+    },
+    "pid": {
+      "description": "The parameter ID.",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535
+    },
+    "version": {
+      "description": "This is the parameter descriptor version.",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535
+    },
+    "get_request_subdevice_range": {
+      "$ref": "#/$defs/subdeviceType",
+      "default": [ "root" ]
+    },
+    "get_request": { "$ref": "#/$defs/commandType" },
+    "get_response": { "$ref": "#/$defs/commandType" },
+    "set_request_subdevice_range": {
+      "$ref": "#/$defs/subdeviceType",
+      "default": [ "root" ]
+    },
+    "set_request": { "$ref": "#/$defs/commandType" },
+    "set_response": { "$ref": "#/$defs/commandType" }
+  },
+  "additionalProperties": false,
+  "required": [ "name", "pid", "version" ],
+  "dependentRequired": {
+    "get_request": [ "get_response" ],
+    "get_response": [ "get_request" ],
+    "set_request": [ "set_response" ],
+    "set_response": [ "set_request" ]
+  },
   "$defs": {
     "bitType": {
       "description": "Describes the meaning of one bit in a bit field.",
@@ -385,51 +431,5 @@
       },
       "uniqueItems": true
     }
-  },
-  "type": "object",
-  "properties": {
-    "name": { "$ref": "#/$defs/nameType" },
-    "displayName": { "$ref": "#/$defs/nameType" },
-    "notes": { "type": "string" },
-    "references": {
-      "description": "Informative URLs pointing to a specification or more information for this field type.",
-      "type": "array",
-      "items": {
-        "type": "string",
-        "format": "uri-reference"
-      }
-    },
-    "pid": {
-      "description": "The parameter ID.",
-      "type": "integer",
-      "minimum": 0,
-      "maximum": 65535
-    },
-    "version": {
-      "description": "This is the parameter descriptor version.",
-      "type": "integer",
-      "minimum": 0,
-      "maximum": 65535
-    },
-    "get_request_subdevice_range": {
-      "$ref": "#/$defs/subdeviceType",
-      "default": [ "root" ]
-    },
-    "get_request": { "$ref": "#/$defs/commandType" },
-    "get_response": { "$ref": "#/$defs/commandType" },
-    "set_request_subdevice_range": {
-      "$ref": "#/$defs/subdeviceType",
-      "default": [ "root" ]
-    },
-    "set_request": { "$ref": "#/$defs/commandType" },
-    "set_response": { "$ref": "#/$defs/commandType" }
-  },
-  "additionalProperties": false,
-  "required": [ "name", "pid", "version" ],
-  "dependentRequired": {
-    "get_request": [ "get_response" ],
-    "get_response": [ "get_request" ],
-    "set_request": [ "set_response" ],
-    "set_response": [ "set_request" ]
   }
 }
