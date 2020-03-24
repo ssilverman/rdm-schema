@@ -9,7 +9,7 @@
     {
       "name": "domain_name",
       "type": "string",
-      "references": [ "https://tools.ietf.org/html/rfc2181#section-11" ],
+      "resources": [ "https://tools.ietf.org/html/rfc2181#section-11" ],
       "format": "domain-name",
       "maxLength": 231
     }

@@ -290,3 +290,22 @@ v22:
 * Changed "mac" in the "bytesType" type to "mac-address".
 * Changed the single string "reference" to "references", an array of the same.
 * Added all the E1.37-2 messages to the examples.
+
+v23:
+* Factored out all the common properties for named objects
+  into "commonPropertiesForNamed".
+* Moved around, changed, and added "additionalProperties" and
+  "unevaluatedProperties" where needed.
+* Changed the title to "Parameter Message".
+* Moved the "$defs" section to the bottom of the schema.
+* Changed the property name "ref" in "refType" to "$ref".
+* Adding `"additionalItems": false` to all the arrays.
+* Changed "commandType" to accept a single type in addition to an array
+  of types.
+* Changed the "references" property in "commonPropertiesForNamed" to "resources"
+  to help minimize confusion with "$ref".
+* Fixed some example syntax errors: SENSOR_VALUE and FACTORY_DEFAULTS.
+* Changed all example "pid" values marked as '#undefined' to -1. Now they'll all
+  at least parse, even if they don't validate.
+* Updated all example labels to capitalize all words.
+* Updated PACKED_PID_SUB and PACKED_PID_INDEX with notes and constraints.

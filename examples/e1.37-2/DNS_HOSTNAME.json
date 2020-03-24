@@ -9,7 +9,7 @@
     {
       "name": "hostname",
       "type": "string",
-      "references": [ "https://tools.ietf.org/html/rfc1123#section-2.1" ],
+      "resources": [ "https://tools.ietf.org/html/rfc1123#section-2.1" ],
       "format": "hostname",
       "minLength": 1,
       "maxLength": 63

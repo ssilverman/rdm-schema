@@ -1,6 +1,6 @@
 {
   "name": "NACK_DESCRIPTION",
-  "pid": #undefined,
+  "pid": -1,
   "version": 1,
   "get_request": [
       { "name": "nack_reason_number", "type": "uint16" }

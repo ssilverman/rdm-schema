@@ -9,7 +9,7 @@
       "name": "language_code",
       "type": "string",
       "pattern": "^[a-zA-Z]{2}$",
-      "references": [ "https://en.wikipedia.org/wiki/ISO_639-1" ],
+      "resources": [ "https://en.wikipedia.org/wiki/ISO_639-1" ],
       "minLength": 2,
       "maxLength": 2
     }

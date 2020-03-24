@@ -1,6 +1,6 @@
 {
-  "name": "QUEUED_MESSAGE_PID_SUBSCRIBE",
-  "pid": #undefined, WHERE IS THIS IN THE SPEC?
+  "name": "QUEUED_MESSAGE_PID_SUBSCRIBE  WHERE IS THIS IN THE SPEC?",
+  "pid": -1,
   "version": 1,
   "get_request_subdevice_range": [ "root", "subdevices" ],
   "get_request": [],

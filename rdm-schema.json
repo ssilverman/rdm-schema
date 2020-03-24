@@ -1,21 +1,11 @@
 {
   "$id": "http://estalink.us/jsonschema",
   "$schema": "https://json-schema.org/draft/2019-09/schema",
-  "title": "Parameter Metadata Language Schema",
+  "title": "Parameter Message",
   "description": "The schema for the Parameter Metadata Language from Section 5 of E1.37-5. This schema is subject to change.",
   "type": "object",
+  "$ref": "#/$defs/commonPropertiesForNamed",
   "properties": {
-    "name": { "$ref": "#/$defs/nameType" },
-    "displayName": { "$ref": "#/$defs/nameType" },
-    "notes": { "type": "string" },
-    "references": {
-      "description": "Informative URLs pointing to a specification or more information for this field type.",
-      "type": "array",
-      "items": {
-        "type": "string",
-        "format": "uri-reference"
-      }
-    },
     "pid": {
       "description": "The parameter ID.",
       "type": "integer",
@@ -41,7 +31,7 @@
     "set_request": { "$ref": "#/$defs/commandType" },
     "set_response": { "$ref": "#/$defs/commandType" }
   },
-  "additionalProperties": false,
+  "unevaluatedProperties": false,
   "required": [ "name", "pid", "version" ],
   "dependentRequired": {
     "get_request": [ "get_response" ],
@@ -53,10 +43,8 @@
     "bitType": {
       "description": "Describes the meaning of one bit in a bit field.",
       "type": "object",
+      "$ref": "#/$defs/commonPropertiesForNamed",
       "properties": {
-        "name": { "$ref": "#/$defs/nameType" },
-        "displayName": { "$ref": "#/$defs/nameType" },
-        "notes": { "type": "string" },
         "index": {
           "type": "integer",
           "minimum": 0
@@ -72,25 +60,15 @@
           "default": false
         }
       },
-      "additionalProperties": false,
+      "unevaluatedProperties": false,
       "required": [ "name", "index" ]
     },
     "bitFieldType": {
       "description": "A bit field, a collection of 'bit' items. The \"size\" field is used to specify the number of bits, a multiple of 8, in this bit field. It is an error if the size is less than the number of defined bits. Bits that are not specified are assumed to be reserved, with a value equal to the \"unspecifiedValues\" value.",
       "type": "object",
+      "$ref": "#/$defs/commonPropertiesForNamed",
       "properties": {
-        "name": { "$ref": "#/$defs/nameType" },
-        "displayName": { "$ref": "#/$defs/nameType" },
-        "notes": { "type": "string" },
         "type": { "const": "bitField" },
-        "references": {
-          "description": "Informative URLs pointing to a specification or more information for this field type.",
-          "type": "array",
-          "items": {
-            "type": "string",
-            "format": "uri-reference"
-          }
-        },
         "bits": {
           "type": "array",
           "items": { "$ref": "#/$defs/bitType" },
@@ -108,25 +86,15 @@
           "default": false
         }
       },
-      "additionalProperties": false,
+      "unevaluatedProperties": false,
       "required": [ "type", "size", "bits" ]
     },
     "booleanType": {
       "description": "A Boolean value. This corresponds to the DS_BOOLEAN type in \"Table A-15: Data Type Defines\" of the RDM E1.20 specification, a 1-byte zero-or-one value.",
       "type": "object",
+      "$ref": "#/$defs/commonPropertiesForNamed",
       "properties": {
-        "name": { "$ref": "#/$defs/nameType" },
-        "displayName": { "$ref": "#/$defs/nameType" },
-        "notes": { "type": "string" },
         "type": { "const": "boolean" },
-        "references": {
-          "description": "Informative URLs pointing to a specification or more information for this field type.",
-          "type": "array",
-          "items": {
-            "type": "string",
-            "format": "uri-reference"
-          }
-        },
         "labels": {
           "description": "A list of labels that name special values.",
           "type": "array",
@@ -135,28 +103,18 @@
           "maxItems": 2
         }
       },
-      "additionalProperties": false,
+      "unevaluatedProperties": false,
       "required": [ "type" ]
     },
     "bytesType": {
       "description": "A list of bytes. The minimum and maximum length properties are not required, but it is a good idea to specify their values for unknown bytes types.",
       "type": "object",
+      "$ref": "#/$defs/commonPropertiesForNamed",
       "properties": {
-        "name": { "$ref": "#/$defs/nameType" },
-        "displayName": { "$ref": "#/$defs/nameType" },
-        "notes": { "type": "string" },
         "type": { "const": "bytes" },
         "format": {
           "description": "This field describes how to interpret the value. It can be one of the bytes types defined in \"Table A-15: Data Type Defines\" of the RDM E1.20 specification (or other add-on specifications), or it can be something manufacturer-specific. Be aware, however, that anything not defined here may not be understood by a controller or UI. The known bytes types include: ipv4 (4 bytes), ipv6 (16 bytes), mac-address (6 bytes), uid (6 bytes), and uuid (16 bytes).",
           "type": "string"
-        },
-        "references": {
-          "description": "Informative URLs pointing to a specification or more information for this field type.",
-          "type": "array",
-          "items": {
-            "type": "string",
-            "format": "uri-reference"
-          }
         },
         "minLength": {
           "description": "The minimum bytes length. Care must be taken to make sure this doesn't contradict any \"maxLength\" value. It is an error if there is a contradiction.",
@@ -169,17 +127,19 @@
           "minimum": 0
         }
       },
-      "additionalProperties": false,
+      "unevaluatedProperties": false,
       "required": [ "type" ]
     },
     "commandType": {
-      "description": "Represents the contents of an RDM command: 1. a collection of 'field' items, each a simple or compound type, 2. a duplicate command, or 3. a reference to another array value.",
+      "description": "Represents the contents of an RDM command: 1. a collection of 'field' items, each a simple or compound type, 2. a single 'field' item, or 3. a duplicate command.",
       "oneOf": [
         {
           "type": "array",
           "items": { "$ref": "#/$defs/oneOfTypes" },
-          "uniqueItems": true
+          "uniqueItems": true,
+          "additionalItems": false
         },
+        { "$ref": "#/$defs/oneOfTypes" },
         {
           "description": "Indicates that a command is a duplicate of one of the other commands. Using this feature can potentially save space.",
           "enum": [
@@ -188,35 +148,48 @@
             "set_request",
             "set_response"
           ]
-        },
-        { "$ref": "#/$defs/refType" }
+        }
       ]
     },
-    "compoundType": {
-      "description": "Defines a compound type, a type used to combine other types. This is useful for including in lists.",
-      "type": "object",
+    "commonPropertiesForNamed": {
+      "description": "Defines a set of properties common to everything having a name.",
       "properties": {
         "name": { "$ref": "#/$defs/nameType" },
         "displayName": { "$ref": "#/$defs/nameType" },
         "notes": { "type": "string" },
+        "resources": {
+          "description": "Informative URLs pointing to a specification or more information for this field type.",
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uri-reference"
+          },
+          "additionalItems": false
+        }
+      }
+    },
+    "compoundType": {
+      "description": "Defines a compound type, a type used to combine other types. This is useful for including in lists.",
+      "type": "object",
+      "$ref": "#/$defs/commonPropertiesForNamed",
+      "properties": {
         "type": { "const": "compound" },
         "subtypes": {
           "type": "array",
           "items": {
             "$ref": "#/$defs/oneOfTypes"
-          }
+          },
+          "additionalItems": false
         }
       },
-      "additionalProperties": false,
+      "unevaluatedProperties": false,
       "required": [ "type", "subtypes" ]
     },
     "integerType": {
       "description": "A signed or unsigned integer, can have an optional prefix, unit, and range.",
       "type": "object",
+      "$ref": "#/$defs/commonPropertiesForNamed",
       "properties": {
-        "name": { "$ref": "#/$defs/nameType" },
-        "displayName": { "$ref": "#/$defs/nameType" },
-        "notes": { "type": "string" },
         "type": {
           "enum": [
             "int8",
@@ -229,19 +202,12 @@
             "uint64"
           ]
         },
-        "references": {
-          "description": "Informative URLs pointing to a specification or more information for this field type.",
-          "type": "array",
-          "items": {
-            "type": "string",
-            "format": "uri-reference"
-          }
-        },
         "labels": {
           "description": "A list of labels that name special values.",
           "type": "array",
           "items": { "$ref": "#/$defs/labeledIntegerType" },
-          "uniqueItems": true
+          "uniqueItems": true,
+          "additionalItems": false
         },
         "restrictToLabeled": {
           "description": "Whether to restrict the allowed values to those that have labels. This is useful to not have to additionally specify a set of ranges. If this is set to \"true\" then \"ranges\" should not be specified.",
@@ -252,7 +218,8 @@
           "description": "A list of possible ranges for the value. The complete range is the union of all the ranges. This should not be specified if \"restrictToLabeled\" is set to \"true\".",
           "type": "array",
           "items": { "$ref": "#/$defs/rangeType" },
-          "uniqueItems": true
+          "uniqueItems": true,
+          "additionalItems": false
         },
         "units": {
           "description": "The units type, defined in Table A-13 of E1.20.",
@@ -270,7 +237,7 @@
           "default": 10
         }
       },
-      "additionalProperties": false,
+      "unevaluatedProperties": false,
       "required": [ "type" ]
     },
     "labeledBooleanType": {
@@ -298,10 +265,8 @@
     "listType": {
       "description": "A list of objects all having the same type.",
       "type": "object",
+      "$ref": "#/$defs/commonPropertiesForNamed",
       "properties": {
-        "name": { "$ref": "#/$defs/nameType" },
-        "displayName": { "$ref": "#/$defs/nameType" },
-        "notes": { "type": "string" },
         "type": { "const": "list" },
         "itemType": { "$ref": "#/$defs/oneOfTypes" },
         "minItems": {
@@ -315,7 +280,7 @@
           "minimum": 0
         }
       },
-      "additionalProperties": false,
+      "unevaluatedProperties": false,
       "required": [ "type", "itemType" ]
     },
     "nameType": {
@@ -340,6 +305,7 @@
     "pdEnvelopeType": {
       "description": "Contains a length/data pair for one Parameter Data item, where the length is an unsigned 8-bit value and the data has 'length' bytes. This exists to provide a schema definition for the 'envelope' of a PDL/PD pair.",
       "type": "object",
+      "$ref": "#/$defs/commonPropertiesForNamed",
       "properties": {
         "type": { "const": "pdEnvelope" },
         "length": {
@@ -349,7 +315,7 @@
           "maximum": 255
         }
       },
-      "additionalProperties": false,
+      "unevaluatedProperties": false,
       "required": [ "type" ]
     },
     "rangeType": {
@@ -372,7 +338,7 @@
       "description": "Specifies a reference to another value, a URI whose fragment part, if present, is a JSON pointer. See RFCs 3986 (URI Syntax) and 6901 (JSON Pointer).",
       "type": "object",
       "properties": {
-        "ref": {
+        "$ref": {
           "type": "string",
           "format": "uri-reference"
         }
@@ -383,10 +349,8 @@
     "stringType": {
       "description": "A UTF-8-encoded string having a possibly bounded size. Implementations may need to use either a NUL terminator or another \"length\" field for multi-field messages where a string is followed by another field, so that its boundary can be determined.",
       "type": "object",
+      "$ref": "#/$defs/commonPropertiesForNamed",
       "properties": {
-        "name": { "$ref": "#/$defs/nameType" },
-        "displayName": { "$ref": "#/$defs/nameType" },
-        "notes": { "type": "string" },
         "type": { "const": "string" },
         "format": {
           "description": "This field describes how to interpret the string value. It can be one of the string types defined in \"Table A-15: Data Type Defines\" of the RDM E1.20 specification (or other add-on specifications), or it can be something manufacturer-specific. Be aware, however, that anything not defined here may not be understood by a controller or UI. The known string types include: domain-name, hostname, string, and url",
@@ -396,14 +360,6 @@
           "description": "An ECMA 262 regular expression that can be used to validate the contents of this field. They're helpful for assisting a controller or UI do message validation. It's not necessary to provide a pattern for known \"format\" types. Note that care must be taken to make sure that patterns don't contradict any \"minLength\" and \"maxLength\" values. It is an error if there is a contradiction. As well, if there are maximum or minimum sizes, it is suggested that an instance makes use of the \"minLength\" and \"maxLength\" sizes in order to support those UIs that don't support regexes.",
           "type": "string",
           "format": "regex"
-        },
-        "references": {
-          "description": "Informative URLs pointing to a specification or more information for this field type.",
-          "type": "array",
-          "items": {
-            "type": "string",
-            "format": "uri-reference"
-          }
         },
         "minLength": {
           "description": "The minimum string length. Care must be taken to make sure this doesn't contradict any \"pattern\" or \"maxLength\" values. It is an error if there is a contradiction. If there are maximum or minimum sizes, it is suggested that an instance makes use of the \"minLength\" and \"maxLength\" sizes in order to support those UIs that don't support regexes.",
@@ -416,7 +372,7 @@
           "minimum": 0
         }
       },
-      "additionalProperties": false,
+      "unevaluatedProperties": false,
       "required": [ "type" ]
     },
     "subdeviceType": {
@@ -429,7 +385,8 @@
           "broadcast"
         ]
       },
-      "uniqueItems": true
+      "uniqueItems": true,
+      "additionalItems": false
     }
   }
 }

@@ -22,7 +22,7 @@
           {
             "name": "hardware_type",
             "type": "uint16",
-            "references": [ "https://www.iana.org/assignments/arp-parameters/arp-parameters.xhtml" ]
+            "resources": [ "https://www.iana.org/assignments/arp-parameters/arp-parameters.xhtml" ]
           }
         ]
       }

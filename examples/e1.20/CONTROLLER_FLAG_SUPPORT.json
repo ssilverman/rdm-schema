@@ -1,6 +1,6 @@
 {
   "name": "CONTROLLER_FLAG_SUPPORT",
-  "pid": #undefined,
+  "pid": -1,
   "version": 1,
   "get_request": [],
   "get_response": [

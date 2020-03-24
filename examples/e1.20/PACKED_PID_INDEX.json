@@ -1,12 +1,22 @@
 {
   "name": "PACKED_PID_INDEX",
-  "pid": #undefined,
+  "pid": -1,
   "version": 1,
   "get_request_subdevice_range": [ "root", "subdevices" ],
   "get_request": [
-    { "name": "pid", "type": "uint16" },
+    {
+      "name": "pid",
+      "type": "uint16",
+      "notes": "Some PIDs are disallowed from being packed. See \"Table A-3: RDM Categories/Parameter ID Defines\" of rhe RDM E1.20 specification."
+    },
     { "name": "first_item", "type": "uint16" },
-    { "name": "item_count", "type": "uint16" }
+    {
+      "name": "item_count",
+      "type": "uint16",
+      "labels": [
+        { "label": "All Data", "value": 65535 }
+      ]
+    }
   ],
   "get_response": [
     { "name": "pid", "type": "uint16" },

@@ -1,6 +1,6 @@
 {
   "name": "SUPPORTED_PARAMETERS_ENHANCED",
-  "pid": #undefined,
+  "pid": -1,
   "version": 1,
   "get_request_subdevice_range": [ "root", "subdevices" ],
   "get_request": [],

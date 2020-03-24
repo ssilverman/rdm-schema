@@ -54,7 +54,6 @@
     {
       "name": "unit_prefix",
       "type": "uint8",
-      "notes": "Why isn't this int8 with the value being the power of 10 or 2 (or 1024)?",
       "labels": [
         { "label": "NONE", "value": 0 },
         { "label": "DECI", "value": 1 },

@@ -93,7 +93,7 @@
         { "minimum": 65535, "maximum": 65535 }
       ],
       "labels": [
-        { "label": "No footprint", "value": 65535 }
+        { "label": "No Footprint", "value": 65535 }
       ]
     },
     { "name": "sub_device_count", "type": "uint16" },

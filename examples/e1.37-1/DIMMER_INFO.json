@@ -10,28 +10,28 @@
       "name": "min_level_lower_limit",
       "type": "uint16",
       "labels": [
-        { "label": "Not implemented", "value": 0 }
+        { "label": "Not Implemented", "value": 0 }
       ]
     },
     {
       "name": "min_level_upper_limit",
       "type": "uint16",
       "labels": [
-        { "label": "Not implemented", "value": 0 }
+        { "label": "Not Implemented", "value": 0 }
       ]
     },
     {
       "name": "max_level_lower_limit",
       "type": "uint16",
       "labels": [
-        { "label": "Not implemented", "value": 65535 }
+        { "label": "Not Implemented", "value": 65535 }
       ]
     },
     {
       "name": "max_level_upper_limit",
       "type": "uint16",
       "labels": [
-        { "label": "Not implemented", "value": 65535 }
+        { "label": "Not Implemented", "value": 65535 }
       ]
     },
     { "name": "curve_count", "type": "uint8" },
@@ -46,7 +46,7 @@
       "name": "min_level_split_levels_supported",
       "type": "boolean",
       "labels": [
-        { "label": "Not supported", "value": false },
+        { "label": "Not Supported", "value": false },
         { "label": "Supported", "value": true }
       ]
     }

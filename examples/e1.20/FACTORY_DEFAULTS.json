@@ -7,7 +7,7 @@
   "get_response": [
     {
       "name": "status",
-      "type": "boolean",
+      "type": "boolean"
     }
   ],
   "set_request_subdevice_range": [ "root", "subdevices", "broadcast" ],

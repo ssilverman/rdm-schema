@@ -81,7 +81,7 @@
       "name": "clear_preset",
       "type": "boolean",
       "labels": [
-        { "label": "Don't clear", "value": false },
+        { "label": "Don't Clear", "value": false },
         { "label": "Clear", "value": true }
       ]
     }

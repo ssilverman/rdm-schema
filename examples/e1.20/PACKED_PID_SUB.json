@@ -1,12 +1,32 @@
 {
   "name": "PACKED_PID_SUB",
-  "pid": #undefined,
+  "pid": -1,
   "version": 1,
   "get_request": [
-    { "name": "pid", "type": "uint16" },
+    {
+      "name": "pid",
+      "type": "uint16",
+      "notes": "Some PIDs are disallowed from being packed. See \"Table A-3: RDM Categories/Parameter ID Defines\" of rhe RDM E1.20 specification."
+    },
     { "name": "index", "type": "uint16" },
-    { "name": "first_subdevice", "type": "uint16" },
-    { "name": "subdevice_count", "type": "uint16" }
+    {
+      "name": "first_subdevice",
+      "type": "uint16",
+      "ranges": [
+        { "minimum": 0, "maximum": 65520 }
+      ]
+    },
+    {
+      "name": "subdevice_count",
+      "type": "uint16",
+      "ranges": [
+        { "minimum": 1, "maximum": 65520 },
+        { "minimum": 65535, "maximum": 65535 }
+      ],
+      "labels": [
+        { "label": "All Subdevices", "value": 65535 }
+      ]
+    }
   ],
   "get_response": [
     { "name": "pid", "type": "uint16" },
@@ -17,7 +37,13 @@
       "itemType": {
         "type": "compound",
         "subtypes": [
-          { "name": "subdevice", "type": "uint16" },
+          {
+            "name": "subdevice",
+            "type": "uint16",
+            "ranges": [
+              { "minimum": 0, "maximum": 65520 }
+            ]
+          },
           { "name": "subdevice_entry", "type": "pdEnvelope" }
         ]
       }
