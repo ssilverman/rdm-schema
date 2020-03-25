@@ -1,0 +1,18 @@
+{
+  "name": "POWER_OFF_SAFE",
+  "notes": "E1.37-5",
+  "pid": -1,
+  "version": 1,
+  "get_request_subdevice_range": [ "root", "subdevices" ],
+  "get_request": [],
+  "get_response": [
+    {
+      "name": "state",
+      "type": "boolean",
+      "labels": [
+        { "label": "Not Safe", "value": false },
+        { "label": "Safe", "value": true }
+      ]
+    }
+  ]
+}

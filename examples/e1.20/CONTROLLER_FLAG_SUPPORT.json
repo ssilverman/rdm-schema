@@ -2,6 +2,7 @@
   "name": "CONTROLLER_FLAG_SUPPORT",
   "pid": -1,
   "version": 1,
+  "get_request_subdevice_range": [ "root" ],
   "get_request": [],
   "get_response": [
     { "name": "controller_flags", "type": "uint8" }

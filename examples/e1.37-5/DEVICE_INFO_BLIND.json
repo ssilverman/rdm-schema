@@ -1,10 +1,36 @@
 {
-  "name": "DEVICE_INFO",
-  "pid": 96,
+  "name": "DEVICE_INFO_BLIND",
+  "notes": "E1.37-5",
+  "pid": -1,
   "version": 1,
-  "get_request_subdevice_range": [ "root", "subdevices" ],
-  "get_request": [],
+  "get_request_subdevice_range": [ "root" ],
+  "get_request": [
+    {
+      "name": "root_personality",
+      "type": "uint8",
+      "ranges": [
+        { "minimum": 1, "maximum": 255 }
+      ]
+    },
+    {
+      "name": "subdevice",
+      "type": "uint16",
+      "labels": [
+        { "label": "root", "value": 0 }
+      ]
+    },
+    {
+      "name": "subdevice_personality",
+      "type": "uint8",
+      "labels": [
+        { "label": "root", "value": 0 }
+      ]
+    }
+  ],
   "get_response": [
+    { "$ref": "#/get_request/0" },
+    { "$ref": "#/get_request/1" },
+    { "$ref": "#/get_request/2" },
     { "name": "protocol_major", "type": "uint8" },
     { "name": "protocol_minor", "type": "uint8" },
     { "name": "device_model_id", "type": "uint16" },

@@ -2,6 +2,7 @@
   "name": "STATUS_ID_DESCRIPTION",
   "pid": 49,
   "version": 1,
+  "get_request_subdevice_range": [ "root" ],
   "get_request": [
     { "name": "status_id", "type": "uint16" }
   ],

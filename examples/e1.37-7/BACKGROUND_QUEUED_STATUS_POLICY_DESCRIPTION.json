@@ -1,0 +1,27 @@
+{
+  "name": "BACKGROUND_QUEUED_STATUS_POLICY_DESCRIPTION",
+  "notes": "E1.37-7",
+  "pid": 2319,
+  "version": 1,
+  "get_request_subdevice_range": [ "root", "subdevices" ],
+  "get_request": [
+    {
+      "name": "policy",
+      "type": "uint8",
+      "labels": [
+        { "label": "Status Type None", "value": 0 },
+        { "label": "Status Type Advisory and higher", "value": 1 },
+        { "label": "Status Type Warning and higher", "value": 2 },
+        { "label": "Status Type Error", "value": 3 }
+      ]
+    }
+  ],
+  "get_response": [
+    { "$ref": "#/get_request/0" },
+    {
+      "name": "description",
+      "type": "string",
+      "maxLength": 32
+    }
+  ]
+}

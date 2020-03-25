@@ -30,7 +30,7 @@
       "name": "hour",
       "type": "uint8",
       "ranges": [
-        { "minimum": 0, "maximum": 23 }
+        { "minimum": 0, "maximum": 24 }
       ]
     },
     {

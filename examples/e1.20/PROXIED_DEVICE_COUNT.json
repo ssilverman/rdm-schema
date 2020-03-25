@@ -2,6 +2,7 @@
   "name": "PROXIED_DEVICE_COUNT",
   "pid": 17,
   "version": 1,
+  "get_request_subdevice_range": [ "root" ],
   "get_request": [],
   "get_response": [
     { "name": "device_count", "type": "uint16" },

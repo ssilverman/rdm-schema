@@ -1,0 +1,34 @@
+{
+  "name": "SHIPPING_LOCK",
+  "notes": "E1.37-5",
+  "pid": -1,
+  "version": 1,
+  "get_request_subdevice_range": [ "root" ],
+  "get_request": [],
+  "get_response": [
+    {
+      "name": "lock_state",
+      "type": "uint8",
+      "labels": [
+        { "label": "UNLOCKED", "value": 0 },
+        { "label": "LOCKED", "value": 1 },
+        { "label": "PARTIALLY_LOCKED", "value": 2 }
+      ],
+      "restrictToLabeled": true
+    }
+  ],
+  "set_request_subdevice_range": [ "root" ],
+  "set_request": [
+    {
+      "name": "lock_state",
+      "type": "uint8",
+      "note": "The list here is more restrictive than for getting the lock state. Do we want to add states and maybe descriptions?",
+      "labels": [
+        { "label": "Unlocked", "value": 0 },
+        { "label": "Locked", "value": 1 }
+      ],
+      "restrictToLabeled": true
+    }
+  ],
+  "set_response": []
+}

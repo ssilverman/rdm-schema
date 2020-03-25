@@ -319,7 +319,7 @@
       "required": [ "type" ]
     },
     "rangeType": {
-      "description": "Defines an inclusive range of numbers.",
+      "description": "Defines an inclusive range of numbers. If one of the bounds is undefined then it is assumed to be the bound appropriate for the type.",
       "type": "object",
       "properties": {
         "minimum": {
@@ -331,8 +331,7 @@
           "type": "integer"
         }
       },
-      "additionalProperties": false,
-      "required": [ "minimum", "maximum" ]
+      "additionalProperties": false
     },
     "refType": {
       "description": "Specifies a reference to another value, a URI whose fragment part, if present, is a JSON pointer. See RFCs 3986 (URI Syntax) and 6901 (JSON Pointer).",
@@ -344,7 +343,7 @@
         }
       },
       "additionalProperties": false,
-      "required": [ "ref" ]
+      "required": [ "$ref" ]
     },
     "stringType": {
       "description": "A UTF-8-encoded string having a possibly bounded size. Implementations may need to use either a NUL terminator or another \"length\" field for multi-field messages where a string is followed by another field, so that its boundary can be determined.",
@@ -353,7 +352,7 @@
       "properties": {
         "type": { "const": "string" },
         "format": {
-          "description": "This field describes how to interpret the string value. It can be one of the string types defined in \"Table A-15: Data Type Defines\" of the RDM E1.20 specification (or other add-on specifications), or it can be something manufacturer-specific. Be aware, however, that anything not defined here may not be understood by a controller or UI. The known string types include: domain-name, hostname, string, and url",
+          "description": "This field describes how to interpret the string value. It can be one of the string types defined in \"Table A-15: Data Type Defines\" of the RDM E1.20 specification (or other add-on specifications), or it can be something manufacturer-specific. Be aware, however, that anything not defined here may not be understood by a controller or UI. The known string types include: domain-name, hostname, json, string, and url",
           "type": "string"
         },
         "pattern": {

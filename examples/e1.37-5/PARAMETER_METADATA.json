@@ -1,0 +1,33 @@
+{
+  "name": "PARAMETER_METADATA",
+  "notes": "E1.37-5",
+  "pid": -1,
+  "version": 1,
+  "get_request_subdevice_range": [ "root", "subdevices" ],
+  "get_request": [
+    { "name": "pid", "type": "uint16" }
+  ],
+  "get_response": [
+    { "$ref": "#/get_request/0" },
+    {
+      "name": "supported_command_class",
+      "type": "uint8",
+      "labels": [
+        { "label": "GET", "value": 1 },
+        { "label": "SET", "value": 2 },
+        { "label": "GET_SET", "value": 3 }
+      ],
+      "restrictToLabeled": true
+    },
+    {
+      "name": "version",
+      "type": "uint16",
+      "notes": "There's no reason to restrict the version number to start at 1."
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "maxLength": 32
+    }
+  ]
+}

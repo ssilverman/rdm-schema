@@ -3,6 +3,7 @@
   "notes": "E1.37-1",
   "pid": 320,
   "version": 1,
+  "get_request_subdevice_range": [ "root" ],
   "get_request": [],
   "get_response": [
     {
@@ -24,6 +25,7 @@
       ]
     }
   ],
+  "set_request_subdevice_range": [ "root" ],
   "set_request": [
     {
       "name": "base_dmx_address",

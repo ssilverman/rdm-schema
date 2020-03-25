@@ -1,0 +1,24 @@
+{
+  "name": "CHECK_TAG",
+  "notes": "E1.37-5",
+  "pid": -1,
+  "version": 1,
+  "set_request_subdevice_range": [ "root", "subdevices" ],
+  "set_request": [
+    {
+      "name": "tag",
+      "type": "string",
+      "maxLength": 32
+    }
+  ],
+  "set_response": [
+    {
+      "name": "status",
+      "type": "boolean",
+      "labels": [
+        { "label": "Not Present", "value": false },
+        { "label": "Present", "value": true }
+      ]
+    }
+  ]
+}
