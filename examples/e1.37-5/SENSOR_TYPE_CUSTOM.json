@@ -9,7 +9,7 @@
       "name": "sensor_type",
       "type": "uint8",
       "ranges": [
-        { "mininum": 128, "maximum": 255 }
+        { "minimum": 128, "maximum": 255 }
       ]
     }
   ],

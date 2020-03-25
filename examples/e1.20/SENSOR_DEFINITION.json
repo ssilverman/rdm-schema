@@ -52,7 +52,7 @@
         { "label": "GAS_CONCENTRATION", "value": 37 },
         { "label": "CO2_LEVEL", "value": 38 },
         { "label": "SOUND_PRESSURE_LEVEL", "value": 39 },
-        { "label": "OTHER", "value": 127 },
+        { "label": "OTHER", "value": 127 }
       ]
     },
     {
