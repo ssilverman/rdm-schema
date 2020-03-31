@@ -324,3 +324,17 @@ v24:
 * Added sensor type labels to SENSOR_DEFINITION.
 * Added "json" to the list in "format" for "stringType".
 * Added E1.37-5 examples.
+
+v25:
+* Added "maxBytes" to "stringType" for the maximum encoded size in bytes.
+* Updated the "format" description in "stringType": added that the formats from
+  the JSON Schema Validation spec are valid and added URLs that describe the
+  format for each of the format words.
+* Since "default" is just informative, and does not exist as a value if the
+  associated property does not exist, removed it from "restrictToLabeled" in
+  "integerType" and "reserved" in "bitType".
+* Added a link for ECMA-262 to the "pattern" description in "stringType".
+* Fixed the SET response in CLEAR_STATUS_ID to be empty.
+* Added a "restrictToASCII" flag for "stringType".
+* Updated examples that need to be restricted to ASCII with the new
+  "restrictToASCII" flag.

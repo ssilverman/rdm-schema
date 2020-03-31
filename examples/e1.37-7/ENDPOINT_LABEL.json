@@ -18,7 +18,8 @@
     {
       "name": "label",
       "type": "string",
-      "maxLength": 32
+      "maxLength": 32,
+      "restrictToASCII": true
     }
   ],
   "set_request_subdevice_range": [ "root" ],

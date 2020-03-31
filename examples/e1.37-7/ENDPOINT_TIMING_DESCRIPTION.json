@@ -18,7 +18,8 @@
     {
       "name": "description",
       "type": "string",
-      "maxLength": 32
+      "maxLength": 32,
+      "restrictToASCII": true
     }
   ]
 }

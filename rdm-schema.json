@@ -51,8 +51,7 @@
         },
         "reserved": {
           "description": "Indicates that this bit is unused or reserved.",
-          "type": "boolean",
-          "default": false
+          "type": "boolean"
         },
         "reservedValue": {
           "description": "The assumed value when the bit is marked as reserved.",
@@ -211,8 +210,7 @@
         },
         "restrictToLabeled": {
           "description": "Whether to restrict the allowed values to those that have labels. This is useful to not have to additionally specify a set of ranges. If this is set to \"true\" then \"ranges\" should not be specified.",
-          "type": "boolean",
-          "default": false
+          "type": "boolean"
         },
         "ranges": {
           "description": "A list of possible ranges for the value. The complete range is the union of all the ranges. This should not be specified if \"restrictToLabeled\" is set to \"true\".",
@@ -352,11 +350,11 @@
       "properties": {
         "type": { "const": "string" },
         "format": {
-          "description": "This field describes how to interpret the string value. It can be one of the string types defined in \"Table A-15: Data Type Defines\" of the RDM E1.20 specification (or other add-on specifications), or it can be something manufacturer-specific. Be aware, however, that anything not defined here may not be understood by a controller or UI. The known string types include: domain-name, hostname, json, string, and url",
+          "description": "This field describes how to interpret the string value. It can be one of the string types defined in \"Table A-15: Data Type Defines\" of the RDM E1.20 specification (or other add-on specifications), one of the defined formats from the JSON Schema Validation specification (https://json-schema.org/draft/2019-09/json-schema-validation.html#rfc.section.7.3), or it can be something manufacturer-specific. Be aware, however, that anything not defined here may not be understood by a controller or UI. The known string types from E1.20 (and add-ons) include: domain-name (https://tools.ietf.org/html/rfc2181#section-11), hostname (https://tools.ietf.org/html/rfc1123#section-2.1, https://tools.ietf.org/html/rfc5891#section-4.4), json (https://tools.ietf.org/html/rfc7159), string, and url (https://tools.ietf.org/html/rfc3986, https://tools.ietf.org/html/rfc1738).",
           "type": "string"
         },
         "pattern": {
-          "description": "An ECMA 262 regular expression that can be used to validate the contents of this field. They're helpful for assisting a controller or UI do message validation. It's not necessary to provide a pattern for known \"format\" types. Note that care must be taken to make sure that patterns don't contradict any \"minLength\" and \"maxLength\" values. It is an error if there is a contradiction. As well, if there are maximum or minimum sizes, it is suggested that an instance makes use of the \"minLength\" and \"maxLength\" sizes in order to support those UIs that don't support regexes.",
+          "description": "An ECMA-262 regular expression (https://www.ecma-international.org/publications/standards/Ecma-262.htm) that can be used to validate the contents of this field. They're helpful for assisting a controller or UI do message validation. It's not necessary to provide a pattern for known \"format\" types. Note that care must be taken to make sure that patterns don't contradict any \"minLength\" and \"maxLength\" values. It is an error if there is a contradiction. As well, if there are maximum or minimum sizes, it is suggested that an instance makes use of the \"minLength\" and \"maxLength\" sizes in order to support those UIs that don't support regexes.",
           "type": "string",
           "format": "regex"
         },
@@ -369,6 +367,15 @@
           "description": "The maximum string length. Care must be taken to make sure this doesn't contradict any \"pattern\" or \"minLength\" values. It is an error if there is a contradiction. If there are maximum or minimum sizes, it is suggested that an instance makes use of the \"minLength\" and \"maxLength\" sizes in order to support those UIs that don't support regexes.",
           "type": "integer",
           "minimum": 0
+        },
+        "maxBytes": {
+          "description": "In the case that the number of characters in the string is different from the number of bytes after UTF-8 encoding, we may need to specify a maximum encoded length.",
+          "type": "integer",
+          "minimum": 0
+        },
+        "restrictToASCII": {
+          "description": "Indicates whether the string contents should be restricted to US-ASCII.",
+          "type": "boolean"
         }
       },
       "unevaluatedProperties": false,

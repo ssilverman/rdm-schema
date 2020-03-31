@@ -7,6 +7,11 @@
     { "name": "status_id", "type": "uint16" }
   ],
   "get_response": [
-    { "name": "description", "type": "string" }
+    {
+      "name": "description",
+      "type": "string",
+      "maxLength": 32,
+      "restrictToASCII": true
+    }
   ]
 }

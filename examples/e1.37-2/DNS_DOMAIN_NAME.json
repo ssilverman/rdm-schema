@@ -11,7 +11,8 @@
       "type": "string",
       "resources": [ "https://tools.ietf.org/html/rfc2181#section-11" ],
       "format": "domain-name",
-      "maxLength": 231
+      "maxLength": 231,
+      "restrictToASCII": true
     }
   ],
   "set_request_subdevice_range": [ "root", "subdevices", "broadcast" ],

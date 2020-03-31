@@ -12,7 +12,8 @@
       "resources": [ "https://tools.ietf.org/html/rfc1123#section-2.1" ],
       "format": "hostname",
       "minLength": 1,
-      "maxLength": 63
+      "maxLength": 63,
+      "restrictToASCII": true
     }
   ],
   "set_request_subdevice_range": [ "root", "subdevices", "broadcast" ],
