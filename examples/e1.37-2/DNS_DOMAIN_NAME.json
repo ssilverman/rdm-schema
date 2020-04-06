@@ -1,6 +1,6 @@
 {
   "name": "DNS_DOMAIN_NAME",
-  "notes": "E1.37-2",
+  "notes": "E1.37-2. This the domain of an internet host; it is appended to the hostname using a dot ('.') to create a fully qualified domain name (FQDN).",
   "pid": 1805,
   "version": 1,
   "get_request_subdevice_range": [ "root", "subdevices" ],
@@ -9,8 +9,13 @@
     {
       "name": "domain_name",
       "type": "string",
-      "resources": [ "https://tools.ietf.org/html/rfc2181#section-11" ],
-      "format": "domain-name",
+      "resources": [
+        "https://tools.ietf.org/html/rfc1123#section-2.1",
+        "https://tools.ietf.org/html/rfc1912#section-2.1",
+        "https://tools.ietf.org/html/rfc1035#section-2.3.1",
+        "https://stackoverflow.com/a/14622263"
+      ],
+      "format": "hostname",
       "maxLength": 231,
       "restrictToASCII": true
     }

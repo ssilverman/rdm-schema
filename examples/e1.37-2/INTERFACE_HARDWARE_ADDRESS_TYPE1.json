@@ -24,6 +24,7 @@
     {
       "name": "address",
       "type": "bytes",
+      "resources": [ "https://tools.ietf.org/html/rfc7042#section-2.1" ],
       "format": "mac-address"
     }
   ]

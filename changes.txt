@@ -338,3 +338,10 @@ v25:
 * Added a "restrictToASCII" flag for "stringType".
 * Updated examples that need to be restricted to ASCII with the new
   "restrictToASCII" flag.
+
+v26:
+* Updated notes in DNS_HOSTNAME and DNS_DOMAIN_NAME to describe the actual
+  intent of these messages, added some resource links, and added a pattern to
+  DNS_HOSTNAME.
+* Removed "domain-name" from the "format" list in "stringType".
+* Added a resource to INTERFACE_HARDWARE_ADDRESS_TYPE1.
