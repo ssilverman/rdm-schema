@@ -135,8 +135,7 @@
         {
           "type": "array",
           "items": { "$ref": "#/$defs/oneOfTypes" },
-          "uniqueItems": true,
-          "additionalItems": false
+          "uniqueItems": true
         },
         { "$ref": "#/$defs/oneOfTypes" },
         {
@@ -162,8 +161,7 @@
           "items": {
             "type": "string",
             "format": "uri-reference"
-          },
-          "additionalItems": false
+          }
         }
       }
     },
@@ -175,10 +173,7 @@
         "type": { "const": "compound" },
         "subtypes": {
           "type": "array",
-          "items": {
-            "$ref": "#/$defs/oneOfTypes"
-          },
-          "additionalItems": false
+          "items": { "$ref": "#/$defs/oneOfTypes" }
         }
       },
       "unevaluatedProperties": false,
@@ -205,8 +200,7 @@
           "description": "A list of labels that name special values.",
           "type": "array",
           "items": { "$ref": "#/$defs/labeledIntegerType" },
-          "uniqueItems": true,
-          "additionalItems": false
+          "uniqueItems": true
         },
         "restrictToLabeled": {
           "description": "Whether to restrict the allowed values to those that have labels. This is useful to not have to additionally specify a set of ranges. If this is set to \"true\" then \"ranges\" should not be specified.",
@@ -216,8 +210,7 @@
           "description": "A list of possible ranges for the value. The complete range is the union of all the ranges. This should not be specified if \"restrictToLabeled\" is set to \"true\".",
           "type": "array",
           "items": { "$ref": "#/$defs/rangeType" },
-          "uniqueItems": true,
-          "additionalItems": false
+          "uniqueItems": true
         },
         "units": {
           "description": "The units type, defined in Table A-13 of E1.20.",
@@ -359,12 +352,12 @@
           "format": "regex"
         },
         "minLength": {
-          "description": "The minimum string length. Care must be taken to make sure this doesn't contradict any \"pattern\" or \"maxLength\" values. It is an error if there is a contradiction. If there are maximum or minimum sizes, it is suggested that an instance makes use of the \"minLength\" and \"maxLength\" sizes in order to support those UIs that don't support regexes.",
+          "description": "The minimum string length, in characters. Care must be taken to make sure this doesn't contradict any \"pattern\" or \"maxLength\" values. It is an error if there is a contradiction. If there are maximum or minimum sizes, it is suggested that an instance makes use of the \"minLength\" and \"maxLength\" sizes in order to support those UIs that don't support regexes.",
           "type": "integer",
           "minimum": 0
         },
         "maxLength": {
-          "description": "The maximum string length. Care must be taken to make sure this doesn't contradict any \"pattern\" or \"minLength\" values. It is an error if there is a contradiction. If there are maximum or minimum sizes, it is suggested that an instance makes use of the \"minLength\" and \"maxLength\" sizes in order to support those UIs that don't support regexes.",
+          "description": "The maximum string length, in characters. Care must be taken to make sure this doesn't contradict any \"pattern\" or \"minLength\" values. It is an error if there is a contradiction. If there are maximum or minimum sizes, it is suggested that an instance makes use of the \"minLength\" and \"maxLength\" sizes in order to support those UIs that don't support regexes.",
           "type": "integer",
           "minimum": 0
         },
@@ -391,8 +384,7 @@
           "broadcast"
         ]
       },
-      "uniqueItems": true,
-      "additionalItems": false
+      "uniqueItems": true
     }
   }
 }
