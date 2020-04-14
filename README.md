@@ -8,7 +8,7 @@ The schema is subject to change.
 ## Project intent
 
 This project intends to provide a machine-readable way to describe
-manufacturer-specific RDM messages. Controllers can then process, and possibly
+manufacturer-specific RDM messages. Controllers can then process, and perhaps
 provide a meaningful UI for, these messages.
 
 ## Design notes
@@ -31,6 +31,22 @@ be present as a group or not.
 It was decided that these features would not be included because they're so
 rare and they're not desiarable features for representing manufacturer messages,
 the original intent for this project.
+
+## Usage notes
+
+### Framing is at a different layer
+
+The schema can describe complete messages, but does not describe message
+framing. For example, if a message is larger than can fit inside a single RDM
+packet, then the underlying implementation would use
+`RESPONSE_TYPE_ACK_OVERFLOW` appropriately.
+
+### Arbitrary field sizes
+
+There are several field types that can be non-fixed sizes. For example, "a
+string having a length in the range 0-32" or "a list of arbitrary size". So that
+there is no ambiguity, a message should contain at most one non-fixed-size
+field, and that field should appear last, serially.
 
 ## Resources
 
