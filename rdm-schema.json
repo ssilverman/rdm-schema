@@ -234,24 +234,22 @@
     "labeledBooleanType": {
       "description": "Associates a name to a Boolean value.",
       "type": "object",
+      "$ref": "#/$defs/commonPropertiesForNamed",
       "properties": {
-        "label": { "$ref": "#/$defs/nameType" },
-        "value": { "type": "boolean" },
-        "notes": { "type": "string" }
+        "value": { "type": "boolean" }
       },
-      "additionalProperties": false,
-      "required": [ "label", "value" ]
+      "unevaluatedProperties": false,
+      "required": [ "name", "value" ]
     },
     "labeledIntegerType": {
       "description": "Associates a name to an integer value.",
       "type": "object",
+      "$ref": "#/$defs/commonPropertiesForNamed",
       "properties": {
-        "label": { "$ref": "#/$defs/nameType" },
-        "value": { "type": "integer" },
-        "notes": { "type": "string" }
+        "value": { "type": "integer" }
       },
-      "additionalProperties": false,
-      "required": [ "label", "value" ]
+      "unevaluatedProperties": false,
+      "required": [ "name", "value" ]
     },
     "listType": {
       "description": "A list of objects all having the same type.",
