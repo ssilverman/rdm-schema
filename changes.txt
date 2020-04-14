@@ -345,3 +345,15 @@ v26:
   DNS_HOSTNAME.
 * Removed "domain-name" from the "format" list in "stringType".
 * Added a resource to INTERFACE_HARDWARE_ADDRESS_TYPE1.
+
+v27:
+* Removed "additionalItems" from all the "array" types because it turns out it's
+  for array-valued "items" and not schema-valued "items".
+* Clarified that "minLength" and "maxLength" in "stringType" specify the length
+  in characters.
+* Fixed the pattern length in the TEST_DATA response. Also changed the
+  field names.
+* Changed CONTROLLER_FLAG_SUPPORT to use a bit field.
+* Added a README.
+* Changed "labeledBooleanType" and "labeledIntegerType" to use properties from
+  "commonPropertiesForNamed" instead of the custom "label" and "notes".
