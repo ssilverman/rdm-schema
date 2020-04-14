@@ -24,8 +24,8 @@
             "name": "type",
             "type": "uint8",
             "labels": [
-              { "label": "VIRTUAL", "value": 0 },
-              { "label": "PHYSICAL", "value": 1 }
+              { "name": "VIRTUAL", "value": 0 },
+              { "name": "PHYSICAL", "value": 1 }
             ],
             "restrictToLabeled": true
           }

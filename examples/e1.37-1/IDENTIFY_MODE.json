@@ -10,8 +10,8 @@
       "name": "mode",
       "type": "uint8",
       "labels": [
-        { "label": "Quiet Identify", "value": 0 },
-        { "label": "Loud Identify", "value": 255 }
+        { "name": "Quiet Identify", "value": 0 },
+        { "name": "Loud Identify", "value": 255 }
       ]
     }
   ],

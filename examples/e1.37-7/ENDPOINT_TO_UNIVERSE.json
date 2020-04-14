@@ -23,8 +23,8 @@
         { "minimum": 65535, "maximum": 65535 }
       ],
       "labels": [
-        { "label": "Unpatched", "value": 0 },
-        { "label": "Composite", "value": 65535 }
+        { "name": "Unpatched", "value": 0 },
+        { "name": "Composite", "value": 65535 }
       ]
     }
   ],
@@ -38,7 +38,7 @@
         { "minimum": 65535, "maximum": 65535 }
       ],
       "labels": [
-        { "label": "BROADCAST", "value": 65535 }
+        { "name": "BROADCAST", "value": 65535 }
       ]
     },
     {
@@ -48,7 +48,7 @@
         { "minimum": 0, "maximum": 63999 }
       ],
       "labels": [
-        { "label": "Unpatched", "value": 0 }
+        { "name": "Unpatched", "value": 0 }
       ]
     }
   ],

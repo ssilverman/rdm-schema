@@ -9,9 +9,9 @@
       "name": "setting",
       "type": "uint8",
       "labels": [
-        { "label": "Off", "value": 0 },
-        { "label": "On", "value": 1 },
-        { "label": "Auto", "value": 2 }
+        { "name": "Off", "value": 0 },
+        { "name": "On", "value": 1 },
+        { "name": "Auto", "value": 2 }
       ],
       "restrictToLabeled": true
     }

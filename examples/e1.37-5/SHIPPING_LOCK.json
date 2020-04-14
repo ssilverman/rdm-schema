@@ -10,9 +10,9 @@
       "name": "lock_state",
       "type": "uint8",
       "labels": [
-        { "label": "UNLOCKED", "value": 0 },
-        { "label": "LOCKED", "value": 1 },
-        { "label": "PARTIALLY_LOCKED", "value": 2 }
+        { "name": "UNLOCKED", "value": 0 },
+        { "name": "LOCKED", "value": 1 },
+        { "name": "PARTIALLY_LOCKED", "value": 2 }
       ],
       "restrictToLabeled": true
     }
@@ -24,8 +24,8 @@
       "type": "uint8",
       "note": "The list here is more restrictive than for getting the lock state. Do we want to add states and maybe descriptions?",
       "labels": [
-        { "label": "Unlocked", "value": 0 },
-        { "label": "Locked", "value": 1 }
+        { "name": "Unlocked", "value": 0 },
+        { "name": "Locked", "value": 1 }
       ],
       "restrictToLabeled": true
     }

@@ -10,8 +10,8 @@
       "name": "scene_num",
       "type": "uint16",
       "labels": [
-        { "label": "PRESET_PLAYBACK_OFF", "value": 0 },
-        { "label": "PRESET_PLAYBACK_ALL", "value": 65535 }
+        { "name": "PRESET_PLAYBACK_OFF", "value": 0 },
+        { "name": "PRESET_PLAYBACK_ALL", "value": 65535 }
       ]
     },
     {
@@ -20,7 +20,7 @@
       "units": 21,
       "prefixPower": -1,
       "labels": [
-        { "label": "Infinite", "value": 65535 }
+        { "name": "Infinite", "value": 65535 }
       ]
     },
     {
@@ -29,14 +29,14 @@
       "units": 21,
       "prefixPower": -1,
       "labels": [
-        { "label": "Infinite", "value": 65535 }
+        { "name": "Infinite", "value": 65535 }
       ]
     },
     {
       "name": "level",
       "type": "uint8",
       "labels": [
-        { "label": "Full", "value": 255 }
+        { "name": "Full", "value": 255 }
       ]
     }
   ],

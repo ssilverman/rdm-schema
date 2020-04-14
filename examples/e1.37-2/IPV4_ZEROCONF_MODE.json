@@ -25,8 +25,8 @@
       "name": "mode",
       "type": "boolean",
       "labels": [
-        { "label": "Disabled", "value": false },
-        { "label": "Enabled", "value": true }
+        { "name": "Disabled", "value": false },
+        { "name": "Enabled", "value": true }
       ]
     }
   ],

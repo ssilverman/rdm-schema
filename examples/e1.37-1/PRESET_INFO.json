@@ -43,7 +43,7 @@
       "units": 21,
       "prefixPower": -1,
       "labels": [
-        { "label": "Not Supported", "value": 65535 }
+        { "name": "Not Supported", "value": 65535 }
       ]
     },
     {
@@ -52,7 +52,7 @@
       "units": 21,
       "prefixPower": -1,
       "labels": [
-        { "label": "Not Supported", "value": 65535 }
+        { "name": "Not Supported", "value": 65535 }
       ]
     },
     {
@@ -61,7 +61,7 @@
       "units": 21,
       "prefixPower": -1,
       "labels": [
-        { "label": "Not Supported", "value": 65535 }
+        { "name": "Not Supported", "value": 65535 }
       ]
     },
     {
@@ -70,7 +70,7 @@
       "units": 21,
       "prefixPower": -1,
       "labels": [
-        { "label": "Not Supported", "value": 65535 }
+        { "name": "Not Supported", "value": 65535 }
       ]
     },
     {
@@ -79,7 +79,7 @@
       "units": 21,
       "prefixPower": -1,
       "labels": [
-        { "label": "Not Supported", "value": 65535 }
+        { "name": "Not Supported", "value": 65535 }
       ]
     },
     {
@@ -88,7 +88,7 @@
       "units": 21,
       "prefixPower": -1,
       "labels": [
-        { "label": "Not Supported", "value": 65535 }
+        { "name": "Not Supported", "value": 65535 }
       ]
     },
     {
@@ -97,7 +97,7 @@
       "units": 21,
       "prefixPower": -1,
       "labels": [
-        { "label": "Not Supported", "value": 65535 }
+        { "name": "Not Supported", "value": 65535 }
       ]
     },
     {
@@ -106,7 +106,7 @@
       "units": 21,
       "prefixPower": -1,
       "labels": [
-        { "label": "Not Supported", "value": 65535 }
+        { "name": "Not Supported", "value": 65535 }
       ]
     }
   ]

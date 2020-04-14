@@ -43,9 +43,9 @@
       "name": "programmed",
       "type": "uint8",
       "labels": [
-        { "label": "NOT_PROGRAMMED", "value": 0 },
-        { "label": "PROGRAMMED", "value": 1 },
-        { "label": "PROGRAMMED_READ_ONLY", "value": 2 }
+        { "name": "NOT_PROGRAMMED", "value": 0 },
+        { "name": "PROGRAMMED", "value": 1 },
+        { "name": "PROGRAMMED_READ_ONLY", "value": 2 }
       ],
       "restrictToLabeled": true
     }
@@ -81,8 +81,8 @@
       "name": "clear_preset",
       "type": "boolean",
       "labels": [
-        { "label": "Don't Clear", "value": false },
-        { "label": "Clear", "value": true }
+        { "name": "Don't Clear", "value": false },
+        { "name": "Clear", "value": true }
       ]
     }
   ],

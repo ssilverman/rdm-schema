@@ -11,10 +11,10 @@
       "type": "uint8",
       "notes": "See \"Table 7-3: Control Field\" in E1.20. The labeled values are just informative, but this contradicts with the spec (E1.37-7) saying \"must support this minimum set\".",
       "labels": [
-        { "label": "STATUS_NONE", "value": 0 },
-        { "label": "STATUS_ADVISORY", "value": 1 },
-        { "label": "STATUS_WARNING", "value": 2 },
-        { "label": "STATUS_ERROR", "value": 3 }
+        { "name": "STATUS_NONE", "value": 0 },
+        { "name": "STATUS_ADVISORY", "value": 1 },
+        { "name": "STATUS_WARNING", "value": 2 },
+        { "name": "STATUS_ERROR", "value": 3 }
       ]
     },
     {

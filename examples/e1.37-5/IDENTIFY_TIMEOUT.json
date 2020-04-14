@@ -12,7 +12,7 @@
       "units": 21,
       "prefixPower": 0,
       "labels": [
-        { "label": "Disabled", "value": 0 }
+        { "name": "Disabled", "value": 0 }
       ]
     }
   ],

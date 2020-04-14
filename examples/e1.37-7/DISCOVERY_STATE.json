@@ -23,8 +23,8 @@
         { "minimum": 65535, "maximum": 65535 }
       ],
       "labels": [
-        { "label": "DISCOVERY_COUNT_INCOMPLETE", "value": 0 },
-        { "label": "DISCOVERY_COUNT_UNKNOWN", "value": 65535 }
+        { "name": "DISCOVERY_COUNT_INCOMPLETE", "value": 0 },
+        { "name": "DISCOVERY_COUNT_UNKNOWN", "value": 65535 }
       ]
     },
     {
@@ -34,10 +34,10 @@
         { "minimum": 0, "maximum": 223 }
       ],
       "labels": [
-        { "label": "INCOMPLETE", "value": 0 },
-        { "label": "INCREMENTAL", "value": 1 },
-        { "label": "FULL", "value": 2 },
-        { "label": "NOT_ACTIVE", "value": 3 }
+        { "name": "INCOMPLETE", "value": 0 },
+        { "name": "INCREMENTAL", "value": 1 },
+        { "name": "FULL", "value": 2 },
+        { "name": "NOT_ACTIVE", "value": 3 }
       ]
     }
   ],
@@ -51,7 +51,7 @@
         { "minimum": 65535, "maximum": 65535 }
       ],
       "labels": [
-        { "label": "BROADCAST", "value": 65535 }
+        { "name": "BROADCAST", "value": 65535 }
       ]
     },
     {
@@ -61,9 +61,9 @@
         { "minimum": 1, "maximum": 223 }
       ],
       "labels": [
-        { "label": "INCREMENTAL", "value": 1 },
-        { "label": "FULL", "value": 2 },
-        { "label": "NOT_ACTIVE", "value": 3 }
+        { "name": "INCREMENTAL", "value": 1 },
+        { "name": "FULL", "value": 2 },
+        { "name": "NOT_ACTIVE", "value": 3 }
       ]
     }
   ],

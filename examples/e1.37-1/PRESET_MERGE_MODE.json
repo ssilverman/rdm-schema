@@ -10,11 +10,11 @@
       "name": "mode",
       "type": "uint8",
       "labels": [
-        { "label": "DEFAULT", "value": 0 },
-        { "label": "HTP", "value": 1 },
-        { "label": "LTP", "value": 2 },
-        { "label": "DMX_ONLY", "value": 3 },
-        { "label": "OTHER", "value": 255 }
+        { "name": "DEFAULT", "value": 0 },
+        { "name": "HTP", "value": 1 },
+        { "name": "LTP", "value": 2 },
+        { "name": "DMX_ONLY", "value": 3 },
+        { "name": "OTHER", "value": 255 }
       ],
       "restrictToLabeled": true
     }

@@ -29,7 +29,7 @@
       "type": "uint32",
       "units": 8,
       "labels": [
-        { "label": "Not Declared", "value": 4294967295 }
+        { "name": "Not Declared", "value": 4294967295 }
       ]
     },
     {

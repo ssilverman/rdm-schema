@@ -19,8 +19,8 @@
       "name": "identify_state",
       "type": "boolean",
       "labels": [
-        { "label": "Off", "value": false },
-        { "label": "On", "value": true }
+        { "name": "Off", "value": false },
+        { "name": "On", "value": true }
       ]
     }
   ],
@@ -34,7 +34,7 @@
         { "minimum": 65535, "maximum": 65535 }
       ],
       "labels": [
-        { "label": "BROADCAST", "value": 65535 }
+        { "name": "BROADCAST", "value": 65535 }
       ]
     },
     { "$ref": "#/get_response/1" }

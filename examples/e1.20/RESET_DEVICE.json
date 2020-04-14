@@ -8,8 +8,8 @@
       "name": "state",
       "type": "uint8",
       "labels": [
-        { "label": "Warm Reset", "value": 1 },
-        { "label": "Cold Reset", "value": 255 }
+        { "name": "Warm Reset", "value": 1 },
+        { "name": "Cold Reset", "value": 255 }
       ],
       "restrictToLabeled": true
     }

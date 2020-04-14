@@ -9,8 +9,8 @@
       "name": "level",
       "type": "uint8",
       "labels": [
-        { "label": "Off", "value": 0 },
-        { "label": "Full", "value": 255 }
+        { "name": "Off", "value": 0 },
+        { "name": "Full", "value": 255 }
       ],
       "restrictToLabeled": true
     }

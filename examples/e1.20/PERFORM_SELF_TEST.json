@@ -13,8 +13,8 @@
       "name": "self_test_num",
       "type": "uint8",
       "labels": [
-        { "label": "SELF_TEST_OFF", "value": 0 },
-        { "label": "SELF_TEST_ALL", "value": 255 }
+        { "name": "SELF_TEST_OFF", "value": 0 },
+        { "name": "SELF_TEST_ALL", "value": 255 }
       ]
     }
   ],

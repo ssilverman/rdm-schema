@@ -32,7 +32,7 @@
         { "minimum": 65535, "maximum": 65535 }
       ],
       "labels": [
-        { "label": "BROADCAST", "value": 65535 }
+        { "name": "BROADCAST", "value": 65535 }
       ]
     },
     { "$ref": "#/get_response/1" }

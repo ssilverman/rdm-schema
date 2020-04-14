@@ -9,10 +9,10 @@
       "name": "policy",
       "type": "uint8",
       "labels": [
-        { "label": "Status Type None", "value": 0 },
-        { "label": "Status Type Advisory and higher", "value": 1 },
-        { "label": "Status Type Warning and higher", "value": 2 },
-        { "label": "Status Type Error", "value": 3 }
+        { "name": "Status Type None", "value": 0 },
+        { "name": "Status Type Advisory and higher", "value": 1 },
+        { "name": "Status Type Warning and higher", "value": 2 },
+        { "name": "Status Type Error", "value": 3 }
       ]
     }
   ],

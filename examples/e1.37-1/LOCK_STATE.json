@@ -10,7 +10,7 @@
       "name": "state",
       "type": "uint8",
       "labels": [
-        { "label": "Unlocked", "value": 0 }
+        { "name": "Unlocked", "value": 0 }
       ]
     },
     { "name": "state_count", "type": "uint8" }
@@ -28,7 +28,7 @@
       "name": "state",
       "type": "uint8",
       "labels": [
-        { "label": "Unlocked", "value": 0 }
+        { "name": "Unlocked", "value": 0 }
       ]
     }
   ],

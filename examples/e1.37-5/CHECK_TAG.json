@@ -16,8 +16,8 @@
       "name": "status",
       "type": "boolean",
       "labels": [
-        { "label": "Not Present", "value": false },
-        { "label": "Present", "value": true }
+        { "name": "Not Present", "value": false },
+        { "name": "Present", "value": true }
       ]
     }
   ]

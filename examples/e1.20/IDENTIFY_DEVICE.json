@@ -9,8 +9,8 @@
       "name": "state",
       "type": "boolean",
       "labels": [
-        { "label": "Off", "value": false },
-        { "label": "On", "value": true }
+        { "name": "Off", "value": false },
+        { "name": "On", "value": true }
       ]
     }
   ],

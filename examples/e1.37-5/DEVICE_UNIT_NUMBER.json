@@ -10,7 +10,7 @@
       "name": "unit_number",
       "type": "uint32",
       "labels": [
-        { "label": "Unset", "value": 0 }
+        { "name": "Unset", "value": 0 }
       ]
     }
   ],

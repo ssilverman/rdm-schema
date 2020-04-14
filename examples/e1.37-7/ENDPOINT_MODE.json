@@ -19,9 +19,9 @@
       "name": "mode",
       "type": "uint8",
       "labels": [
-        { "label": "Disabled", "value": 0 },
-        { "label": "Input", "value": 1 },
-        { "label": "Output", "value": 2 }
+        { "name": "Disabled", "value": 0 },
+        { "name": "Input", "value": 1 },
+        { "name": "Output", "value": 2 }
       ],
       "restrictToLabeled": true
     }
@@ -36,7 +36,7 @@
         { "minimum": 65535, "maximum": 65535 }
       ],
       "labels": [
-        { "label": "BROADCAST", "value": 65535 }
+        { "name": "BROADCAST", "value": 65535 }
       ]
     },
     { "$ref": "#/get_response/1" }

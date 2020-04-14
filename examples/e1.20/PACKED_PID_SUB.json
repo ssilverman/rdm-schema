@@ -25,7 +25,7 @@
         { "minimum": 65535, "maximum": 65535 }
       ],
       "labels": [
-        { "label": "All Subdevices", "value": 65535 }
+        { "name": "All Subdevices", "value": 65535 }
       ]
     }
   ],

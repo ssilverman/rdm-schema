@@ -9,8 +9,8 @@
       "name": "mode",
       "type": "uint16",
       "labels": [
-        { "label": "OFF", "value": 0 },
-        { "label": "ALL", "value": 65535 }
+        { "name": "OFF", "value": 0 },
+        { "name": "ALL", "value": 65535 }
       ]
     },
     { "name": "level", "type": "uint8" }

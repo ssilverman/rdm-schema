@@ -10,10 +10,10 @@
       "type": "uint8",
       "notes": "The Status Type value is not restricted in the spec.",
       "labels": [
-        { "label": "STATUS_NONE", "value": 0 },
-        { "label": "STATUS_ADVISORY", "value": 2 },
-        { "label": "STATUS_WARNING", "value": 3 },
-        { "label": "STATUS_ERROR", "value": 4 }
+        { "name": "STATUS_NONE", "value": 0 },
+        { "name": "STATUS_ADVISORY", "value": 2 },
+        { "name": "STATUS_WARNING", "value": 3 },
+        { "name": "STATUS_ERROR", "value": 4 }
       ]
     }
   ],

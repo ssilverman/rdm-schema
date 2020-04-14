@@ -13,10 +13,7 @@
         { "minimum": 65535, "maximum": 65535 }
       ],
       "labels": [
-        {
-          "label": "No Footprint",
-          "value": 65535
-        }
+        { "name": "No Footprint", "value": 65535 }
       ]
     }
   ],

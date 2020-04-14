@@ -14,7 +14,7 @@
       "name": "item_count",
       "type": "uint16",
       "labels": [
-        { "label": "All Data", "value": 65535 }
+        { "name": "All Data", "value": 65535 }
       ]
     }
   ],

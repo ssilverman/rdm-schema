@@ -10,8 +10,8 @@
       "name": "state",
       "type": "boolean",
       "labels": [
-        { "label": "Not Safe", "value": false },
-        { "label": "Safe", "value": true }
+        { "name": "Not Safe", "value": false },
+        { "name": "Safe", "value": true }
       ]
     }
   ]

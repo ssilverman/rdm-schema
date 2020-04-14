@@ -8,11 +8,11 @@
       "name": "status_type",
       "type": "uint8",
       "labels": [
-        { "label": "STATUS_NONE", "value": 0 },
-        { "label": "STATUS_GET_LAST_MESSAGE", "value": 1 },
-        { "label": "STATUS_ADVISORY", "value": 2 },
-        { "label": "STATUS_WARNING", "value": 3 },
-        { "label": "STATUS_ERROR", "value": 4 }
+        { "name": "STATUS_NONE", "value": 0 },
+        { "name": "STATUS_GET_LAST_MESSAGE", "value": 1 },
+        { "name": "STATUS_ADVISORY", "value": 2 },
+        { "name": "STATUS_WARNING", "value": 3 },
+        { "name": "STATUS_ERROR", "value": 4 }
       ],
       "restrictToLabeled": true
     }

@@ -9,12 +9,12 @@
       "name": "state",
       "type": "uint8",
       "labels": [
-        { "label": "LAMP_OFF", "value": 0 },
-        { "label": "LAMP_ON", "value": 1 },
-        { "label": "LAMP_STRIKE", "value": 2 },
-        { "label": "LAMP_STANDBY", "value": 3 },
-        { "label": "LAMP_NOT_PRESENT", "value": 4 },
-        { "label": "LAMP_ERROR", "value": 127 }
+        { "name": "LAMP_OFF", "value": 0 },
+        { "name": "LAMP_ON", "value": 1 },
+        { "name": "LAMP_STRIKE", "value": 2 },
+        { "name": "LAMP_STANDBY", "value": 3 },
+        { "name": "LAMP_NOT_PRESENT", "value": 4 },
+        { "name": "LAMP_ERROR", "value": 127 }
       ]
     }
   ],

@@ -10,8 +10,8 @@
       "name": "parameter",
       "type": "uint8",
       "labels": [
-        { "label": "Disabled", "value": 0 },
-        { "label": "Enabled", "value": 1 }
+        { "name": "Disabled", "value": 0 },
+        { "name": "Enabled", "value": 1 }
       ]
     }
   ],

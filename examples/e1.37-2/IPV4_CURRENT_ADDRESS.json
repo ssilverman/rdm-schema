@@ -38,9 +38,9 @@
       "name": "dhcp_status",
       "type": "uint8",
       "labels": [
-        { "label": "INACTIVE", "value": 0 },
-        { "label": "ACTIVE", "value": 1 },
-        { "label": "UNKNOWN", "value": 2 }
+        { "name": "INACTIVE", "value": 0 },
+        { "name": "ACTIVE", "value": 1 },
+        { "name": "UNKNOWN", "value": 2 }
       ],
       "restrictToLabeled": true
     }

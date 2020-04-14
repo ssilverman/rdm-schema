@@ -14,7 +14,7 @@
       "name": "hours",
       "type": "uint8",
       "labels": [
-        { "label": "Abort", "value": 0 }
+        { "name": "Abort", "value": 0 }
       ]
     }
   ],

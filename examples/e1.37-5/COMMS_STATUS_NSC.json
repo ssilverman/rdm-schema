@@ -24,35 +24,35 @@
       "name": "packet_count",
       "type": "uint32",
       "labels": [
-        { "label": "Not Supported", "value": 4294967295 }
+        { "name": "Not Supported", "value": 4294967295 }
       ]
     },
     {
       "name": "most_recent_slot_count",
       "type": "uint16",
       "labels": [
-        { "label": "Not Supported", "value": 65535 }
+        { "name": "Not Supported", "value": 65535 }
       ]
     },
     {
       "name": "min_slot_count",
       "type": "uint16",
       "labels": [
-        { "label": "Not Supported", "value": 65535 }
+        { "name": "Not Supported", "value": 65535 }
       ]
     },
     {
       "name": "max_slot_count",
       "type": "uint16",
       "labels": [
-        { "label": "Not Supported", "value": 65535 }
+        { "name": "Not Supported", "value": 65535 }
       ]
     },
     {
       "name": "error_count",
       "type": "uint32",
       "labels": [
-        { "label": "Not Supported", "value": 4294967295 }
+        { "name": "Not Supported", "value": 4294967295 }
       ]
     }
   ],
