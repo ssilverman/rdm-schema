@@ -5,6 +5,14 @@
   "get_request_subdevice_range": [ "root" ],
   "get_request": [],
   "get_response": [
-    { "name": "controller_flags", "type": "uint8" }
+    {
+      "name": "controller_flags",
+      "type": "bitField",
+      "size": 8,
+      "bits": [
+        { "name": "unicode", "index": 0 },
+        { "name": "hi_res_ack_timer_support", "index": 1 }
+      ]
+    }
   ]
 }
