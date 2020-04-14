@@ -8,6 +8,14 @@ and this project adheres to
 
 ## [0.27.0]
 
+This release inserts the original schema at the root of the branch; sorry to
+have rebased everything, but I felt it was important to include the original
+schema file.
+
+Here's the articles I referenced:
+* [Insert a commit before the root commit in Git?](https://stackoverflow.com/questions/645450/insert-a-commit-before-the-root-commit-in-git)
+* [How to inject a commit between some two arbitrary commits in the past?](https://stackoverflow.com/questions/32315156/how-to-inject-a-commit-between-some-two-arbitrary-commits-in-the-past)
+
 ### Added
 * Added a README.
 
