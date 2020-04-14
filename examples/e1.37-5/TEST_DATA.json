@@ -6,7 +6,7 @@
   "get_request_subdevice_range": [ "root", "subdevices" ],
   "get_request": [
     {
-      "name": "length",
+      "name": "pattern_length",
       "type": "uint16",
       "ranges": [
         { "minimum": 0, "maximum": 4096 }
@@ -15,15 +15,15 @@
   ],
   "get_response": [
     {
-      "name": "data",
+      "name": "pattern_data",
       "type": "bytes",
-      "maxLength": 231
+      "maxLength": 4096
     }
   ],
   "set_request_subdevice_range": [ "root", "subdevices" ],
   "set_request": [
     {
-      "name": "data",
+      "name": "loopback_data",
       "type": "bytes",
       "maxLength": 231
     }
