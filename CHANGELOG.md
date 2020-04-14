@@ -1,4 +1,4 @@
-# Changelog for RDM Schema Project
+# Changelog for the RDM Schema Project
 
 This document details the changes between each release.
 
