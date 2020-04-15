@@ -6,6 +6,25 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.28.0]
+
+### Added
+* Alternative patterns for a hostname to the notes in DNS_HOSTNAME.
+
+### Changed
+* Added and updated titles and descriptions where appropriate.
+* Using "$comment" values where appropriate.
+* Renamed "unspecifiedValues" to "valueForUnspecified" in "bitFieldType" to
+  remove ambiguity.
+* Renamed those schemas that have a "Type" suffix, that aren't a "type" in the
+  UI sense, to have no "Type" suffix. The suffix "Type" here doesn't mean "type"
+  in the programming language sense. These include: "bit", "command",
+  "labeledBoolean", "labeledInteger", "range", and "subdevices".
+
+### Removed
+* The "nameType" schema is now gone. Its functionality is contained in
+  "commonPropertiesForNamed" and isn't needed elsewhere.
+
 ## [0.27.0]
 
 This release inserts the original schema at the root of the branch; sorry to
