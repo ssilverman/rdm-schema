@@ -374,7 +374,7 @@
       ]
     },
     "pdEnvelopeType": {
-      "title": "PD envelope",
+      "title": "PD envelope type",
       "description": "Contains a length/data pair for one Parameter Data item, where the length is an unsigned 8-bit value and the data has 'length' bytes. This exists to provide a schema definition for the 'envelope' of a PDL/PD pair.",
       "type": "object",
       "$ref": "#/$defs/commonPropertiesForNamed",
