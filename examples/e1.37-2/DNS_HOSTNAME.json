@@ -15,7 +15,7 @@
         "https://stackoverflow.com/a/14622263"
       ],
       "pattern": "^(?!-)[a-zA-Z0-9-]{0,62}[a-zA-Z0-9]$",
-      "notes": "Some implementations don't support negative lookbehind in patterns.",
+      "notes": "Some implementations don't support negative lookbehind in patterns. Alternative patterns without negative lookahead: \"^([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9-]{0,61}[a-zA-Z0-9])$\", \"^[a-zA-Z0-9]([a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?$\".",
       "minLength": 1,
       "maxLength": 63,
       "restrictToASCII": true
