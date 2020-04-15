@@ -7,29 +7,49 @@
   "$ref": "#/$defs/commonPropertiesForNamed",
   "properties": {
     "pid": {
+      "title": "PID",
       "description": "The parameter ID.",
       "type": "integer",
       "minimum": 0,
       "maximum": 65535
     },
     "version": {
-      "description": "This is the parameter descriptor version.",
+      "title": "Version",
+      "description": "The parameter descriptor version.",
       "type": "integer",
       "minimum": 0,
       "maximum": 65535
     },
     "get_request_subdevice_range": {
+      "$comment": "subdeviceType already contains a title and description.",
       "$ref": "#/$defs/subdeviceType",
       "default": [ "root" ]
     },
-    "get_request": { "$ref": "#/$defs/commandType" },
-    "get_response": { "$ref": "#/$defs/commandType" },
+    "get_request": {
+      "$comment": "commandType already contains a description.",
+      "title": "GET command",
+      "$ref": "#/$defs/commandType"
+    },
+    "get_response": {
+      "$comment": "commandType already contains a description.",
+      "title": "GET command response",
+      "$ref": "#/$defs/commandType"
+    },
     "set_request_subdevice_range": {
+      "$comment": "subdeviceType already contains a title and description.",
       "$ref": "#/$defs/subdeviceType",
       "default": [ "root" ]
     },
-    "set_request": { "$ref": "#/$defs/commandType" },
-    "set_response": { "$ref": "#/$defs/commandType" }
+    "set_request": {
+      "$comment": "commandType already contains a description.",
+      "title": "SET command",
+      "$ref": "#/$defs/commandType"
+    },
+    "set_response": {
+      "$comment": "commandType already contains a description.",
+      "title": "SET command response",
+      "$ref": "#/$defs/commandType"
+    }
   },
   "unevaluatedProperties": false,
   "required": [ "name", "pid", "version" ],
@@ -41,19 +61,24 @@
   },
   "$defs": {
     "bitType": {
+      "title": "Bit",
       "description": "Describes the meaning of one bit in a bit field.",
       "type": "object",
       "$ref": "#/$defs/commonPropertiesForNamed",
       "properties": {
         "index": {
+          "title": "Index",
+          "description": "Zero-based index of this bit.",
           "type": "integer",
           "minimum": 0
         },
         "reserved": {
+          "title": "Reserved",
           "description": "Indicates that this bit is unused or reserved.",
           "type": "boolean"
         },
         "reservedValue": {
+          "title": "Reserved value",
           "description": "The assumed value when the bit is marked as reserved.",
           "type": "boolean",
           "default": false
@@ -63,23 +88,28 @@
       "required": [ "name", "index" ]
     },
     "bitFieldType": {
-      "description": "A bit field, a collection of 'bit' items. The \"size\" field is used to specify the number of bits, a multiple of 8, in this bit field. It is an error if the size is less than the number of defined bits. Bits that are not specified are assumed to be reserved, with a value equal to the \"unspecifiedValues\" value.",
+      "title": "Bit field type",
+      "description": "A bit field, a collection of 'bit' items. The \"size\" field is used to specify the number of bits in this bit field, a multiple of 8. It is an error if the size is less than the number of defined bits. Bits that are not specified are assumed to be reserved, with a value equal to the \"unspecifiedValues\" value.",
       "type": "object",
       "$ref": "#/$defs/commonPropertiesForNamed",
       "properties": {
         "type": { "const": "bitField" },
         "bits": {
+          "title": "Bits",
+          "description": "List of the bits.",
           "type": "array",
           "items": { "$ref": "#/$defs/bitType" },
           "uniqueItems": true
         },
         "size": {
+          "title": "Size",
           "description": "The size, in multiples-of-8 bits, of this bit field. It is an error if the size is less than the number of defined bits.",
           "type": "integer",
           "minimum": 0,
           "multipleOf": 8
         },
         "unspecifiedValues": {
+          "title": "Value for unspecified",
           "description": "The default value to use for any unspecified bits.",
           "type": "boolean",
           "default": false
@@ -89,12 +119,14 @@
       "required": [ "type", "size", "bits" ]
     },
     "booleanType": {
+      "title": "Boolean type",
       "description": "A Boolean value. This corresponds to the DS_BOOLEAN type in \"Table A-15: Data Type Defines\" of the RDM E1.20 specification, a 1-byte zero-or-one value.",
       "type": "object",
       "$ref": "#/$defs/commonPropertiesForNamed",
       "properties": {
         "type": { "const": "boolean" },
         "labels": {
+          "title": "Labels",
           "description": "A list of labels that name special values.",
           "type": "array",
           "items": { "$ref": "#/$defs/labeledBooleanType" },
@@ -106,21 +138,25 @@
       "required": [ "type" ]
     },
     "bytesType": {
+      "title": "Bytes type",
       "description": "A list of bytes. The minimum and maximum length properties are not required, but it is a good idea to specify their values for unknown bytes types.",
       "type": "object",
       "$ref": "#/$defs/commonPropertiesForNamed",
       "properties": {
         "type": { "const": "bytes" },
         "format": {
+          "title": "Interpretation format",
           "description": "This field describes how to interpret the value. It can be one of the bytes types defined in \"Table A-15: Data Type Defines\" of the RDM E1.20 specification (or other add-on specifications), or it can be something manufacturer-specific. Be aware, however, that anything not defined here may not be understood by a controller or UI. The known bytes types include: ipv4 (4 bytes), ipv6 (16 bytes), mac-address (6 bytes), uid (6 bytes), and uuid (16 bytes).",
           "type": "string"
         },
         "minLength": {
+          "title": "Minimum length",
           "description": "The minimum bytes length. Care must be taken to make sure this doesn't contradict any \"maxLength\" value. It is an error if there is a contradiction.",
           "type": "integer",
           "minimum": 0
         },
         "maxLength": {
+          "title": "Maximum length",
           "description": "The maximum bytes length. Care must be taken to make sure this doesn't contradict any \"minLength\" value. It is an error if there is a contradiction.",
           "type": "integer",
           "minimum": 0
@@ -130,15 +166,23 @@
       "required": [ "type" ]
     },
     "commandType": {
-      "description": "Represents the contents of an RDM command: 1. a collection of 'field' items, each a simple or compound type, 2. a single 'field' item, or 3. a duplicate command.",
+      "$comment": "The title is specific to where this used, and so no title is defined here.",
+      "description": "The contents of an RDM command: 1. a collection of 'field' items, each a simple or compound type, 2. a single 'field' item, or 3. a duplicate command.",
       "oneOf": [
         {
+          "title": "List of fields",
+          "description": "The command consists of one or more fields.",
           "type": "array",
           "items": { "$ref": "#/$defs/oneOfTypes" },
           "uniqueItems": true
         },
-        { "$ref": "#/$defs/oneOfTypes" },
         {
+          "title": "Single field",
+          "description": "The command consists of a single field.",
+          "$ref": "#/$defs/oneOfTypes"
+        },
+        {
+          "title": "Command duplicate",
           "description": "Indicates that a command is a duplicate of one of the other commands. Using this feature can potentially save space.",
           "enum": [
             "get_request",
@@ -150,12 +194,25 @@
       ]
     },
     "commonPropertiesForNamed": {
-      "description": "Defines a set of properties common to everything having a name.",
+      "$comment": "Defines a set of properties common to everything having a name.",
       "properties": {
-        "name": { "$ref": "#/$defs/nameType" },
-        "displayName": { "$ref": "#/$defs/nameType" },
-        "notes": { "type": "string" },
+        "name": {
+          "title": "Name",
+          "description": "The object name. If this is not intended for UI display, then a displayable name can be added with \"displayName\".",
+          "$ref": "#/$defs/nameType"
+        },
+        "displayName": {
+          "title": "Display name",
+          "description": "An optional name for UI display.",
+          "$ref": "#/$defs/nameType"
+        },
+        "notes": {
+          "title": "Notes",
+          "description": "Contains any notes about this object.",
+          "type": "string"
+        },
         "resources": {
+          "title": "List of resources",
           "description": "Informative URLs pointing to a specification or more information for this field type.",
           "type": "array",
           "items": {
@@ -166,12 +223,15 @@
       }
     },
     "compoundType": {
+      "title": "Compound type",
       "description": "Defines a compound type, a type used to combine other types. This is useful for including in lists.",
       "type": "object",
       "$ref": "#/$defs/commonPropertiesForNamed",
       "properties": {
         "type": { "const": "compound" },
         "subtypes": {
+          "title": "Subtypes",
+          "description": "A list of types composing this compound type.",
           "type": "array",
           "items": { "$ref": "#/$defs/oneOfTypes" }
         }
@@ -180,6 +240,7 @@
       "required": [ "type", "subtypes" ]
     },
     "integerType": {
+      "title": "Integer type",
       "description": "A signed or unsigned integer, can have an optional prefix, unit, and range.",
       "type": "object",
       "$ref": "#/$defs/commonPropertiesForNamed",
@@ -197,32 +258,38 @@
           ]
         },
         "labels": {
+          "title": "Labels",
           "description": "A list of labels that name special values.",
           "type": "array",
           "items": { "$ref": "#/$defs/labeledIntegerType" },
           "uniqueItems": true
         },
         "restrictToLabeled": {
+          "title": "Restrict to labeled",
           "description": "Whether to restrict the allowed values to those that have labels. This is useful to not have to additionally specify a set of ranges. If this is set to \"true\" then \"ranges\" should not be specified.",
           "type": "boolean"
         },
         "ranges": {
-          "description": "A list of possible ranges for the value. The complete range is the union of all the ranges. This should not be specified if \"restrictToLabeled\" is set to \"true\".",
+          "title": "Ranges",
+          "description": "A list of possible ranges for the value. The complete range is the union of all the ranges. This should not be specified if \"restrictToLabeled\" is set to 'true'.",
           "type": "array",
           "items": { "$ref": "#/$defs/rangeType" },
           "uniqueItems": true
         },
         "units": {
+          "title": "Units",
           "description": "The units type, defined in Table A-13 of E1.20.",
           "type": "integer",
           "minimum": 0,
           "maximum": 255
         },
         "prefixPower": {
+          "title": "Prefix power",
           "description": "The power of 10 to be used as the prefix for the value. For example, -2 is used to represent 10^(-2) or the prefix centi-.",
           "type": "integer"
         },
         "prefixBase": {
+          "title": "Prefix base",
           "description": "The base of the prefix. For example, to express \"kilo\", specify prefixPower=3 and prefixBase=10, and to express \"kibi\", specify prefixPower=10 and prefixBase=2 or prefixPower=1 and prefixBase=1024.",
           "type": "integer",
           "default": 10
@@ -232,38 +299,56 @@
       "required": [ "type" ]
     },
     "labeledBooleanType": {
+      "title": "Labeled Boolean",
       "description": "Associates a name to a Boolean value.",
       "type": "object",
       "$ref": "#/$defs/commonPropertiesForNamed",
       "properties": {
-        "value": { "type": "boolean" }
+        "value": {
+          "title": "Value",
+          "description": "The labeled value",
+          "type": "boolean"
+        }
       },
       "unevaluatedProperties": false,
       "required": [ "name", "value" ]
     },
     "labeledIntegerType": {
+      "title": "Labeled integer",
       "description": "Associates a name to an integer value.",
       "type": "object",
       "$ref": "#/$defs/commonPropertiesForNamed",
       "properties": {
-        "value": { "type": "integer" }
+        "value": {
+          "title": "Value",
+          "description": "The labeled value",
+          "type": "integer"
+        }
       },
       "unevaluatedProperties": false,
       "required": [ "name", "value" ]
     },
     "listType": {
+      "title": "List type",
       "description": "A list of objects all having the same type.",
+      "$comment": "The names \"minItems\" and \"maxItems\" were chosen because those match the validation keywords for arrays in the JSON schema spec.",
       "type": "object",
       "$ref": "#/$defs/commonPropertiesForNamed",
       "properties": {
         "type": { "const": "list" },
-        "itemType": { "$ref": "#/$defs/oneOfTypes" },
+        "itemType": {
+          "title": "Item type",
+          "description": "The type of each item in the list.",
+          "$ref": "#/$defs/oneOfTypes"
+        },
         "minItems": {
+          "title": "Minimum list size",
           "description": "The minimum list size.",
           "type": "integer",
           "minimum": 0
         },
         "maxItems": {
+          "title": "Maximum list size",
           "description": "The maximum list size.",
           "type": "integer",
           "minimum": 0
@@ -273,12 +358,12 @@
       "required": [ "type", "itemType" ]
     },
     "nameType": {
-      "description": "A name is a string having a length of at least 1.",
+      "$comment": "Referencers must provide a title and description.",
       "type": "string",
       "minLength": 1
     },
     "oneOfTypes": {
-      "description": "One of any of the types. This provides a single location to keep the list.",
+      "$comment": "One of any of the types. This provides a single location to keep the list.",
       "oneOf": [
         { "$ref": "#/$defs/bitFieldType" },
         { "$ref": "#/$defs/booleanType" },
@@ -292,12 +377,14 @@
       ]
     },
     "pdEnvelopeType": {
+      "title": "PD envelope",
       "description": "Contains a length/data pair for one Parameter Data item, where the length is an unsigned 8-bit value and the data has 'length' bytes. This exists to provide a schema definition for the 'envelope' of a PDL/PD pair.",
       "type": "object",
       "$ref": "#/$defs/commonPropertiesForNamed",
       "properties": {
         "type": { "const": "pdEnvelope" },
         "length": {
+          "title": "Data length",
           "description": "The data length can be optionally specified.",
           "type": "integer",
           "minimum": 0,
@@ -308,14 +395,17 @@
       "required": [ "type" ]
     },
     "rangeType": {
+      "title": "Range",
       "description": "Defines an inclusive range of numbers. If one of the bounds is undefined then it is assumed to be the bound appropriate for the type.",
       "type": "object",
       "properties": {
         "minimum": {
+          "title": "Minimum",
           "description": "The lower bound, inclusive.",
           "type": "integer"
         },
         "maximum": {
+          "title": "Maximum",
           "description": "The upper bound, inclusive.",
           "type": "integer"
         }
@@ -323,10 +413,13 @@
       "additionalProperties": false
     },
     "refType": {
+      "title": "Reference type",
       "description": "Specifies a reference to another value, a URI whose fragment part, if present, is a JSON pointer. See RFCs 3986 (URI Syntax) and 6901 (JSON Pointer).",
       "type": "object",
       "properties": {
         "$ref": {
+          "title": "Reference",
+          "description": "Points to a resource, a URI.",
           "type": "string",
           "format": "uri-reference"
         }
@@ -335,36 +428,43 @@
       "required": [ "$ref" ]
     },
     "stringType": {
+      "title": "String type",
       "description": "A UTF-8-encoded string having a possibly bounded size. Implementations may need to use either a NUL terminator or another \"length\" field for multi-field messages where a string is followed by another field, so that its boundary can be determined.",
       "type": "object",
       "$ref": "#/$defs/commonPropertiesForNamed",
       "properties": {
         "type": { "const": "string" },
         "format": {
+          "title": "Interpretation format",
           "description": "This field describes how to interpret the string value. It can be one of the string types defined in \"Table A-15: Data Type Defines\" of the RDM E1.20 specification (or other add-on specifications), one of the defined formats from the JSON Schema Validation specification (https://json-schema.org/draft/2019-09/json-schema-validation.html#rfc.section.7.3), or it can be something manufacturer-specific. Be aware, however, that anything not defined here may not be understood by a controller or UI. The known string types from E1.20 (and add-ons) include: hostname (https://tools.ietf.org/html/rfc1123#section-2.1, https://tools.ietf.org/html/rfc5891#section-4.4), json (https://tools.ietf.org/html/rfc7159), string, and url (https://tools.ietf.org/html/rfc3986, https://tools.ietf.org/html/rfc1738).",
           "type": "string"
         },
         "pattern": {
+          "title": "Pattern",
           "description": "An ECMA-262 regular expression (https://www.ecma-international.org/publications/standards/Ecma-262.htm) that can be used to validate the contents of this field. They're helpful for assisting a controller or UI do message validation. It's not necessary to provide a pattern for known \"format\" types. Note that care must be taken to make sure that patterns don't contradict any \"minLength\" and \"maxLength\" values. It is an error if there is a contradiction. As well, if there are maximum or minimum sizes, it is suggested that an instance makes use of the \"minLength\" and \"maxLength\" sizes in order to support those UIs that don't support regexes.",
           "type": "string",
           "format": "regex"
         },
         "minLength": {
+          "title": "Minimum length",
           "description": "The minimum string length, in characters. Care must be taken to make sure this doesn't contradict any \"pattern\" or \"maxLength\" values. It is an error if there is a contradiction. If there are maximum or minimum sizes, it is suggested that an instance makes use of the \"minLength\" and \"maxLength\" sizes in order to support those UIs that don't support regexes.",
           "type": "integer",
           "minimum": 0
         },
         "maxLength": {
+          "title": "Maximum length",
           "description": "The maximum string length, in characters. Care must be taken to make sure this doesn't contradict any \"pattern\" or \"minLength\" values. It is an error if there is a contradiction. If there are maximum or minimum sizes, it is suggested that an instance makes use of the \"minLength\" and \"maxLength\" sizes in order to support those UIs that don't support regexes.",
           "type": "integer",
           "minimum": 0
         },
         "maxBytes": {
+          "title": "Maximum length in bytes",
           "description": "In the case that the number of characters in the string is different from the number of bytes after UTF-8 encoding, we may need to specify a maximum encoded length.",
           "type": "integer",
           "minimum": 0
         },
         "restrictToASCII": {
+          "title": "Restrict to ASCII",
           "description": "Indicates whether the string contents should be restricted to US-ASCII.",
           "type": "boolean"
         }
@@ -373,6 +473,7 @@
       "required": [ "type" ]
     },
     "subdeviceType": {
+      "title": "Sub-devices",
       "description": "Acceptable values for the subdevice in a GET or SET command. An empty list means allow nothing.",
       "type": "array",
       "items": {
