@@ -10,6 +10,7 @@ and this project adheres to
 
 ### Added
 * Alternative patterns for a hostname to the notes in DNS_HOSTNAME.
+* New "Questions" section in the "Design notes" section of the README.
 
 ### Changed
 * Added and updated titles and descriptions where appropriate.

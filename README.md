@@ -32,6 +32,11 @@ It was decided that these features would not be included because they're so
 rare and they're not desiarable features for representing manufacturer messages,
 the original intent for this project.
 
+### Questions
+
+Is having a "displayName" necessary for fields? If this is for UI generation
+then wouldn't a displayable name already be in "name"?
+
 ## Usage notes
 
 ### Framing is at a different layer
