@@ -89,7 +89,7 @@
     },
     "bitFieldType": {
       "title": "Bit field type",
-      "description": "A bit field, a collection of 'bit' items. The \"size\" field is used to specify the number of bits in this bit field, a multiple of 8. It is an error if the size is less than the number of defined bits. Bits that are not specified are assumed to be reserved, with a value equal to the \"unspecifiedValues\" value.",
+      "description": "A bit field, a collection of 'bit' items. The \"size\" field is used to specify the number of bits in this bit field, a multiple of 8. It is an error if the size is less than the number of defined bits. Bits that are not specified are assumed to be reserved, with a value equal to the \"valueForUnspecified\" value.",
       "type": "object",
       "$ref": "#/$defs/commonPropertiesForNamed",
       "properties": {
@@ -108,7 +108,7 @@
           "minimum": 0,
           "multipleOf": 8
         },
-        "unspecifiedValues": {
+        "valueForUnspecified": {
           "title": "Value for unspecified",
           "description": "The default value to use for any unspecified bits.",
           "type": "boolean",
