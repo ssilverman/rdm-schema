@@ -21,34 +21,34 @@
       "maximum": 65535
     },
     "get_request_subdevice_range": {
-      "$comment": "subdeviceType already contains a title and description.",
-      "$ref": "#/$defs/subdeviceType",
+      "$comment": "'subdevices' already contains a title and description.",
+      "$ref": "#/$defs/subdevices",
       "default": [ "root" ]
     },
     "get_request": {
-      "$comment": "commandType already contains a description.",
+      "$comment": "'command' already contains a description.",
       "title": "GET command",
-      "$ref": "#/$defs/commandType"
+      "$ref": "#/$defs/command"
     },
     "get_response": {
-      "$comment": "commandType already contains a description.",
+      "$comment": "'command' already contains a description.",
       "title": "GET command response",
-      "$ref": "#/$defs/commandType"
+      "$ref": "#/$defs/command"
     },
     "set_request_subdevice_range": {
-      "$comment": "subdeviceType already contains a title and description.",
-      "$ref": "#/$defs/subdeviceType",
+      "$comment": "'subdevices' already contains a title and description.",
+      "$ref": "#/$defs/subdevices",
       "default": [ "root" ]
     },
     "set_request": {
-      "$comment": "commandType already contains a description.",
+      "$comment": "'command' already contains a description.",
       "title": "SET command",
-      "$ref": "#/$defs/commandType"
+      "$ref": "#/$defs/command"
     },
     "set_response": {
-      "$comment": "commandType already contains a description.",
+      "$comment": "'command' already contains a description.",
       "title": "SET command response",
-      "$ref": "#/$defs/commandType"
+      "$ref": "#/$defs/command"
     }
   },
   "unevaluatedProperties": false,
@@ -60,7 +60,7 @@
     "set_response": [ "set_request" ]
   },
   "$defs": {
-    "bitType": {
+    "bit": {
       "title": "Bit",
       "description": "Describes the meaning of one bit in a bit field.",
       "type": "object",
@@ -98,7 +98,7 @@
           "title": "Bits",
           "description": "List of the bits.",
           "type": "array",
-          "items": { "$ref": "#/$defs/bitType" },
+          "items": { "$ref": "#/$defs/bit" },
           "uniqueItems": true
         },
         "size": {
@@ -129,7 +129,7 @@
           "title": "Labels",
           "description": "A list of labels that name special values.",
           "type": "array",
-          "items": { "$ref": "#/$defs/labeledBooleanType" },
+          "items": { "$ref": "#/$defs/labeledBoolean" },
           "uniqueItems": true,
           "maxItems": 2
         }
@@ -165,7 +165,7 @@
       "unevaluatedProperties": false,
       "required": [ "type" ]
     },
-    "commandType": {
+    "command": {
       "$comment": "The title is specific to where this used, and so no title is defined here.",
       "description": "The contents of an RDM command: 1. a collection of 'field' items, each a simple or compound type, 2. a single 'field' item, or 3. a duplicate command.",
       "oneOf": [
@@ -263,7 +263,7 @@
           "title": "Labels",
           "description": "A list of labels that name special values.",
           "type": "array",
-          "items": { "$ref": "#/$defs/labeledIntegerType" },
+          "items": { "$ref": "#/$defs/labeledInteger" },
           "uniqueItems": true
         },
         "restrictToLabeled": {
@@ -275,7 +275,7 @@
           "title": "Ranges",
           "description": "A list of possible ranges for the value. The complete range is the union of all the ranges. This should not be specified if \"restrictToLabeled\" is set to 'true'.",
           "type": "array",
-          "items": { "$ref": "#/$defs/rangeType" },
+          "items": { "$ref": "#/$defs/range" },
           "uniqueItems": true
         },
         "units": {
@@ -300,7 +300,7 @@
       "unevaluatedProperties": false,
       "required": [ "type" ]
     },
-    "labeledBooleanType": {
+    "labeledBoolean": {
       "title": "Labeled Boolean",
       "description": "Associates a name to a Boolean value.",
       "type": "object",
@@ -315,7 +315,7 @@
       "unevaluatedProperties": false,
       "required": [ "name", "value" ]
     },
-    "labeledIntegerType": {
+    "labeledInteger": {
       "title": "Labeled integer",
       "description": "Associates a name to an integer value.",
       "type": "object",
@@ -391,7 +391,7 @@
       "unevaluatedProperties": false,
       "required": [ "type" ]
     },
-    "rangeType": {
+    "range": {
       "title": "Range",
       "description": "Defines an inclusive range of numbers. If one of the bounds is undefined then it is assumed to be the bound appropriate for the type.",
       "type": "object",
@@ -469,7 +469,7 @@
       "unevaluatedProperties": false,
       "required": [ "type" ]
     },
-    "subdeviceType": {
+    "subdevices": {
       "title": "Sub-devices",
       "description": "Acceptable values for the subdevice in a GET or SET command. An empty list means allow nothing.",
       "type": "array",
