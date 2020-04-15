@@ -199,12 +199,14 @@
         "name": {
           "title": "Name",
           "description": "The object name. If this is not intended for UI display, then a displayable name can be added with \"displayName\".",
-          "$ref": "#/$defs/nameType"
+          "type": "string",
+          "minLength": 1
         },
         "displayName": {
           "title": "Display name",
           "description": "An optional name for UI display.",
-          "$ref": "#/$defs/nameType"
+          "type": "string",
+          "minLength": 1
         },
         "notes": {
           "title": "Notes",
@@ -356,11 +358,6 @@
       },
       "unevaluatedProperties": false,
       "required": [ "type", "itemType" ]
-    },
-    "nameType": {
-      "$comment": "Referencers must provide a title and description.",
-      "type": "string",
-      "minLength": 1
     },
     "oneOfTypes": {
       "$comment": "One of any of the types. This provides a single location to keep the list.",
