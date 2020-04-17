@@ -70,6 +70,8 @@ field, and that field should appear last, serially.
 * [JSON Schema](https://json-schema.org)
 * RDM schema canonical URI (not necessarily a network locator):
   http://estalink.us/rdm-schema.json
+* RDM schema main page (expected to be here, but not here yet):
+  http://estalink.us/rdm-schema
 
 ### References mentioned in the schema
 
