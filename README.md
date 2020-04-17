@@ -21,6 +21,16 @@ To develop the schema, all known RDM messages were implemented as schema
 instances so that every case in the specifications was accounted for. There were
 two exceptions, however, `QUEUED_MESSAGE` and `CAPTURE_PRESET`.
 
+### Relation to other RDM types and structure
+
+The "DS_*" types in E1.20, plus the types from related specifications, are
+not sufficient to describe a proper type system, so there is no direct mapping
+from E1.20 to this schema.
+
+Whilst this schema can be used to represent everything in the specifications,
+the facilities in the specifications can't be used to represent everything
+RDM messages might wish to represent, manufacturer-specific or otherwise.
+
 ### Exceptions
 
 `QUEUED_MESSAGE` is the only message that allows responses having a different
