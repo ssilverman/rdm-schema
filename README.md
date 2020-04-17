@@ -63,6 +63,22 @@ string having a length in the range 0-32" or "a list of arbitrary size". So that
 there is no ambiguity, a message should contain at most one non-fixed-size
 field, and that field should appear last, serially.
 
+### Errors
+
+The schema does not capture every possible error. Some errors can only be caught
+after processing a schema instance. It is an error if any of the requirements
+below are not met.
+
+1. "bitField" type: the number of bits defined in the array must be less than or
+   equal to the "size" value.
+2. "bytes" type: the "minLength" value must be less than or equal to the
+   "maxLength" value.
+3. "string" type: any size limits described by "pattern" must not contradict the
+   limits described by "minLength" and "maxLength". As well, the "minLength"
+   value must be less than or equal to the "maxLength" value.
+4. If a command is a duplicate of another command then it cannot duplicate
+   itself. For example, a "get_response" cannot have a value of "get_response".
+
 ## Resources
 
 * [TSP Published Documents](https://tsp.esta.org/tsp/documents/published_docs.php)
