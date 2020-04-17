@@ -139,7 +139,7 @@
     },
     "bytesType": {
       "title": "Bytes type",
-      "description": "A list of bytes. The minimum and maximum length properties are not required, but it is a good idea to specify their values for unknown bytes types.",
+      "description": "A list of bytes. The minimum and maximum length properties are not required, but it is a good idea to specify their values for unknown bytes types. This corresponds to the DS_UINT8 type in \"Table A-15: Data Type Defines\" of the RDM E1.20 specification.",
       "type": "object",
       "$ref": "#/$defs/commonPropertiesForNamed",
       "properties": {
@@ -226,7 +226,7 @@
     },
     "compoundType": {
       "title": "Compound type",
-      "description": "Defines a compound type, a type used to combine other types. This is useful for including in lists.",
+      "description": "Defines a compound type, a type used to combine other types. This is useful for including in lists. This corresponds to the DS_GROUP type in \"Table A-15: Data Type Defines\" of the RDM E1.20 specification.",
       "type": "object",
       "$ref": "#/$defs/commonPropertiesForNamed",
       "properties": {
@@ -243,7 +243,7 @@
     },
     "integerType": {
       "title": "Integer type",
-      "description": "A signed or unsigned integer, can have an optional prefix, unit, and range.",
+      "description": "A signed or unsigned integer, can have an optional prefix, unit, and range. This corresponds to any of the integer types in \"Table A-15: Data Type Defines\" of the RDM E1.20 specification.",
       "type": "object",
       "$ref": "#/$defs/commonPropertiesForNamed",
       "properties": {
@@ -411,7 +411,7 @@
     },
     "refType": {
       "title": "Reference type",
-      "description": "Specifies a reference to another value, a URI whose fragment part, if present, is a JSON pointer. See RFCs 3986 (URI Syntax) and 6901 (JSON Pointer).",
+      "description": "Specifies a reference to another value, a URI whose fragment part, if present, is a JSON pointer. See https://tools.ietf.org/html/rfc3986 (URI Syntax) and https://tools.ietf.org/html/rfc6901 (JSON Pointer).",
       "type": "object",
       "properties": {
         "$ref": {
@@ -426,14 +426,14 @@
     },
     "stringType": {
       "title": "String type",
-      "description": "A UTF-8-encoded string having a possibly bounded size. Implementations may need to use either a NUL terminator or another \"length\" field for multi-field messages where a string is followed by another field, so that its boundary can be determined.",
+      "description": "A UTF-8-encoded string having a possibly bounded size. Implementations may need to use either a NUL terminator or another \"length\" field for multi-field messages where a string is followed by another field, so that its boundary can be determined. This corresponds to the DS_STRING type in \"Table A-15: Data Type Defines\" of the RDM E1.20 specification.",
       "type": "object",
       "$ref": "#/$defs/commonPropertiesForNamed",
       "properties": {
         "type": { "const": "string" },
         "format": {
           "title": "Interpretation format",
-          "description": "This field describes how to interpret the string value. It can be one of the string types defined in \"Table A-15: Data Type Defines\" of the RDM E1.20 specification (or other add-on specifications), one of the defined formats from the JSON Schema Validation specification (https://json-schema.org/draft/2019-09/json-schema-validation.html#rfc.section.7.3), or it can be something manufacturer-specific. Be aware, however, that anything not defined here may not be understood by a controller or UI. The known string types from E1.20 (and add-ons) include: hostname (https://tools.ietf.org/html/rfc1123#section-2.1, https://tools.ietf.org/html/rfc5891#section-4.4), json (https://tools.ietf.org/html/rfc7159), string, and url (https://tools.ietf.org/html/rfc3986, https://tools.ietf.org/html/rfc1738).",
+          "description": "This field describes how to interpret the string value. It can be one of the string types defined in \"Table A-15: Data Type Defines\" of the RDM E1.20 specification (or other add-on specifications), one of the defined formats from the JSON Schema Validation specification (https://json-schema.org/draft/2019-09/json-schema-validation.html#rfc.section.7.3), or it can be something manufacturer-specific. It is suggested that a URI or other unique naming convention be used to uniquely identify these. Be aware, however, that anything not defined here may not be understood by a controller or UI. The known string types from E1.20 (and add-ons) include: hostname (https://tools.ietf.org/html/rfc1123#section-2.1, https://tools.ietf.org/html/rfc5891#section-4.4), json (https://tools.ietf.org/html/rfc8259), string, and url (the DS_URL type from \"Table A-15\") (https://tools.ietf.org/html/rfc3986, https://tools.ietf.org/html/rfc1738).",
           "type": "string"
         },
         "pattern": {
