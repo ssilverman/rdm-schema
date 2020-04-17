@@ -62,7 +62,7 @@
   "$defs": {
     "bit": {
       "title": "Bit",
-      "description": "Describes the meaning of one bit in a bit field.",
+      "description": "One bit in a bit field.",
       "type": "object",
       "$ref": "#/$defs/commonPropertiesForNamed",
       "properties": {
@@ -96,7 +96,7 @@
         "type": { "const": "bitField" },
         "bits": {
           "title": "Bits",
-          "description": "List of the bits.",
+          "description": "A list of the bits in the bit field.",
           "type": "array",
           "items": { "$ref": "#/$defs/bit" },
           "uniqueItems": true
@@ -139,7 +139,7 @@
     },
     "bytesType": {
       "title": "Bytes type",
-      "description": "A list of bytes. The minimum and maximum length properties are not required, but it is a good idea to specify their values for unknown bytes types. This corresponds to the intent of DS_UINT8 in \"Table A-15: Data Type Defines\" of the RDM E1.20 specification.",
+      "description": "An array of bytes. The minimum and maximum length properties are not required, but it is a good idea to specify their values for unknown bytes types. This corresponds to the intent of DS_UINT8 in \"Table A-15: Data Type Defines\" of the RDM E1.20 specification.",
       "type": "object",
       "$ref": "#/$defs/commonPropertiesForNamed",
       "properties": {
@@ -171,7 +171,7 @@
       "oneOf": [
         {
           "title": "List of fields",
-          "description": "The command consists of one or more fields.",
+          "description": "The command consists of zero or more fields.",
           "type": "array",
           "items": { "$ref": "#/$defs/oneOfTypes" },
           "uniqueItems": true
@@ -183,7 +183,7 @@
         },
         {
           "title": "Command duplicate",
-          "description": "Indicates that a command is a duplicate of one of the other commands. Using this feature can potentially save space.",
+          "description": "Indicates that a command is a duplicate of one of the other commands. Using this feature can potentially save space. It is an error if the command refers to itself.",
           "enum": [
             "get_request",
             "get_response",
