@@ -15,11 +15,17 @@ and this project adheres to
   README. This adds all the links mentioned in the schema.
 * README "Resources": Added the schema's canonical URL and a link to its
   main page.
+* README "Usage notes": New "Errors" section that describes errors the schema
+  doesn't catch.
 
 ### Changed
 * Updated some type descriptions to state that they map to "the intent of" an
   RDM type.
 * Changed the schema's canonical URL to be "http://estalink.us/rdm-schema.json".
+
+### Fixed
+* The description for the list-of-fields schema in "command" is now "zero or
+  more" instead of "one or more".
 
 ## [0.28.0]
 
