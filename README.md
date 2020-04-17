@@ -68,3 +68,22 @@ field, and that field should appear last, serially.
 * [TSP Published Documents](https://tsp.esta.org/tsp/documents/published_docs.php)
 * [TSP Public Review Documents](https://tsp.esta.org/tsp/documents/public_review_docs.php)
 * [JSON Schema](https://json-schema.org)
+* [RDM schema canonical link](http://estalink.us/jsonschema)
+
+### References mentioned in the schema
+
+* [URI Syntax](https://tools.ietf.org/html/rfc3986)
+* [JSON Pointer](https://tools.ietf.org/html/rfc6901)
+* [JSON Schema Validation: Defined Formats](https://json-schema.org/draft/2019-09/json-schema-validation.html#rfc.section.7.3)
+* Format "hostname":
+  * [Requirements for Internet Hosts: Host Names and Numbers](https://tools.ietf.org/html/rfc1123#section-2.1)\
+    (You may need to scroll to Section 2.1.)
+  * [Internationalized Domain Names in Applications: Punycode Conversion](https://tools.ietf.org/html/rfc5891#section-4.4)
+* Format "json": [JSON](https://tools.ietf.org/html/rfc8259)
+* Format "url":
+  * [URI](https://tools.ietf.org/html/rfc3986)\
+    See also (from [Section 1.1.3](https://tools.ietf.org/html/rfc3986#section-1.1.3)):
+    [URI, URL, URN Clarifications](https://tools.ietf.org/html/rfc3305)
+  * [URL](https://tools.ietf.org/html/rfc1738)
+  * [ECMA-262](https://www.ecma-international.org/publications/standards/Ecma-262.htm)
+    (Regular Expressions)
