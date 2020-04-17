@@ -6,6 +6,21 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.29.0]
+
+### Added
+* New "Relation to other RDM types and structure" section under "Design notes"
+  in the README. This discusses type mapping.
+* New "References mentioned in the schema" section under "Resources" in the
+  README. This adds all the links mentioned in the schema.
+* README "Resources": Added the schema's canonical URL and a link to its
+  main page.
+
+### Changed
+* Updated some type descriptions to state that they map to "the intent of" an
+  RDM type.
+* Changed the schema's canonical URL to be "http://estalink.us/rdm-schema.json".
+
 ## [0.28.0]
 
 ### Added
