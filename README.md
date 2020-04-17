@@ -68,7 +68,8 @@ field, and that field should appear last, serially.
 * [TSP Published Documents](https://tsp.esta.org/tsp/documents/published_docs.php)
 * [TSP Public Review Documents](https://tsp.esta.org/tsp/documents/public_review_docs.php)
 * [JSON Schema](https://json-schema.org)
-* [RDM schema canonical link](http://estalink.us/rdm-schema.json)
+* RDM schema canonical URI (not necessarily a network locator):
+  http://estalink.us/rdm-schema.json
 
 ### References mentioned in the schema
 
