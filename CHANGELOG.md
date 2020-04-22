@@ -20,6 +20,7 @@ and this project adheres to
 * Added to the "refType" description that it is an error if the reference does
   not point to an object having one of the types in #/$defs/oneOfTypes, or if
   there is a circular reference. Updated the README to reflect this.
+* README link to an online validator that can validate Draft 2019-09 schemas.
 
 ### Changed
 * Updated some type descriptions to state that they map to "the intent of" an

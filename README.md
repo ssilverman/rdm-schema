@@ -91,6 +91,8 @@ below are not met.
   http://estalink.us/rdm-schema.json
 * RDM schema main page (expected to be here, but not here yet):
   http://estalink.us/rdm-schema
+* Online JSON schema validator:
+  [Hyperjump - JSON Schema Validator](https://json-schema.hyperjump.io/)
 
 ### References mentioned in the schema
 
