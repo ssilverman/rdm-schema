@@ -44,7 +44,7 @@ the original intent for this project.
 
 ### Questions
 
-Is having a "displayName" necessary for fields? If this is for UI generation
+Is having a `"displayName"` necessary for fields? If this is for UI generation
 then wouldn't a displayable name already be in "name"?
 
 ## Usage notes
@@ -69,17 +69,18 @@ The schema does not capture every possible error. Some errors can only be caught
 after processing a schema instance. It is an error if any of the requirements
 below are not met.
 
-1. "bitField" type: the number of bits defined in the array must be less than or
-   equal to the "size" value.
-2. "bytes" type: the "minLength" value must be less than or equal to the
-   "maxLength" value.
-3. "string" type: any size limits described by "pattern" must not contradict the
-   limits described by "minLength" and "maxLength". As well, the "minLength"
-   value must be less than or equal to the "maxLength" value.
+1. `"bitField"` type: the number of bits defined in the array must be less than
+   or equal to the `"size"` value.
+2. `"bytes"` type: the `"minLength"` value must be less than or equal to the
+   `"maxLength"` value.
+3. `"string"` type: any size limits described by `"pattern"` must not contradict
+   the limits described by `"minLength"` and `"maxLength"`. As well, the
+   `"minLength"` value must be less than or equal to the `"maxLength"` value.
 4. If a command is a duplicate of another command then it cannot duplicate
-   itself. For example, a "get_response" cannot have a value of "get_response".
-5. "refType": the reference must point to an object having one of the types in
-   #/$defs/oneOfTypes and there must not be any circular references.
+   itself. For example, a `"get_response"` cannot have a value
+   of `"get_response"`.
+5. `"refType"`: the reference must point to an object having one of the types in
+   `#/$defs/oneOfTypes` and there must not be any circular references.
 
 ## Resources
 
