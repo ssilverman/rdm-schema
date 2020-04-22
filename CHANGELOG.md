@@ -15,8 +15,11 @@ and this project adheres to
   README. This adds all the links mentioned in the schema.
 * README "Resources": Added the schema's canonical URL and a link to its
   main page.
-* README "Usage notes": New "Errors" section that describes errors the schema
-  doesn't catch.
+* README "Usage notes": New "Constraints and errors" section that describes
+  errors the schema doesn't catch.
+* Added to the "refType" description that it is an error if the reference does
+  not point to an object having one of the types in #/$defs/oneOfTypes, or if
+  there is a circular reference. Updated the README to reflect this.
 
 ### Changed
 * Updated some type descriptions to state that they map to "the intent of" an

@@ -63,7 +63,7 @@ string having a length in the range 0-32" or "a list of arbitrary size". So that
 there is no ambiguity, a message should contain at most one non-fixed-size
 field, and that field should appear last, serially.
 
-### Errors
+### Constraints and errors
 
 The schema does not capture every possible error. Some errors can only be caught
 after processing a schema instance. It is an error if any of the requirements
@@ -78,6 +78,8 @@ below are not met.
    value must be less than or equal to the "maxLength" value.
 4. If a command is a duplicate of another command then it cannot duplicate
    itself. For example, a "get_response" cannot have a value of "get_response".
+5. "refType": the reference must point to an object having one of the types in
+   #/$defs/oneOfTypes and there must not be any circular references.
 
 ## Resources
 
