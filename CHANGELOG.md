@@ -17,8 +17,8 @@ and this project adheres to
   main page.
 * README "Usage notes": New "Constraints and errors" section that describes
   errors the schema doesn't catch.
-* Added to the "refType" description that it is an error if the reference does
-  not point to an object having one of the types in #/$defs/oneOfTypes, or if
+* Added to the `"refType"` description that it is an error if the reference does
+  not point to an object having one of the types in `#/$defs/oneOfTypes`, or if
   there is a circular reference. Updated the README to reflect this.
 * README link to an online validator that can validate Draft 2019-09 schemas.
 
@@ -28,7 +28,7 @@ and this project adheres to
 * Changed the schema's canonical URL to be "http://estalink.us/rdm-schema.json".
 
 ### Fixed
-* The description for the list-of-fields schema in "command" is now "zero or
+* The description for the list-of-fields schema in `"command"` is now "zero or
   more" instead of "one or more".
 
 ## [0.28.0]
