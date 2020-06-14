@@ -103,7 +103,7 @@ below are not met.
   * [Requirements for Internet Hosts: Host Names and Numbers](https://tools.ietf.org/html/rfc1123#section-2)\
     (You may need to scroll to Section 2.1.)
   * [Application Techniques for Checking and Transformation of Names](https://tools.ietf.org/html/rfc3696#section-2)
-  * [Internationalized Domain Names in Applications: Punycode Conversion](https://tools.ietf.org/html/rfc5891#section-4.4)
+  * [Internationalized Domain Names for Applications (IDNA): Definitions and Document Framework](https://tools.ietf.org/html/rfc5890)
 * Format "json": [JSON](https://tools.ietf.org/html/rfc8259)
 * Format "url":
   * [URI](https://tools.ietf.org/html/rfc3986)\
