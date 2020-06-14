@@ -10,7 +10,7 @@
       "name": "domain_name",
       "type": "string",
       "resources": [
-        "https://tools.ietf.org/html/rfc1123#section-2.1",
+        "https://tools.ietf.org/html/rfc1123#section-2",
         "https://tools.ietf.org/html/rfc1912#section-2.1",
         "https://tools.ietf.org/html/rfc1035#section-2.3.1",
         "https://stackoverflow.com/a/14622263"

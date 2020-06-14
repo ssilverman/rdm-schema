@@ -100,7 +100,7 @@ below are not met.
 * [JSON Pointer](https://tools.ietf.org/html/rfc6901)
 * [JSON Schema Validation: Defined Formats](https://json-schema.org/draft/2019-09/json-schema-validation.html#rfc.section.7.3)
 * Format "hostname":
-  * [Requirements for Internet Hosts: Host Names and Numbers](https://tools.ietf.org/html/rfc1123#section-2.1)\
+  * [Requirements for Internet Hosts: Host Names and Numbers](https://tools.ietf.org/html/rfc1123#section-2)\
     (You may need to scroll to Section 2.1.)
   * [Internationalized Domain Names in Applications: Punycode Conversion](https://tools.ietf.org/html/rfc5891#section-4.4)
 * Format "json": [JSON](https://tools.ietf.org/html/rfc8259)
