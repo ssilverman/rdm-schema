@@ -114,3 +114,4 @@ below are not met.
   * [URL](https://tools.ietf.org/html/rfc1738)
   * [ECMA-262](https://www.ecma-international.org/publications/standards/Ecma-262.htm)
     (Regular Expressions)
+* [UTF-8](https://www.rfc-editor.org/rfc/rfc3629)
