@@ -454,9 +454,15 @@
           "type": "integer",
           "minimum": 0
         },
+        "minBytes": {
+          "title": "Minimum length in bytes",
+          "description": "The minimum encoded length in bytes. In the case that the number of characters in the string is different from the number of bytes after UTF-8 encoding, we may need to specify a minimum encoded length.",
+          "type": "integer",
+          "minimum": 0
+        },
         "maxBytes": {
           "title": "Maximum length in bytes",
-          "description": "In the case that the number of characters in the string is different from the number of bytes after UTF-8 encoding, we may need to specify a maximum encoded length.",
+          "description": "The maximum encoded length in bytes. In the case that the number of characters in the string is different from the number of bytes after UTF-8 encoding, we may need to specify a maximum encoded length.",
           "type": "integer",
           "minimum": 0
         },
