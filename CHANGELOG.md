@@ -13,6 +13,9 @@ and this project adheres to
   adds symmetry.
 * Reference to UTF-8 RFC in the README.
 
+### Changed
+* "RDM E1.20" -> "ANSI E1.20-202x"
+
 ## [0.30.0]
 
 ### Added

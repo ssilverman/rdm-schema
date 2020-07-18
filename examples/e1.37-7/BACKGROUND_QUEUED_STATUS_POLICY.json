@@ -9,7 +9,7 @@
     {
       "name": "policy_setting",
       "type": "uint8",
-      "notes": "See \"Table 7-3: Control Field\" in E1.20. The labeled values are just informative, but this contradicts with the spec (E1.37-7) saying \"must support this minimum set\".",
+      "notes": "See \"Table 7-3: Control Field\" in ANSI E1.20-202x. The labeled values are just informative, but this contradicts with the spec (E1.37-7) saying \"must support this minimum set\".",
       "labels": [
         { "name": "STATUS_NONE", "value": 0 },
         { "name": "STATUS_ADVISORY", "value": 1 },

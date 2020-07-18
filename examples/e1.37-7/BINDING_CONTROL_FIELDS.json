@@ -24,7 +24,7 @@
     {
       "name": "control",
       "type": "uint16",
-      "notes": "See \"Table 7-3: Control Field\" in E1.20."
+      "notes": "See \"Table 7-3: Control Field\" in ANSI E1.20-202x."
     },
     {
       "name": "binding_uid",

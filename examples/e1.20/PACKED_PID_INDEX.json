@@ -7,7 +7,7 @@
     {
       "name": "pid",
       "type": "uint16",
-      "notes": "Some PIDs are disallowed from being packed. See \"Table A-3: RDM Categories/Parameter ID Defines\" of rhe RDM E1.20 specification."
+      "notes": "Some PIDs are disallowed from being packed. See \"Table A-3: RDM Categories/Parameter ID Defines\" of the ANSI E1.20-202x specification."
     },
     { "name": "first_item", "type": "uint16" },
     {

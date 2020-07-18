@@ -25,9 +25,9 @@ two exceptions, however, `QUEUED_MESSAGE` and `CAPTURE_PRESET`.
 
 ### Relation to other RDM types and structure
 
-The "DS_*" types in E1.20, plus the types from related specifications, are
-not sufficient to describe a proper type system, so there is no direct mapping
-from E1.20 to this schema.
+The "DS_*" types in ANSI E1.20-202x, plus the types from related specifications,
+are not sufficient to describe a proper type system, so there is no direct
+mapping from ANSI E1.20-202x to this schema.
 
 Whilst this schema can be used to represent everything in the specifications,
 the facilities in the specifications can't be used to represent everything
@@ -87,7 +87,9 @@ below are not met.
 ## Resources
 
 * [TSP Published Documents](https://tsp.esta.org/tsp/documents/published_docs.php)
+  * The latest ANSI E1.20 specification can be found here.
 * [TSP Public Review Documents](https://tsp.esta.org/tsp/documents/public_review_docs.php)
+  * ANSI E1.20-202x can be found here when it's released for public review.
 * [JSON Schema](https://json-schema.org)
 * RDM schema canonical URI (not necessarily a network locator):
   http://estalink.us/rdm-schema.json
