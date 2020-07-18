@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.30.0]
+
+### Added
+* Reference to RFC 3696 wherever RFC 1123 is mentioned.
+
+### Changed
+* IDN hostnames now refer to RFC 5890 instead of just Punycode.
+
 ## [0.29.0]
 
 ### Added
