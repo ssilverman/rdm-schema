@@ -115,7 +115,6 @@
           "default": false
         }
       },
-      "unevaluatedProperties": false,
       "required": [ "type", "size", "bits" ]
     },
     "booleanType": {
@@ -134,7 +133,6 @@
           "maxItems": 2
         }
       },
-      "unevaluatedProperties": false,
       "required": [ "type" ]
     },
     "bytesType": {
@@ -162,7 +160,6 @@
           "minimum": 0
         }
       },
-      "unevaluatedProperties": false,
       "required": [ "type" ]
     },
     "command": {
@@ -238,7 +235,6 @@
           "items": { "$ref": "#/$defs/oneOfTypes" }
         }
       },
-      "unevaluatedProperties": false,
       "required": [ "type", "subtypes" ]
     },
     "integerType": {
@@ -297,7 +293,6 @@
           "default": 10
         }
       },
-      "unevaluatedProperties": false,
       "required": [ "type" ]
     },
     "labeledBoolean": {
@@ -356,7 +351,6 @@
           "minimum": 0
         }
       },
-      "unevaluatedProperties": false,
       "required": [ "type", "itemType" ]
     },
     "oneOfTypes": {
@@ -371,7 +365,8 @@
         { "$ref": "#/$defs/pdEnvelopeType" },
         { "$ref": "#/$defs/refType" },
         { "$ref": "#/$defs/stringType" }
-      ]
+      ],
+      "unevaluatedProperties": false
     },
     "pdEnvelopeType": {
       "title": "PD envelope type",
@@ -388,7 +383,6 @@
           "maximum": 255
         }
       },
-      "unevaluatedProperties": false,
       "required": [ "type" ]
     },
     "range": {
@@ -472,7 +466,6 @@
           "type": "boolean"
         }
       },
-      "unevaluatedProperties": false,
       "required": [ "type" ]
     },
     "subdevices": {
