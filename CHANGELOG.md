@@ -16,6 +16,9 @@ and this project adheres to
 ### Changed
 * "RDM E1.20" -> "ANSI E1.20-202x"
 
+### Fixed
+* SHIPPING_LOCK invalid "note" property changed to "notes".
+
 ## [0.30.0]
 
 ### Added

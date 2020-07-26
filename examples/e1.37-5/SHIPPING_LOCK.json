@@ -22,7 +22,7 @@
     {
       "name": "lock_state",
       "type": "uint8",
-      "note": "The list here is more restrictive than for getting the lock state. Do we want to add states and maybe descriptions?",
+      "notes": "The list here is more restrictive than for getting the lock state. Do we want to add states and maybe descriptions?",
       "labels": [
         { "name": "Unlocked", "value": 0 },
         { "name": "Locked", "value": 1 }
