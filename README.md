@@ -7,6 +7,20 @@ Section 5 of E1.37-5.
 
 The schema is subject to change.
 
+## Table of contents
+
+1. [Project intent](#project-intent)
+2. [Design notes](#design-notes)
+   1. [Relation to other RDM types and structure](#relation-to-other-rdm-types-and-structure)
+   2. [Exceptions](#exceptions)
+   3. [Open questions](#open-questions)
+3. [Usage notes](#usage-notes)
+   1. [Framing is at a different layer](#framing-is-at-a-different-layer)
+   2. [Arbitrary field sizes](#arbitrary-field-sizes)
+   3. [Constraints and errors](#constraints-and-errors)
+4. [Resources](#resources)
+   1. [References mentioned in the schema](#references-mentioned-in-the-schema)
+
 ## Project intent
 
 This project intends to provide a machine-readable way to describe
@@ -44,7 +58,7 @@ It was decided that these features would not be included because they're so
 rare and they're not desiarable features for representing manufacturer messages,
 the original intent for this project.
 
-### Questions
+### Open questions
 
 Is having a `"displayName"` necessary for fields? If this is for UI generation
 then wouldn't a displayable name already be in "name"?
