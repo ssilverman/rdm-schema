@@ -354,7 +354,7 @@
       "required": [ "type", "itemType" ]
     },
     "oneOfTypes": {
-      "$comment": "One of any of the types. This provides a single location to keep the list.",
+      "$comment": "One of any of the types. This provides a single location to keep the list. \"unevaluatedProperties\" is factored out of the types in an attempt to make sorting through any errors easier.",
       "oneOf": [
         { "$ref": "#/$defs/bitFieldType" },
         { "$ref": "#/$defs/booleanType" },
