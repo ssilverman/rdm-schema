@@ -170,13 +170,17 @@
           "title": "List of fields",
           "description": "The command consists of zero or more fields.",
           "type": "array",
-          "items": { "$ref": "#/$defs/oneOfTypes" },
+          "items": {
+            "$ref": "#/$defs/oneOfTypes",
+            "unevaluatedProperties": false
+          },
           "uniqueItems": true
         },
         {
           "title": "Single field",
           "description": "The command consists of a single field.",
-          "$ref": "#/$defs/oneOfTypes"
+          "$ref": "#/$defs/oneOfTypes",
+          "unevaluatedProperties": false
         },
         {
           "title": "Command duplicate",
@@ -232,7 +236,10 @@
           "title": "Subtypes",
           "description": "A list of types composing this compound type.",
           "type": "array",
-          "items": { "$ref": "#/$defs/oneOfTypes" }
+          "items": {
+            "$ref": "#/$defs/oneOfTypes",
+            "unevaluatedProperties": false
+          }
         }
       },
       "required": [ "type", "subtypes" ]
@@ -336,7 +343,8 @@
         "itemType": {
           "title": "Item type",
           "description": "The type of each item in the list.",
-          "$ref": "#/$defs/oneOfTypes"
+          "$ref": "#/$defs/oneOfTypes",
+          "unevaluatedProperties": false
         },
         "minItems": {
           "title": "Minimum list size",
@@ -354,7 +362,7 @@
       "required": [ "type", "itemType" ]
     },
     "oneOfTypes": {
-      "$comment": "One of any of the types. This provides a single location to keep the list. \"unevaluatedProperties\" is factored out of the types in an attempt to make sorting through any errors easier.",
+      "$comment": "One of any of the types. This provides a single location to keep the list. None of the types here specify \"unevaluatedProperties\", so if extra properties are to be disallowed, then that must be specified by the referencer of this schema. This will make sorting through any errors easier.",
       "oneOf": [
         { "$ref": "#/$defs/bitFieldType" },
         { "$ref": "#/$defs/booleanType" },
@@ -365,8 +373,7 @@
         { "$ref": "#/$defs/pdEnvelopeType" },
         { "$ref": "#/$defs/refType" },
         { "$ref": "#/$defs/stringType" }
-      ],
-      "unevaluatedProperties": false
+      ]
     },
     "pdEnvelopeType": {
       "title": "PD envelope type",

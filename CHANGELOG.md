@@ -15,8 +15,8 @@ and this project adheres to
 
 ### Changed
 * "RDM E1.20" -> "ANSI E1.20-202x"
-* Moved "unevaluatedProperties" from each of the types into the
-  parent "oneOfTypes".
+* Moved "unevaluatedProperties" from each of the types into the referencers of
+  the parent "oneOfTypes".
 
 ### Fixed
 * SHIPPING_LOCK invalid "note" property changed to "notes".
