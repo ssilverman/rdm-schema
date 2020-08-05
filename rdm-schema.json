@@ -412,7 +412,7 @@
     },
     "refType": {
       "title": "Reference type",
-      "description": "Specifies a reference to another value, a URI whose fragment part, if present, is a JSON pointer. See https://tools.ietf.org/html/rfc3986 (URI Syntax) and https://tools.ietf.org/html/rfc6901 (JSON Pointer). It is an error if this does not point to an object having one of the types in #/$defs/oneOfTypes, or if there is a circular reference.",
+      "description": "Specifies a reference to another value, a URI whose fragment part, if present, is a JSON Pointer. See https://tools.ietf.org/html/rfc3986 (URI Syntax) and https://tools.ietf.org/html/rfc6901 (JSON Pointer). It is an error if this does not point to an object having one of the types in \"#/$defs/oneOfTypes\", or if there is a circular reference.",
       "type": "object",
       "properties": {
         "$ref": {
