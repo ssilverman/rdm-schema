@@ -12,11 +12,16 @@ and this project adheres to
 * Added "minBytes" to "stringType" for the minimum encoded size in bytes. This
   adds symmetry.
 * Reference to UTF-8 RFC in the README.
+* Added that characters in strings are defined by JSON (RFC 8259) to the
+  descriptions of "minLength" and "maxLength" in the string type.
 
 ### Changed
 * "RDM E1.20" -> "ANSI E1.20-202x"
 * Moved "unevaluatedProperties" from each of the types into the referencers of
   the parent "oneOfTypes".
+* Replaced RFC "https://tools.ietf.org/html" links with
+  "https://www.rfc-editor.org/rfc" links.
+* Updated some descriptions in the schema to use Markdown-style links.
 
 ### Fixed
 * SHIPPING_LOCK invalid "note" property changed to "notes".
