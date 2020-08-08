@@ -412,7 +412,7 @@
     },
     "refType": {
       "title": "Reference type",
-      "description": "Specifies a reference to another value, a URI whose fragment part, if present, is a JSON Pointer. See https://www.rfc-editor.org/rfc/rfc3986.html (URI Syntax) and https://www.rfc-editor.org/rfc/rfc6901.html (JSON Pointer). It is an error if this does not point to an object having one of the types in \"#/$defs/oneOfTypes\", or if there is a circular reference.",
+      "description": "Specifies a reference to another value, a URI whose fragment part, if present, is a JSON Pointer. See [URI Syntax](https://www.rfc-editor.org/rfc/rfc3986.html) and [JSON Pointer](https://www.rfc-editor.org/rfc/rfc6901.html). It is an error if this does not point to an object having one of the types in \"#/$defs/oneOfTypes\", or if there is a circular reference.",
       "type": "object",
       "properties": {
         "$ref": {
@@ -434,24 +434,24 @@
         "type": { "const": "string" },
         "format": {
           "title": "Interpretation format",
-          "description": "This field describes how to interpret the string value. It can be one of the string types defined in \"Table A-15: Data Type Defines\" of the ANSI E1.20-202x specification (or other add-on specifications), one of the defined formats from the JSON Schema Validation specification (https://json-schema.org/draft/2019-09/json-schema-validation.html#rfc.section.7.3), or it can be something manufacturer-specific. It is suggested that a URI or other unique naming convention be used to uniquely identify these. Be aware, however, that anything not defined here may not be understood by a controller or UI. The known string types from ANSI E1.20-202x (and add-ons) include: hostname (https://www.rfc-editor.org/rfc/rfc1123.html#section-2, https://www.rfc-editor.org/rfc/rfc3696.html#section-2, https://www.rfc-editor.org/rfc/rfc5890.html), json (https://www.rfc-editor.org/rfc/rfc8259.html), string, and url (the intent of DS_URL in \"Table A-15\") (https://www.rfc-editor.org/rfc/rfc3986.html, https://www.rfc-editor.org/rfc/rfc1738.html).",
+          "description": "This field describes how to interpret the string value. It can be one of the string types defined in \"Table A-15: Data Type Defines\" of the ANSI E1.20-202x specification (or other add-on specifications), one of the defined formats from the [JSON Schema Validation specification](https://json-schema.org/draft/2019-09/json-schema-validation.html#rfc.section.7.3), or it can be something manufacturer-specific. It is suggested that a URI or other unique naming convention be used to uniquely identify these. Be aware, however, that anything not defined here may not be understood by a controller or UI. The known string types from ANSI E1.20-202x (and add-ons) include: \"hostname\" (https://www.rfc-editor.org/rfc/rfc1123.html#section-2, https://www.rfc-editor.org/rfc/rfc3696.html#section-2, https://www.rfc-editor.org/rfc/rfc5890.html), \"json\" (https://www.rfc-editor.org/rfc/rfc8259.html), \"string\", and \"url\" (the intent of DS_URL in \"Table A-15\") (https://www.rfc-editor.org/rfc/rfc3986.html, https://www.rfc-editor.org/rfc/rfc1738.html).",
           "type": "string"
         },
         "pattern": {
           "title": "Pattern",
-          "description": "An ECMA-262 regular expression (https://www.ecma-international.org/publications/standards/Ecma-262.htm) that can be used to validate the contents of this field. They're helpful for assisting a controller or UI do message validation. It's not necessary to provide a pattern for known \"format\" types. Note that care must be taken to make sure that patterns don't contradict any \"minLength\" and \"maxLength\" values. It is an error if there is a contradiction. As well, if there are maximum or minimum sizes, it is suggested that an instance makes use of the \"minLength\" and \"maxLength\" sizes in order to support those UIs that don't support regexes.",
+          "description": "An [ECMA-262 regular expression](https://www.ecma-international.org/publications/standards/Ecma-262.htm) that can be used to validate the contents of this field. They're helpful for assisting a controller or UI do message validation. It's not necessary to provide a pattern for known \"format\" types. Note that care must be taken to make sure that patterns don't contradict any \"minLength\" and \"maxLength\" values. It is an error if there is a contradiction. As well, if there are maximum or minimum sizes, it is suggested that an instance makes use of the \"minLength\" and \"maxLength\" sizes in order to support those UIs that don't support regexes.",
           "type": "string",
           "format": "regex"
         },
         "minLength": {
           "title": "Minimum length",
-          "description": "The minimum string length, in characters as defined by JSON (https://www.rfc-editor.org/rfc/rfc8259.html). Care must be taken to make sure this doesn't contradict any \"pattern\" or \"maxLength\" values. It is an error if there is a contradiction. If there are maximum or minimum sizes, it is suggested that an instance makes use of the \"minLength\" and \"maxLength\" sizes in order to support those UIs that don't support regexes.",
+          "description": "The minimum string length, in characters as defined by [JSON](https://www.rfc-editor.org/rfc/rfc8259.html). Care must be taken to make sure this doesn't contradict any \"pattern\" or \"maxLength\" values. It is an error if there is a contradiction. If there are maximum or minimum sizes, it is suggested that an instance makes use of the \"minLength\" and \"maxLength\" sizes in order to support those UIs that don't support regexes.",
           "type": "integer",
           "minimum": 0
         },
         "maxLength": {
           "title": "Maximum length",
-          "description": "The maximum string length, in characters as defined by JSON (https://www.rfc-editor.org/rfc/rfc8259.html). Care must be taken to make sure this doesn't contradict any \"pattern\" or \"minLength\" values. It is an error if there is a contradiction. If there are maximum or minimum sizes, it is suggested that an instance makes use of the \"minLength\" and \"maxLength\" sizes in order to support those UIs that don't support regexes.",
+          "description": "The maximum string length, in characters as defined by [JSON](https://www.rfc-editor.org/rfc/rfc8259.html). Care must be taken to make sure this doesn't contradict any \"pattern\" or \"minLength\" values. It is an error if there is a contradiction. If there are maximum or minimum sizes, it is suggested that an instance makes use of the \"minLength\" and \"maxLength\" sizes in order to support those UIs that don't support regexes.",
           "type": "integer",
           "minimum": 0
         },
