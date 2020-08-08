@@ -114,20 +114,20 @@ below are not met.
 
 ### References mentioned in the schema
 
-* [URI Syntax](https://tools.ietf.org/html/rfc3986)
-* [JSON Pointer](https://tools.ietf.org/html/rfc6901)
+* [URI Syntax](https://www.rfc-editor.org/rfc/rfc3986.html)
+* [JSON Pointer](https://www.rfc-editor.org/rfc/rfc6901.html)
 * [JSON Schema Validation: Defined Formats](https://json-schema.org/draft/2019-09/json-schema-validation.html#rfc.section.7.3)
 * Format "hostname":
-  * [Requirements for Internet Hosts: Host Names and Numbers](https://tools.ietf.org/html/rfc1123#section-2)\
+  * [Requirements for Internet Hosts: Host Names and Numbers](https://www.rfc-editor.org/rfc/rfc1123.html#section-2)\
     (You may need to scroll to Section 2.1.)
-  * [Application Techniques for Checking and Transformation of Names](https://tools.ietf.org/html/rfc3696#section-2)
-  * [Internationalized Domain Names for Applications (IDNA): Definitions and Document Framework](https://tools.ietf.org/html/rfc5890)
-* Format "json" and string characters: [JSON](https://tools.ietf.org/html/rfc8259)
+  * [Application Techniques for Checking and Transformation of Names](https://www.rfc-editor.org/rfc/rfc3696.html#section-2)
+  * [Internationalized Domain Names for Applications (IDNA): Definitions and Document Framework](https://www.rfc-editor.org/rfc/rfc5890.html)
+* Format "json" and string characters: [JSON](https://www.rfc-editor.org/rfc/rfc8259.html)
 * Format "url":
-  * [URI](https://tools.ietf.org/html/rfc3986)\
-    See also (from [Section 1.1.3](https://tools.ietf.org/html/rfc3986#section-1.1.3)):
-    [URI, URL, URN Clarifications](https://tools.ietf.org/html/rfc3305)
-  * [URL](https://tools.ietf.org/html/rfc1738)
+  * [URI](https://www.rfc-editor.org/rfc/rfc3986.html)\
+    See also (from [Section 1.1.3](https://www.rfc-editor.org/rfc/rfc3986.html#section-1.1.3)):
+    [URI, URL, URN Clarifications](https://www.rfc-editor.org/rfc/rfc3305.html)
+  * [URL](https://www.rfc-editor.org/rfc/rfc1738.html)
   * [ECMA-262](https://www.ecma-international.org/publications/standards/Ecma-262.htm)
     (Regular Expressions)
 * [UTF-8](https://www.rfc-editor.org/rfc/rfc3629)

@@ -10,9 +10,9 @@
       "name": "hostname",
       "type": "string",
       "resources": [
-        "https://tools.ietf.org/html/rfc1123#section-2",
-        "https://tools.ietf.org/html/rfc1912#section-2.1",
-        "https://tools.ietf.org/html/rfc3696#section-2",
+        "https://www.rfc-editor.org/rfc/rfc1123.html#section-2",
+        "https://www.rfc-editor.org/rfc/rfc1912.html#section-2.1",
+        "https://www.rfc-editor.org/rfc/rfc3696.html#section-2",
         "https://stackoverflow.com/a/14622263"
       ],
       "pattern": "^(?!-)[a-zA-Z0-9-]{0,62}[a-zA-Z0-9]$",
