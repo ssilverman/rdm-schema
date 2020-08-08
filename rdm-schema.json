@@ -445,13 +445,13 @@
         },
         "minLength": {
           "title": "Minimum length",
-          "description": "The minimum string length, in characters. Care must be taken to make sure this doesn't contradict any \"pattern\" or \"maxLength\" values. It is an error if there is a contradiction. If there are maximum or minimum sizes, it is suggested that an instance makes use of the \"minLength\" and \"maxLength\" sizes in order to support those UIs that don't support regexes.",
+          "description": "The minimum string length, in characters as defined by JSON (https://tools.ietf.org/html/rfc8259). Care must be taken to make sure this doesn't contradict any \"pattern\" or \"maxLength\" values. It is an error if there is a contradiction. If there are maximum or minimum sizes, it is suggested that an instance makes use of the \"minLength\" and \"maxLength\" sizes in order to support those UIs that don't support regexes.",
           "type": "integer",
           "minimum": 0
         },
         "maxLength": {
           "title": "Maximum length",
-          "description": "The maximum string length, in characters. Care must be taken to make sure this doesn't contradict any \"pattern\" or \"minLength\" values. It is an error if there is a contradiction. If there are maximum or minimum sizes, it is suggested that an instance makes use of the \"minLength\" and \"maxLength\" sizes in order to support those UIs that don't support regexes.",
+          "description": "The maximum string length, in characters as defined by JSON (https://tools.ietf.org/html/rfc8259). Care must be taken to make sure this doesn't contradict any \"pattern\" or \"minLength\" values. It is an error if there is a contradiction. If there are maximum or minimum sizes, it is suggested that an instance makes use of the \"minLength\" and \"maxLength\" sizes in order to support those UIs that don't support regexes.",
           "type": "integer",
           "minimum": 0
         },

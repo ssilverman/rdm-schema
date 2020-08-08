@@ -122,7 +122,7 @@ below are not met.
     (You may need to scroll to Section 2.1.)
   * [Application Techniques for Checking and Transformation of Names](https://tools.ietf.org/html/rfc3696#section-2)
   * [Internationalized Domain Names for Applications (IDNA): Definitions and Document Framework](https://tools.ietf.org/html/rfc5890)
-* Format "json": [JSON](https://tools.ietf.org/html/rfc8259)
+* Format "json" and string characters: [JSON](https://tools.ietf.org/html/rfc8259)
 * Format "url":
   * [URI](https://tools.ietf.org/html/rfc3986)\
     See also (from [Section 1.1.3](https://tools.ietf.org/html/rfc3986#section-1.1.3)):
