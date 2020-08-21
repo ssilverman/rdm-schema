@@ -52,7 +52,7 @@
     }
   },
   "unevaluatedProperties": false,
-  "required": [ "name", "pid", "version" ],
+  "required": [ "pid", "version" ],
   "dependentRequired": {
     "get_request": [ "get_response" ],
     "get_response": [ "get_request" ],
@@ -85,7 +85,7 @@
         }
       },
       "unevaluatedProperties": false,
-      "required": [ "name", "index" ]
+      "required": [ "index" ]
     },
     "bitFieldType": {
       "title": "Bit field type",
