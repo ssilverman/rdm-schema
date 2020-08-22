@@ -10,6 +10,8 @@ and this project adheres to
 
 ### Changed
 * Changed "name" to not be required for "/$defs/bit" and the root.
+* Updated the descriptions for "name" and "displayName" in
+  "/$defs/commonPropertiesForNamed" with some example uses.
 
 ## [0.31.0]
 

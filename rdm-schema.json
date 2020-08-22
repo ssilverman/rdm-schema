@@ -199,13 +199,13 @@
       "properties": {
         "name": {
           "title": "Name",
-          "description": "The object name. If this is not intended for UI display, then a displayable name can be added with \"displayName\".",
+          "description": "The object name. If this is not intended for UI display, then a displayable name can be added with \"displayName\". This property can, for example, be used as the key for lookup into a table of localized display names.",
           "type": "string",
           "minLength": 1
         },
         "displayName": {
           "title": "Display name",
-          "description": "An optional name for UI display.",
+          "description": "An optional name for UI display. This might be used, for example, as the fallback or default display name if, say, a localized name isn't specified or found via the \"name\" property.",
           "type": "string",
           "minLength": 1
         },
