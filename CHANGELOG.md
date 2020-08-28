@@ -8,6 +8,12 @@ and this project adheres to
 
 ## [0.32.0]
 
+### Added
+* Added two sections to the "Design notes" section of the README. These replace
+  the "Open questions" section. These are:
+  1. Strings and string lengths
+  2. Names and displayable strings
+
 ### Changed
 * Changed "name" to not be required for "/$defs/bit" and the root.
 * Updated the descriptions for "name" and "displayName" in
