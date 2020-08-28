@@ -58,10 +58,42 @@ It was decided that these features would not be included because they're so
 rare and they're not desiarable features for representing manufacturer messages,
 the original intent for this project.
 
-### Open questions
+### Strings and string lengths
 
-Is having a `"displayName"` necessary for fields? If this is for UI generation
-then wouldn't a displayable name already be in "name"?
+Strings, characters, and lengths, oh my! There is no simple way to define
+"character" and string length given how Unicode works. There's things like
+normalization and glyph size to consider. In short, neither character count nor
+character-to-glyph display positions is easy to define.
+
+Having said that, there are two facilities this schema provides for "string
+length". The first is "byte length", expressed in `"minBytes"` and `"maxBytes"`.
+Strings will use the UTF-8 encoding and the length in bytes gives bounds on the
+storage requirements.
+
+The second is "JSON string length", expressed in `"minLength"` and
+`"maxLength"`. While it is stated above that there's no easy way to express a
+string having a specific length, JSON still defines this concept. These values
+map to the JSON concept of "string length". From
+[Validation Keywords for Strings](https://json-schema.org/draft/2019-09/json-schema-validation.html#rfc.section.6.3),
+"The length of a string instance is defined as the number of its characters as
+defined by [RFC 8259](https://www.rfc-editor.org/rfc/rfc8259.html).
+
+In other words, "length" in this schema means the same things as "string length"
+per the JSON specification.
+
+Relevant terms: UCS-4, UTF-8, Unicode, Basic Multilingual Plane, Unicode Plane.
+
+### Names and displayable strings
+
+For nameable things, `"name"` is intended to be a unique ID and `"displayName"`
+is intended to be a name for display. Note that both are optional.
+
+In the case that a manufacturer wishes to provide localized names, this design
+takes a cue from how Java does localized strings. The name would be used as a
+lookup into some manufacturer-supplied table for the actual display string, and
+the `"displayName"` value could be used as a fallback or as the actual
+displayable name in the case where a manufacturer does not provide that
+out-of-band table.
 
 ## Usage notes
 
@@ -111,6 +143,8 @@ below are not met.
   http://estalink.us/rdm-schema
 * Online JSON schema validator:
   [Hyperjump - JSON Schema Validator](https://json-schema.hyperjump.io/)
+* [JSON](https://www.rfc-editor.org/rfc/rfc8259.html)
+* [JSON Schema Validation: Validation Keywords for Strings](https://json-schema.org/draft/2019-09/json-schema-validation.html#rfc.section.6.3)
 
 ### References mentioned in the schema
 
