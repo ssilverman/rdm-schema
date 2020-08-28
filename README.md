@@ -55,7 +55,7 @@ PID. First experiments used a response type of `"different_pid"`.
 be present as a group or not.
 
 It was decided that these features would not be included because they're so
-rare and they're not desiarable features for representing manufacturer messages,
+rare and they're not desirable features for representing manufacturer messages,
 the original intent for this project.
 
 ### Strings and string lengths
