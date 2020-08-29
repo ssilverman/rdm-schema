@@ -427,7 +427,7 @@
     },
     "stringType": {
       "title": "String type",
-      "description": "A UTF-8-encoded string having a possibly bounded size. Implementations may need to use either a NUL terminator or another \"length\" field for multi-field messages where a string is followed by another field, so that its boundary can be determined. This corresponds to the intent of DS_STRING in \"Table A-15: Data Type Defines\" of the ANSI E1.20-202x specification.",
+      "description": "A UTF-8-encoded string having a possibly bounded size. Implementations may need to use either a NUL terminator or another \"length\" field for multi-field messages where a string is followed by another field, so that its boundary can be determined. This corresponds to the intent of DS_STRING in \"Table A-15: Data Type Defines\" of the ANSI E1.20-202x specification. Characters are defined by the [JSON specification](https://www.rfc-editor.org/rfc/rfc8259.html) (see [Section 7: Strings](https://www.rfc-editor.org/rfc/rfc8259.html#section-7) and [Section 8: String and Character Issues](https://www.rfc-editor.org/rfc/rfc8259.html#section-8)). Note that characters are either encoded directly in UTF-8 or escaped using the scheme described by the specification.",
       "type": "object",
       "$ref": "#/$defs/commonPropertiesForNamed",
       "properties": {
@@ -457,13 +457,13 @@
         },
         "minBytes": {
           "title": "Minimum length in bytes",
-          "description": "The minimum encoded length in bytes. In the case that the number of characters in the string is different from the number of bytes after UTF-8 encoding, we may need to specify a minimum encoded length.",
+          "description": "The minimum UTF-8-encoded length in bytes. In the case that the number of characters in the string is different from the number of bytes after UTF-8 encoding, we may need to specify a minimum encoded length.",
           "type": "integer",
           "minimum": 0
         },
         "maxBytes": {
           "title": "Maximum length in bytes",
-          "description": "The maximum encoded length in bytes. In the case that the number of characters in the string is different from the number of bytes after UTF-8 encoding, we may need to specify a maximum encoded length.",
+          "description": "The maximum UTF-8-encoded length in bytes. In the case that the number of characters in the string is different from the number of bytes after UTF-8 encoding, we may need to specify a maximum encoded length.",
           "type": "integer",
           "minimum": 0
         },

@@ -18,6 +18,7 @@ and this project adheres to
 * Changed "name" to not be required for "/$defs/bit" and the root.
 * Updated the descriptions for "name" and "displayName" in
   "/$defs/commonPropertiesForNamed" with some example uses.
+* Improved string and character documentation in the README and the schema.
 
 ## [0.31.0]
 

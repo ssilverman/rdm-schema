@@ -13,7 +13,8 @@ The schema is subject to change.
 2. [Design notes](#design-notes)
    1. [Relation to other RDM types and structure](#relation-to-other-rdm-types-and-structure)
    2. [Exceptions](#exceptions)
-   3. [Open questions](#open-questions)
+   3. [Strings and string lengths](#strings-and-string-lengths)
+   4. [Names and displayable strings](#names-and-displayable-strings)
 3. [Usage notes](#usage-notes)
    1. [Framing is at a different layer](#framing-is-at-a-different-layer)
    2. [Arbitrary field sizes](#arbitrary-field-sizes)
@@ -73,10 +74,17 @@ storage requirements.
 The second is "JSON string length", expressed in `"minLength"` and
 `"maxLength"`. While it is stated above that there's no easy way to express a
 string having a specific length, JSON still defines this concept. These values
-map to the JSON concept of "string length". From
-[Validation Keywords for Strings](https://json-schema.org/draft/2019-09/json-schema-validation.html#rfc.section.6.3),
-"The length of a string instance is defined as the number of its characters as
-defined by [RFC 8259](https://www.rfc-editor.org/rfc/rfc8259.html).
+map to the JSON concept of "string length".
+
+From
+[Validation Keywords for Strings](https://json-schema.org/draft/2019-09/json-schema-validation.html#rfc.section.6.3):
+
+> The length of a string instance is defined as the number of its characters as
+> defined by [RFC 8259](https://www.rfc-editor.org/rfc/rfc8259.html).
+
+Specifically, see
+[Section 7: Strings](https://www.rfc-editor.org/rfc/rfc8259.html#section-7) and
+[Section 8: String and Character Issues](https://www.rfc-editor.org/rfc/rfc8259.html#section-8).
 
 In other words, "length" in this schema means the same things as "string length"
 per the JSON specification.
