@@ -61,20 +61,14 @@ the original intent for this project.
 
 ### Strings and string lengths
 
-Strings, characters, and lengths, oh my! There is no simple way to define
-"character" and string length given how Unicode works. There's things like
-normalization and glyph size to consider. In short, neither character count nor
-character-to-glyph display positions is easy to define.
+There are two facilities this schema provides for "string length". The first is
+"length in characters", defined by `"minLength"` and `"maxLength"`. A
+"character" is defined the same way that JSON defines a character: a single code
+point, possibly composed using a UTF-16 surrogate pair.
 
-Having said that, there are two facilities this schema provides for "string
-length". The first is "byte length", expressed in `"minBytes"` and `"maxBytes"`.
-Strings will use the UTF-8 encoding and the length in bytes gives bounds on the
-storage requirements.
-
-The second is "JSON string length", expressed in `"minLength"` and
-`"maxLength"`. While it is stated above that there's no easy way to express a
-string having a specific length, JSON still defines this concept. These values
-map to the JSON concept of "string length".
+The second facility is "byte length", expressed in `"minBytes"` and
+`"maxBytes"`. Strings will use the UTF-8 encoding and the length in bytes gives
+bounds on the storage requirements.
 
 From
 [Validation Keywords for Strings](https://json-schema.org/draft/2019-09/json-schema-validation.html#rfc.section.6.3):
@@ -88,6 +82,15 @@ Specifically, see
 
 In other words, "length" in this schema means the same things as "string length"
 per the JSON specification.
+
+There are further considerations when using a string for display, say in a UI.
+However, this specification does not address those things. Those considerations
+may include, but are not limited to, normalization, canonicalization, glyph
+size, and character-to-display approaches. It is up to the manufacturer to
+decide what to use for string content.
+
+See the discussion at [What's the difference between a character, a code point,
+a glyph and a grapheme?](https://stackoverflow.com/a/27331885).
 
 Relevant terms: UCS-4, UTF-8, Unicode, Basic Multilingual Plane, Unicode Plane.
 
@@ -153,11 +156,17 @@ below are not met.
   [Hyperjump - JSON Schema Validator](https://json-schema.hyperjump.io/)
 * [JSON](https://www.rfc-editor.org/rfc/rfc8259.html)
 * [JSON Schema Validation: Validation Keywords for Strings](https://json-schema.org/draft/2019-09/json-schema-validation.html#rfc.section.6.3)
+* [UTF-8](https://www.rfc-editor.org/rfc/rfc3629)
+* The discussion at
+  [What's the difference between a character, a code point, a glyph and a grapheme?](https://stackoverflow.com/a/27331885)
 
 ### References mentioned in the schema
 
 * [URI Syntax](https://www.rfc-editor.org/rfc/rfc3986.html)
 * [JSON Pointer](https://www.rfc-editor.org/rfc/rfc6901.html)
+* [JSON](https://www.rfc-editor.org/rfc/rfc8259.html)
+  * [Section 7: Strings](https://www.rfc-editor.org/rfc/rfc8259.html#section-7)
+  * [Section 8: String and Character Issues](https://www.rfc-editor.org/rfc/rfc8259.html#section-8)
 * [JSON Schema Validation: Defined Formats](https://json-schema.org/draft/2019-09/json-schema-validation.html#rfc.section.7.3)
 * Format "hostname":
   * [Requirements for Internet Hosts: Host Names and Numbers](https://www.rfc-editor.org/rfc/rfc1123.html#section-2)\
@@ -170,6 +179,5 @@ below are not met.
     See also (from [Section 1.1.3](https://www.rfc-editor.org/rfc/rfc3986.html#section-1.1.3)):
     [URI, URL, URN Clarifications](https://www.rfc-editor.org/rfc/rfc3305.html)
   * [URL](https://www.rfc-editor.org/rfc/rfc1738.html)
-  * [ECMA-262](https://www.ecma-international.org/publications/standards/Ecma-262.htm)
-    (Regular Expressions)
-* [UTF-8](https://www.rfc-editor.org/rfc/rfc3629)
+* [ECMA-262](https://www.ecma-international.org/publications/standards/Ecma-262.htm)
+  (Regular Expressions)
