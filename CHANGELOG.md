@@ -13,6 +13,7 @@ and this project adheres to
   the "Open questions" section. These are:
   1. Strings and string lengths
   2. Names and displayable strings
+* Added "/$defs/commonPropertiesForNamed" to "refType".
 
 ### Changed
 * Changed "name" to not be required for "/$defs/bit" and the root.

@@ -412,8 +412,9 @@
     },
     "refType": {
       "title": "Reference type",
-      "description": "Specifies a reference to another value, a URI whose fragment part, if present, is a JSON Pointer. See [URI Syntax](https://www.rfc-editor.org/rfc/rfc3986.html) and [JSON Pointer](https://www.rfc-editor.org/rfc/rfc6901.html). It is an error if this does not point to an object having one of the types in \"#/$defs/oneOfTypes\", or if there is a circular reference.",
+      "description": "Specifies a reference to another value, a URI whose fragment part, if present, is a JSON Pointer. See [URI Syntax](https://www.rfc-editor.org/rfc/rfc3986.html) and [JSON Pointer](https://www.rfc-editor.org/rfc/rfc6901.html). It is an error if this does not point to an object having one of the types in \"#/$defs/oneOfTypes\", or if there is a circular reference. Any common properties defined in this field will override any defined by the referenced field.",
       "type": "object",
+      "$ref": "#/$defs/commonPropertiesForNamed",
       "properties": {
         "$ref": {
           "title": "Reference",
