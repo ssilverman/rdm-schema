@@ -10,6 +10,7 @@ and this project adheres to
 
 ### Added
 * Added a version and "schemas" path section to the schema $id.
+* Added an "Open questions" top-level section to the README.
 
 ### Changed
 * Capitalized titles in the schema.

@@ -19,7 +19,8 @@ The schema is subject to change.
    1. [Framing is at a different layer](#framing-is-at-a-different-layer)
    2. [Arbitrary field sizes](#arbitrary-field-sizes)
    3. [Constraints and errors](#constraints-and-errors)
-4. [Resources](#resources)
+4. [Open questions](#open-questions)
+5. [Resources](#resources)
    1. [References mentioned in the schema](#references-mentioned-in-the-schema)
 
 ## Project intent
@@ -140,6 +141,14 @@ below are not met.
    of `"get_response"`.
 5. `"refType"`: the reference must point to an object having one of the types in
    `#/$defs/oneOfTypes` and there must not be any circular references.
+
+## Open questions
+
+Some open questions:
+1. Versioning. Perhaps we change the schema's $id each time there's an update?
+   We could include the version in the URI. Some possibilities:
+   1. https://estalink.us/schemas/v1.0.1/rdm-schema.json
+   2. https://estalink.us/schemas/rdm-schema-v1.0.1.json
 
 ## Resources
 
