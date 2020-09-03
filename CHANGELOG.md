@@ -8,6 +8,9 @@ and this project adheres to
 
 ## [0.33.0]
 
+### Added
+* Added a version and "schemas" path section to the schema $id.
+
 ### Changed
 * Capitalized titles in the schema.
 
