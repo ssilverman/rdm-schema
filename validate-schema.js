@@ -18,25 +18,20 @@ async function validate(filename) {
   }
 }
 
-//From https://gist.github.com/kethinov/6658166#gistcomment-1921157
-function walkSync(dir, filelist) {
-  files = fs.readdirSync(dir);
-  filelist = filelist || [];
-  files.forEach(function(file) {
-    if (fs.lstatSync(path.join(dir, file)).isDirectory()) {
-      filelist = walkSync(path.join(dir, file), filelist);
-    } else {
-      filelist.push(path.join(dir, file));
+//From https://gist.github.com/lovasoa/8691344#file-node-walk-es6
+async function* walk(dir) {
+    for await (const d of await fs.promises.opendir(dir)) {
+        const entry = path.join(dir, d.name);
+        if (d.isDirectory()) yield* walk(entry);
+        else if (d.isFile()) yield entry;
     }
-  });
-  return filelist;
 }
 
 async function validateAllFiles(exampleDir) {
-  var files = walkSync(exampleDir)
-                .filter((entry) => /\.json$/.test(entry));
   for await (const file of files) {
-    await validate(file)
+    if (/\.json$/.test(file)) {
+      await validate(file);
+    }
   }
 }
 
