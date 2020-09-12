@@ -7,6 +7,8 @@ const schemaJson = {
 JsonSchema.add(schemaJson);
 const schema = JsonSchema.get("https://json-schema.org/draft/2019-09/schema");
 
-// Example: Specify output format
+JsonSchema.setShouldMetaValidate(true);
+JsonSchema.setMetaOutputFormat(JsonSchema.VERBOSE);
+
 const output = JsonSchema.validate(schema, "foo", JsonSchema.VERBOSE);
 console.log(output);
