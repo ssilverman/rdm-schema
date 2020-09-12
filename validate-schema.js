@@ -9,7 +9,7 @@ JsonSchema.setShouldMetaValidate(true);
 JsonSchema.setMetaOutputFormat(JsonSchema.VERBOSE);
 
 function validate(filename) {
-  const output = JsonSchema.validate(schema, filename, JsonSchema.VERBOSE);
+  const output = JsonSchema.validate(schema, "file://" + filename, JsonSchema.VERBOSE);
   console.log(output);
   if (output.valid) {
     console.log("File " + filename + " is valid :-)");
@@ -40,4 +40,4 @@ function validateAllFiles(exampleDir) {
     });
 }
 
-validateAllFiles("file:///home/runner/work/rdm-schema/rdm-schema/examples");
+validateAllFiles("/home/runner/work/rdm-schema/rdm-schema/examples/");
