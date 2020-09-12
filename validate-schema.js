@@ -19,11 +19,11 @@ async function validate(filename) {
   }
 }
 
-//From https://gist.github.com/kethinov/6658166#gistcomment-2037451
-function walkSync(dir) {
-    if (!fs.lstatSync(dir).isDirectory()) return dir;
+//Based on https://gist.github.com/kethinov/6658166#gistcomment-2037451
+function walk(dir) {
+    if (!fs.lstat(dir).isDirectory()) return dir;
 
-    return fs.readdirSync(dir).map(f => walkSync(path.join(dir, f)));
+    return fs.readdir(dir).map(f => walk(path.join(dir, f)));
 }
 
 async function validateAllFiles(exampleDir) {
