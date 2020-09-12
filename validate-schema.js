@@ -40,4 +40,4 @@ function validateAllFiles(exampleDir) {
     });
 }
 
-validateAllFiles("file:///home/runner/work/rdm-schema/rdm-schema/examples/");
+validateAllFiles("file:///home/runner/work/rdm-schema/rdm-schema/examples");
