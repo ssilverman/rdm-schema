@@ -18,11 +18,18 @@ function validate(filename) {
   }
 }
 
-//From https://gist.github.com/kethinov/6658166#gistcomment-2037451
-function walkSync(dir) {
-    if (!fs.lstatSync(dir).isDirectory()) return dir;
-
-    return fs.readdirSync(dir).map(f => walkSync(path.join(dir, f)));
+//From https://gist.github.com/kethinov/6658166#gistcomment-1921157
+function walkSync(dir, filelist) {
+  files = fs.readdirSync(dir);
+  filelist = filelist || [];
+  files.forEach(function(file) {
+    if (fs.lstatSync(path.join(dir, file)).isDirectory()) {
+      filelist = walkSync(path.join(dir, file), filelist);
+    } else {
+      filelist.push(path.join(dir, file));
+    }
+  });
+  return filelist;
 }
 
 function validateAllFiles(exampleDir) {
@@ -33,4 +40,4 @@ function validateAllFiles(exampleDir) {
     });
 }
 
-validateAllFiles("./examples");
+validateAllFiles("file:///home/runner/work/rdm-schema/rdm-schema/examples/");
