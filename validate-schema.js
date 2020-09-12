@@ -33,11 +33,11 @@ function walkSync(dir, filelist) {
 }
 
 async function validateAllFiles(exampleDir) {
-  walkSync(exampleDir)
-    .filter((entry) => /\.json$/.test(entry))
-    .forEach((entry) => {
-      await validate(entry)
-    });
+  var files = walkSync(exampleDir)
+                .filter((entry) => /\.json$/.test(entry));
+  for await (const file of files) {
+    await validate(entry)
+  }
 }
 
 validateAllFiles("/home/runner/work/rdm-schema/rdm-schema/examples/");
