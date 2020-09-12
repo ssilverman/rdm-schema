@@ -36,7 +36,7 @@ async function validateAllFiles(exampleDir) {
   var files = walkSync(exampleDir)
                 .filter((entry) => /\.json$/.test(entry));
   for await (const file of files) {
-    await validate(entry)
+    await validate(file)
   }
 }
 
