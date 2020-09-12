@@ -1,4 +1,5 @@
 const fs = require("fs");
+const path = require("path");
 const JsonSchema = require("@hyperjump/json-schema");
 
 async function validate(filename) {
@@ -16,17 +17,17 @@ async function validate(filename) {
 function walkSync(dir) {
     if (!fs.lstatSync(dir).isDirectory()) return dir;
 
-    return fs.readdirSync(dir).map(f => walkSync(path.join(dir, f))); // `join("\n")`
+    return fs.readdirSync(dir).map(f => walkSync(path.join(dir, f)));
 }
 
-function validateAllFiles(path) {
+function validateAllFiles(exampleDir) {
   // Fetch from file
   const schema = JsonSchema.get("file:///home/runner/work/rdm-schema/rdm-schema/rdm-schema.json");
 
   JsonSchema.setShouldMetaValidate(true);
   JsonSchema.setMetaOutputFormat(JsonSchema.VERBOSE);
 
-  walkSync(path)
+  walkSync(exampleDir)
     .filter((entry) => /\.json$/.test(entry))
     .forEach((entry) => {
       validate(entry)
