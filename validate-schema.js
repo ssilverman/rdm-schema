@@ -8,8 +8,8 @@ const schema = JsonSchema.get("file:///home/runner/work/rdm-schema/rdm-schema/rd
 JsonSchema.setShouldMetaValidate(true);
 JsonSchema.setMetaOutputFormat(JsonSchema.VERBOSE);
 
-function validate(filename) {
-  const output = JsonSchema.validate(schema, "file://" + filename, JsonSchema.VERBOSE);
+async function validate(filename) {
+  const output = await JsonSchema.validate(schema, "file://" + filename, JsonSchema.VERBOSE);
   console.log(output);
   if (output.valid) {
     console.log("File " + filename + " is valid :-)");
@@ -32,11 +32,11 @@ function walkSync(dir, filelist) {
   return filelist;
 }
 
-function validateAllFiles(exampleDir) {
+async function validateAllFiles(exampleDir) {
   walkSync(exampleDir)
     .filter((entry) => /\.json$/.test(entry))
     .forEach((entry) => {
-      validate(entry)
+      await validate(entry)
     });
 }
 
