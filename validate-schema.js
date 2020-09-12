@@ -1,14 +1,10 @@
 const JsonSchema = require("@hyperjump/json-schema");
 
-// Example: Inline schema
-const schemaJson = {
-  "$schema": "https://json-schema.org/draft/2019-09/schema",
-}
-JsonSchema.add(schemaJson);
-const schema = JsonSchema.get("https://json-schema.org/draft/2019-09/schema");
+// Fetch from file
+const schema = JsonSchema.get("file:///home/runner/work/rdm-schema/rdm-schema/rdm-schema.json");
 
 JsonSchema.setShouldMetaValidate(true);
 JsonSchema.setMetaOutputFormat(JsonSchema.VERBOSE);
 
-const output = JsonSchema.validate(schema, "foo", JsonSchema.VERBOSE);
+const output = JsonSchema.validate(schema, "file:///home/runner/work/rdm-schema/rdm-schema/rdm-schema/examples/e1.20/DEVICE_INFO.json", JsonSchema.VERBOSE);
 console.log(output);
