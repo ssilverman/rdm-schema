@@ -26,11 +26,11 @@ function walkSync(dir) {
     return fs.readdirSync(dir).map(f => walkSync(path.join(dir, f)));
 }
 
-function validateAllFiles(exampleDir) {
+async function validateAllFiles(exampleDir) {
   walkSync(exampleDir)
     .filter((entry) => /\.json$/.test(entry))
     .forEach((entry) => {
-      validate(entry)
+      await validate(entry)
     });
 }
 
