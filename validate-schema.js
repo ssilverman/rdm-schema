@@ -21,7 +21,7 @@ function walkSync(dir) {
 
 function validateAllFiles(path) {
   // Fetch from file
-  const schema = await JsonSchema.get("file:///home/runner/work/rdm-schema/rdm-schema/rdm-schema.json");
+  const schema = JsonSchema.get("file:///home/runner/work/rdm-schema/rdm-schema/rdm-schema.json");
 
   JsonSchema.setShouldMetaValidate(true);
   JsonSchema.setMetaOutputFormat(JsonSchema.VERBOSE);
