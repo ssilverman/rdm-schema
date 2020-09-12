@@ -8,29 +8,28 @@ const schema = JsonSchema.get("file:///home/runner/work/rdm-schema/rdm-schema/rd
 JsonSchema.setShouldMetaValidate(true);
 JsonSchema.setMetaOutputFormat(JsonSchema.VERBOSE);
 
-async function validate(filename) {
-  const output = await JsonSchema.validate(schema, filename, JsonSchema.VERBOSE);
+function validate(filename) {
+  const output = JsonSchema.validate(schema, filename, JsonSchema.VERBOSE);
   console.log(output);
   if (output.valid) {
     console.log("File " + filename + " is valid :-)");
   } else {
-    console.log("File " + filename + " is invalid :-(");
-    process.exitCode = 1
+    console.log("File " + filename + " is invalid :-(");    process.exitCode = 1
   }
 }
 
-//Based on https://gist.github.com/kethinov/6658166#gistcomment-2037451
-function walk(dir) {
-    if (!fs.lstat(dir).isDirectory()) return dir;
+//From https://gist.github.com/kethinov/6658166#gistcomment-2037451
+function walkSync(dir) {
+    if (!fs.lstatSync(dir).isDirectory()) return dir;
 
-    return fs.readdir(dir).map(f => walk(path.join(dir, f)));
+    return fs.readdirSync(dir).map(f => walkSync(path.join(dir, f)));
 }
 
-async function validateAllFiles(exampleDir) {
+function validateAllFiles(exampleDir) {
   walkSync(exampleDir)
     .filter((entry) => /\.json$/.test(entry))
     .forEach((entry) => {
-      await validate(entry)
+      validate(entry)
     });
 }
 
