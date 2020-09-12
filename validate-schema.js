@@ -28,7 +28,7 @@ async function* walk(dir) {
 }
 
 async function validateAllFiles(exampleDir) {
-  for await (const file of files) {
+  for await (const file of walk(exampleDir)) {
     if (/\.json$/.test(file)) {
       await validate(file);
     }
