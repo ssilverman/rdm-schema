@@ -14,6 +14,9 @@ and this project adheres to
 
 ### Changed
 * Capitalized titles in the schema.
+* Updated the descriptions for the maximum byte lengths for strings and bytes.
+  Added a sentence that suggests setting these values if the responder wishes
+  for controllers to limit the number of bytes sent.
 
 ## [0.32.0]
 

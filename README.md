@@ -123,6 +123,10 @@ string having a length in the range 0-32" or "a list of arbitrary size". So that
 there is no ambiguity, a message should contain at most one non-fixed-size
 field, and that field should appear last, serially.
 
+If a responder wishes for controllers to limit the number of bytes sent, then it
+should set appropriate values for the `"maxLength"` field for strings and the
+`"maxLength"` field for bytes.
+
 ### Constraints and errors
 
 The schema does not capture every possible error. Some errors can only be caught
