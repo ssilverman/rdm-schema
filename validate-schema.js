@@ -4,7 +4,8 @@ const JsonSchema = require("@hyperjump/json-schema");
 
 async function validate(filename) {
   // Fetch from file
-  const schema = await JsonSchema.get("file:///home/runner/work/rdm-schema/rdm-schema/rdm-schema.json");
+  const baseSchema = await JsonSchema.get("https://json-schema.org/draft/2019-09/schema");
+  const schema = await baseSchema.get("file:///home/runner/work/rdm-schema/rdm-schema/rdm-schema.json");
 
   JsonSchema.setShouldMetaValidate(true);
   JsonSchema.setMetaOutputFormat(JsonSchema.VERBOSE);
