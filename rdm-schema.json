@@ -291,7 +291,8 @@
         "prefixPower": {
           "title": "Prefix Power",
           "description": "The power of 10 to be used as the prefix for the value. For example, -2 is used to represent 10^(-2) or the prefix centi-.",
-          "type": "integer"
+          "type": "integer",
+          "default": 0
         },
         "prefixBase": {
           "title": "Prefix Base",
