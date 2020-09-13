@@ -55,8 +55,10 @@
   "required": [ "pid", "version" ],
   "dependentRequired": {
     "get_request": [ "get_response" ],
+    "get_request_subdevice_range": [ "get_request" ],
     "get_response": [ "get_request" ],
     "set_request": [ "set_response" ],
+    "set_request_subdevice_range": [ "set_request" ],
     "set_response": [ "set_request" ]
   },
   "$defs": {
