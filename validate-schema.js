@@ -3,12 +3,12 @@ const path = require("path");
 const JsonSchema = require("@hyperjump/json-schema");
 
 async function validate(filename) {
+  JsonSchema.setShouldMetaValidate(false);
+  JsonSchema.setMetaOutputFormat(JsonSchema.VERBOSE);
+  
   // Fetch from file
   await JsonSchema.get("https://json-schema.org/draft/2019-09/schema");
   const schema = await JsonSchema.get("file:///home/runner/work/rdm-schema/rdm-schema/rdm-schema.json");
-
-  JsonSchema.setShouldMetaValidate(false);
-  JsonSchema.setMetaOutputFormat(JsonSchema.VERBOSE);
   
   const output = await JsonSchema.validate(schema, "file://" + filename, JsonSchema.VERBOSE);
   console.log(output);
