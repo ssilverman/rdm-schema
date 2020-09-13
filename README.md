@@ -130,22 +130,10 @@ should set appropriate values for the `"maxLength"` field for strings and the
 
 ### Constraints and errors
 
-The schema does not capture every possible error. Some errors can only be caught
-after processing a schema instance. It is an error if any of the requirements
-below are not met.
-
-1. `"bitField"` type: the number of bits defined in the array must be less than
-   or equal to the `"size"` value.
-2. `"bytes"` type: the `"minLength"` value must be less than or equal to the
-   `"maxLength"` value.
-3. `"string"` type: any size limits described by `"pattern"` must not contradict
-   the limits described by `"minLength"` and `"maxLength"`. As well, the
-   `"minLength"` value must be less than or equal to the `"maxLength"` value.
-4. If a command is a duplicate of another command then it cannot duplicate
-   itself. For example, a `"get_response"` cannot have a value
-   of `"get_response"`.
-5. `"refType"`: the reference must point to an object having one of the types in
-   `#/$defs/oneOfTypes` and there must not be any circular references.
+Note that the schema does not capture every possible error. Some errors can only
+be caught after processing a schema instance. Please see the
+[Best practices](#best-practices) section for more details about avoiding these
+kinds of errors.
 
 ## Best practices
 
@@ -161,15 +149,19 @@ of problems.
    that a responder doesn't need this, but many responders do because they're
    implemented on smaller systems that may need to preallocate memory.
 2. Minimums should be less than maximums. For example, the "bytes" type has
-   `"minLength"` and `"maxLength"` fields. `"minLength"` should be less than or
+   `"minLength"` and `"maxLength"` fields; `"minLength"` should be less than or
    equal to `"maxLength"`.
-3. Bit field sizes should match the number of defined bits.
-4. A command should not refer to itself. Please refer to the "Command Duplicate"
+3. A bit field size should be greater than or equal to the number of its
+   defined bits.
+4. A command should not refer to itself. For example, a `"get_response"` cannot
+   have a value of `"get_response"`. Please refer to the "Command Duplicate"
    subschema under the "command" schema.
-5. References ("$ref") should refer to a valid object. Also, there should not be
-   any circular references.
-6. String patterns should not contradict any minimum or maximum lengths, if
-   either are provided.
+5. References ("$ref") should refer to an object having a valid type. Also,
+   there should not be any circular references.
+6. String patterns should not contradict any minimum or maximum lengths, and
+   vice versa.
+7. The `"format"` value for bytes or strings, if a fixed-size type, should not
+   contradict any minimum or maximum lengths.
 
 ## Open questions
 

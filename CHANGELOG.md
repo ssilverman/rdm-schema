@@ -12,7 +12,8 @@ and this project adheres to
 * Added a version and "schemas" path section to the schema $id.
 * Added an "Open questions" top-level section to the README.
 * Added a "Best practices" top-level section to the README that describes how to
-  avoid creating ill-defined messages.
+  avoid creating ill-defined messages. This replaces the list from the
+  "Constraints and errors" section.
 
 ### Changed
 * Capitalized titles in the schema.
