@@ -11,6 +11,8 @@ and this project adheres to
 ### Added
 * Added a version and "schemas" path section to the schema $id.
 * Added an "Open questions" top-level section to the README.
+* Added a "Best practices" top-level section to the README that describes how to
+  avoid creating ill-defined messages.
 
 ### Changed
 * Capitalized titles in the schema.

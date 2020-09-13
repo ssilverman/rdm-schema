@@ -19,8 +19,9 @@ The schema is subject to change.
    1. [Framing is at a different layer](#framing-is-at-a-different-layer)
    2. [Arbitrary field sizes](#arbitrary-field-sizes)
    3. [Constraints and errors](#constraints-and-errors)
-4. [Open questions](#open-questions)
-5. [Resources](#resources)
+4. [Best practices](#best-practices)
+5. [Open questions](#open-questions)
+6. [Resources](#resources)
    1. [References mentioned in the schema](#references-mentioned-in-the-schema)
 
 ## Project intent
@@ -145,6 +146,30 @@ below are not met.
    of `"get_response"`.
 5. `"refType"`: the reference must point to an object having one of the types in
    `#/$defs/oneOfTypes` and there must not be any circular references.
+
+## Best practices
+
+It's certainly possible to create badly defined messages, even though they
+conform to the schema. These messages may just be ill-defined or may not be
+compatible with the responder serving these messages. This section describes
+some restrictions that, if followed, will prevent many of these kinds
+of problems.
+
+1. If a responder wishes for controllers to limit the number of bytes sent for
+   strings or bytes, then it should set appropriate values for the `"maxLength"`
+   field for strings and the `"maxLength"` field for bytes. It's conceivable
+   that a responder doesn't need this, but many responders do because they're
+   implemented on smaller systems that may need to preallocate memory.
+2. Minimums should be less than maximums. For example, the "bytes" type has
+   `"minLength"` and `"maxLength"` fields. `"minLength"` should be less than or
+   equal to `"maxLength"`.
+3. Bit field sizes should match the number of defined bits.
+4. A command should not refer to itself. Please refer to the "Command Duplicate"
+   subschema under the "command" schema.
+5. References ("$ref") should refer to a valid object. Also, there should not be
+   any circular references.
+6. String patterns should not contradict any minimum or maximum lengths, if
+   either are provided.
 
 ## Open questions
 
