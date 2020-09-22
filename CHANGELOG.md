@@ -410,7 +410,7 @@ Here's the articles I referenced:
   either be a "commandType" or a "duplicateCommandType".
 * Added a "refType" to the "oneOfTypes" list so that other parts can also be
   duplicated. For example, maybe one of the items in a command needs to
-  duplicate another command item, either in the same or a different commmand.
+  duplicate another command item, either in the same or a different command.
   It is of type "json-pointer", see https://tools.ietf.org/html/rfc6901.
 
 ### Changed
