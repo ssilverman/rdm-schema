@@ -144,7 +144,7 @@ some restrictions that, if followed, will prevent many of these kinds
 of problems.
 
 1. If a responder wishes for controllers to limit the number of bytes sent for
-   strings or bytes, then it should set appropriate values for the `"maxLength"`
+   strings or bytes, then it should set appropriate values for the `"maxBytes"`
    field for strings and the `"maxLength"` field for bytes. It's conceivable
    that a responder doesn't need this, but many responders do because they're
    implemented on smaller systems that may need to preallocate memory.
