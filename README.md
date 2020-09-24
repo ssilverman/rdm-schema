@@ -19,8 +19,9 @@ The schema is subject to change.
    1. [Framing is at a different layer](#framing-is-at-a-different-layer)
    2. [Arbitrary field sizes](#arbitrary-field-sizes)
    3. [Constraints and errors](#constraints-and-errors)
-4. [Open questions](#open-questions)
-5. [Resources](#resources)
+4. [Best practices](#best-practices)
+5. [Open questions](#open-questions)
+6. [Resources](#resources)
    1. [References mentioned in the schema](#references-mentioned-in-the-schema)
 
 ## Project intent
@@ -123,24 +124,44 @@ string having a length in the range 0-32" or "a list of arbitrary size". So that
 there is no ambiguity, a message should contain at most one non-fixed-size
 field, and that field should appear last, serially.
 
+If a responder wishes for controllers to limit the number of bytes sent, then it
+should set appropriate values for the `"maxLength"` field for strings and the
+`"maxLength"` field for bytes.
+
 ### Constraints and errors
 
-The schema does not capture every possible error. Some errors can only be caught
-after processing a schema instance. It is an error if any of the requirements
-below are not met.
+Note that the schema does not capture every possible error. Some errors can only
+be caught after processing a schema instance. Please see the
+[Best practices](#best-practices) section for more details about avoiding these
+kinds of errors.
 
-1. `"bitField"` type: the number of bits defined in the array must be less than
-   or equal to the `"size"` value.
-2. `"bytes"` type: the `"minLength"` value must be less than or equal to the
-   `"maxLength"` value.
-3. `"string"` type: any size limits described by `"pattern"` must not contradict
-   the limits described by `"minLength"` and `"maxLength"`. As well, the
-   `"minLength"` value must be less than or equal to the `"maxLength"` value.
-4. If a command is a duplicate of another command then it cannot duplicate
-   itself. For example, a `"get_response"` cannot have a value
-   of `"get_response"`.
-5. `"refType"`: the reference must point to an object having one of the types in
-   `#/$defs/oneOfTypes` and there must not be any circular references.
+## Best practices
+
+It's certainly possible to create badly defined messages, even though they
+conform to the schema. These messages may just be ill-defined or may not be
+compatible with the responder serving these messages. This section describes
+some restrictions that, if followed, will prevent many of these kinds
+of problems.
+
+1. If a responder wishes for controllers to limit the number of bytes sent for
+   strings or bytes, then it should set appropriate values for the `"maxBytes"`
+   field for strings and the `"maxLength"` field for bytes. It's conceivable
+   that a responder doesn't need this, but many responders do because they're
+   implemented on smaller systems that may need to preallocate memory.
+2. Minimums should be less than maximums. For example, the "bytes" type has
+   `"minLength"` and `"maxLength"` fields; `"minLength"` should be less than or
+   equal to `"maxLength"`.
+3. A bit field size should be greater than or equal to the number of its
+   defined bits.
+4. A command should not refer to itself. For example, a `"get_response"` cannot
+   have a value of `"get_response"`. Please refer to the "Command Duplicate"
+   subschema under the "command" schema.
+5. References ("$ref") should refer to an object having a valid type. Also,
+   there should not be any circular references.
+6. String patterns should not contradict any minimum or maximum lengths, and
+   vice versa.
+7. The `"format"` value for bytes or strings, if a fixed-size type, should not
+   contradict any minimum or maximum lengths.
 
 ## Open questions
 

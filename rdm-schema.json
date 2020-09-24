@@ -155,7 +155,7 @@
         },
         "maxLength": {
           "title": "Maximum Length",
-          "description": "The maximum bytes length. Care must be taken to make sure this doesn't contradict any \"minLength\" value. It is an error if there is a contradiction.",
+          "description": "The maximum bytes length. Care must be taken to make sure this doesn't contradict any \"minLength\" value. It is an error if there is a contradiction. If a responder requires a controller to limit the number of bytes sent, then this value should be set.",
           "type": "integer",
           "minimum": 0
         }
@@ -291,7 +291,8 @@
         "prefixPower": {
           "title": "Prefix Power",
           "description": "The power of 10 to be used as the prefix for the value. For example, -2 is used to represent 10^(-2) or the prefix centi-.",
-          "type": "integer"
+          "type": "integer",
+          "default": 0
         },
         "prefixBase": {
           "title": "Prefix Base",
@@ -464,7 +465,7 @@
         },
         "maxBytes": {
           "title": "Maximum Length in Bytes",
-          "description": "The maximum UTF-8-encoded length in bytes. In the case that the number of characters in the string is different from the number of bytes after UTF-8 encoding, we may need to specify a maximum encoded length.",
+          "description": "The maximum UTF-8-encoded length in bytes. In the case that the number of characters in the string is different from the number of bytes after UTF-8 encoding, we may need to specify a maximum encoded length. If a responder requires a controller to limit the number of bytes sent, then this value should be set.",
           "type": "integer",
           "minimum": 0
         },

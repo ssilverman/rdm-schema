@@ -11,9 +11,15 @@ and this project adheres to
 ### Added
 * Added a version and "schemas" path section to the schema $id.
 * Added an "Open questions" top-level section to the README.
+* Added a "Best practices" top-level section to the README that describes how to
+  avoid creating ill-defined messages. This replaces the list from the
+  "Constraints and errors" section.
 
 ### Changed
 * Capitalized titles in the schema.
+* Updated the descriptions for the maximum byte lengths for strings and bytes.
+  Added a sentence that suggests setting these values if the responder wishes
+  for controllers to limit the number of bytes sent.
 
 ## [0.32.0]
 
