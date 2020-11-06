@@ -10,7 +10,16 @@
     { "name": "pid", "type": "uint16" },
     { "name": "pdl", "type": "uint8" },
     { "name": "data_type", "type": "uint8" },
-    { "name": "command_class", "type": "uint8" },
+    {
+      "name": "command_class",
+      "type": "uint8",
+      "labels": [
+        { "name": "GET", "value": 1 },
+        { "name": "SET", "value": 2 },
+        { "name": "GET_SET", "value": 3 }
+      ],
+      "restrictToLabeled": true
+    },
     { "name": "type", "type": "uint8" },
     {
       "name": "unit",
