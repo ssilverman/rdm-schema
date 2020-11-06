@@ -122,10 +122,10 @@
         { "name": "YOTTA", "value": 26 }
       ]
     },
-    { "name": "range_min_value", "type": "uint16" },
-    { "name": "range_max_value", "type": "uint16" },
-    { "name": "normal_min_value", "type": "uint16" },
-    { "name": "normal_max_value", "type": "uint16" },
+    { "name": "range_min_value", "type": "int16" },
+    { "name": "range_max_value", "type": "int16" },
+    { "name": "normal_min_value", "type": "int16" },
+    { "name": "normal_max_value", "type": "int16" },
     {
       "name": "recorded_value_support",
       "type": "bitField",
