@@ -504,11 +504,13 @@
       "type": "object",
       "properties": {
         "minimum": {
+          "$comment": "'subdeviceType' already contains a title and description.",
           "title": "Minimum",
           "description": "The lower bound, inclusive.",
           "$ref": "#/$defs/subdeviceType"
         },
         "maximum": {
+          "$comment": "'subdeviceType' already contains a title and description.",
           "title": "Maximum",
           "description": "The upper bound, inclusive.",
           "$ref": "#/$defs/subdeviceType"
