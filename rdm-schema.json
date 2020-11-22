@@ -21,46 +21,46 @@
       "maximum": 65535
     },
     "get_request_subdevice_range": {
-      "$comment": "'subdevicesForRequests' already contains a title and description.",
+      "$comment": "'subdevicesForRequests' already contains a title and description",
       "description": "Absence implies a default value of [\"root\"]."
       "$ref": "#/$defs/subdevicesForRequests",
       "default": [ "root" ]
     },
     "get_request": {
-      "$comment": "'command' already contains a description.",
+      "$comment": "'command' already contains a description",
       "title": "GET Command",
       "$ref": "#/$defs/command"
     },
     "get_response_subdevice_range": {
-      "$comment": "'subdevicesForResponses' already contains a title and description.",
+      "$comment": "'subdevicesForResponses' already contains a title and description",
       "description": "Absence implies a default value of [\"match\"]."
       "$ref": "#/$defs/subdevicesForResponses",
       "default": [ "match" ]
     },
     "get_response": {
-      "$comment": "'command' already contains a description.",
+      "$comment": "'command' already contains a description",
       "title": "GET Command Response",
       "$ref": "#/$defs/command"
     },
     "set_request_subdevice_range": {
-      "$comment": "'subdevicesForRequests' already contains a title and description.",
+      "$comment": "'subdevicesForRequests' already contains a title and description",
       "description": "Absence implies a default value of [\"root\"]."
       "$ref": "#/$defs/subdevicesForRequests",
       "default": [ "root" ]
     },
     "set_request": {
-      "$comment": "'command' already contains a description.",
+      "$comment": "'command' already contains a description",
       "title": "SET Command",
       "$ref": "#/$defs/command"
     },
     "set_response_subdevice_range": {
-      "$comment": "'subdevicesForResponses' already contains a title and description.",
+      "$comment": "'subdevicesForResponses' already contains a title and description",
       "description": "Absence implies a default value of [\"match\"]."
       "$ref": "#/$defs/subdevicesForResponses",
       "default": [ "match" ]
     },
     "set_response": {
-      "$comment": "'command' already contains a description.",
+      "$comment": "'command' already contains a description",
       "title": "SET Command Response",
       "$ref": "#/$defs/command"
     }
@@ -177,7 +177,7 @@
       "required": [ "type" ]
     },
     "command": {
-      "$comment": "The title is specific to where this used, and so no title is defined here.",
+      "$comment": "The title is specific to where this used, and so no title is defined here",
       "description": "The contents of an RDM command: 1. a collection of 'field' items, each a simple or compound type, 2. a single 'field' item, or 3. a duplicate command.",
       "oneOf": [
         {
@@ -209,7 +209,7 @@
       ]
     },
     "commonPropertiesForNamed": {
-      "$comment": "Defines a set of properties common to everything having a name.",
+      "$comment": "Defines a set of properties common to everything having a name",
       "properties": {
         "name": {
           "title": "Name",
@@ -350,7 +350,7 @@
     "listType": {
       "title": "List Type",
       "description": "A list of objects all having the same type.",
-      "$comment": "The names \"minItems\" and \"maxItems\" were chosen because those match the validation keywords for arrays in the JSON schema spec.",
+      "$comment": "The names \"minItems\" and \"maxItems\" were chosen because those match the validation keywords for arrays in the JSON schema spec",
       "type": "object",
       "$ref": "#/$defs/commonPropertiesForNamed",
       "properties": {
@@ -377,7 +377,7 @@
       "required": [ "type", "itemType" ]
     },
     "oneOfTypes": {
-      "$comment": "One of any of the types. This provides a single location to keep the list. None of the types here specify \"unevaluatedProperties\", so if extra properties are to be disallowed, then that must be specified by the referencer of this schema. This will make sorting through any errors easier.",
+      "$comment": "One of any of the types. This provides a single location to keep the list. None of the types here specify \"unevaluatedProperties\", so if extra properties are to be disallowed, then that must be specified by the referencer of this schema. This will make sorting through any errors easier",
       "oneOf": [
         { "$ref": "#/$defs/bitFieldType" },
         { "$ref": "#/$defs/booleanType" },
@@ -504,13 +504,13 @@
       "type": "object",
       "properties": {
         "minimum": {
-          "$comment": "'subdeviceType' already contains a title and description.",
+          "$comment": "'subdeviceType' already contains a title and description",
           "title": "Minimum",
           "description": "The lower bound, inclusive.",
           "$ref": "#/$defs/subdeviceType"
         },
         "maximum": {
-          "$comment": "'subdeviceType' already contains a title and description.",
+          "$comment": "'subdeviceType' already contains a title and description",
           "title": "Maximum",
           "description": "The upper bound, inclusive.",
           "$ref": "#/$defs/subdeviceType"
