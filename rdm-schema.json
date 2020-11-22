@@ -487,39 +487,38 @@
       },
       "required": [ "type" ]
     },
+    "subdeviceType": {
+      "title": "Subdevice Type",
+      "description": "A subdevice value. It is a 16-bit integral type and its range includes the values specified by the ANSI E1.20-202x specification (0x0001-0xFFF0). It does not include the root value (0) or special all-call value (65535).",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 65520
+    },
+    "subdeviceRange": {
+      "title": "Subdevice Range",
+      "description": "Defines a range of subdevices, not including the root or the special all-call value. The complete range is the union of all the ranges in the subdevice array.",
+      "type": "object",
+      "properties": {
+        "minimum": {
+          "title": "Minimum",
+          "description": "The lower bound, inclusive.",
+          "$ref": "#/$defs/subdeviceType"
+        },
+        "maximum": {
+          "title": "Maximum",
+          "description": "The upper bound, inclusive.",
+          "$ref": "#/$defs/subdeviceType"
+        }
+      },
+      "required": [ "minimum", "maximum" ],
+      "additionalProperties": false
+    },
     "subdeviceValue": {
       "title": "Subdevice Value",
-      "description": "Defines a single subdevice or a range of subdevices.",
+      "description": "Defines a single subdevice or range of subdevices. Note that a \"subdevice\" here means any valid subdevice that isn't \"root\" or \"broadcast\".",
       "anyOf": [
-        {
-          "type": "object",
-          "title": "Subdevice Range",
-          "description": "Defines a range of subdevices. If a bound is undefined then it is assumed to be the bound appropriate for a 16-bit value.",
-          "properties": {
-            "minimum": {
-              "title": "Minimum",
-              "description": "The lower bound, inclusive.",
-              "type": "integer",
-              "minimum": 0,
-              "maximum": 65535
-            },
-            "maximum": {
-              "title": "Maximum",
-              "description": "The upper bound, inclusive.",
-              "type": "integer",
-              "minimum": 0,
-              "maximum": 65535
-            }
-          },
-          "minProperties": 1,
-          "additionalProperties": false
-        },
-        {
-          "title": "Single Subdevice",
-          "type": "integer",
-          "minimum": 0,
-          "maximum": 65535
-        }
+        { "$ref": "#/$defs/subdeviceRange" },
+        { "$ref": "#/$defs/subdeviceType" }
       ]
     },
     "subdevicesForRequests": {
