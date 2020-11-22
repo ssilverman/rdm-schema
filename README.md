@@ -19,6 +19,7 @@ The schema is subject to change.
    1. [Framing is at a different layer](#framing-is-at-a-different-layer)
    2. [Arbitrary field sizes](#arbitrary-field-sizes)
    3. [Constraints and errors](#constraints-and-errors)
+   4. [Defaults and the "default" annotation](#defaults-and-the-"default"-annotation)
 4. [Best practices](#best-practices)
 5. [Open questions](#open-questions)
 6. [TODOs](#todos)
@@ -135,6 +136,20 @@ Note that the schema does not capture every possible error. Some errors can only
 be caught after processing a schema instance. Please see the
 [Best practices](#best-practices) section for more details about avoiding these
 kinds of errors.
+
+### Defaults and the "default" annotation.
+
+In JSON Schema, the "default" keyword is merely an annotation that applies to
+the current schema location, if present; it does not describe the value to use
+when the property is absent. This is counterintuitive insofar as a "default"
+annotation does not provide a default value in the case of a missing property.
+
+An implementation is expected to follow the usage notes in the description if a
+default value is needed. It can use the value of the "default" annotation, but
+this is not a JSON Schema feature.
+
+In other words, a JSON parser/validator will not return values for absent
+properties; it is up to the application to supply values.
 
 ## Best practices
 
