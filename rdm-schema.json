@@ -22,6 +22,7 @@
     },
     "get_request_subdevice_range": {
       "$comment": "'subdevicesForRequests' already contains a title and description.",
+      "description": "Absence implies a default value of [\"root\"]."
       "$ref": "#/$defs/subdevicesForRequests",
       "default": [ "root" ]
     },
@@ -32,6 +33,7 @@
     },
     "get_response_subdevice_range": {
       "$comment": "'subdevicesForResponses' already contains a title and description.",
+      "description": "Absence implies a default value of [\"match\"]."
       "$ref": "#/$defs/subdevicesForResponses",
       "default": [ "match" ]
     },
@@ -42,6 +44,7 @@
     },
     "set_request_subdevice_range": {
       "$comment": "'subdevicesForRequests' already contains a title and description.",
+      "description": "Absence implies a default value of [\"root\"]."
       "$ref": "#/$defs/subdevicesForRequests",
       "default": [ "root" ]
     },
@@ -52,6 +55,7 @@
     },
     "set_response_subdevice_range": {
       "$comment": "'subdevicesForResponses' already contains a title and description.",
+      "description": "Absence implies a default value of [\"match\"]."
       "$ref": "#/$defs/subdevicesForResponses",
       "default": [ "match" ]
     },
@@ -89,7 +93,7 @@
         },
         "reservedValue": {
           "title": "Reserved Value",
-          "description": "The assumed value when the bit is marked as reserved.",
+          "description": "The assumed value when the bit is marked as reserved. Absence implies a default value of false.",
           "type": "boolean",
           "default": false
         }
@@ -120,7 +124,7 @@
         },
         "valueForUnspecified": {
           "title": "Value for Unspecified",
-          "description": "The default value to use for any unspecified bits.",
+          "description": "The default value to use for any unspecified bits. Absence implies a default value of false.",
           "type": "boolean",
           "default": false
         }
@@ -300,13 +304,13 @@
         },
         "prefixPower": {
           "title": "Prefix Power",
-          "description": "The power of 10 to be used as the prefix for the value. For example, -2 is used to represent 10^(-2) or the prefix centi-.",
+          "description": "The power of 10 to be used as the prefix for the value. For example, -2 is used to represent 10^(-2) or the prefix centi-. Absence implies a default value of 0.",
           "type": "integer",
           "default": 0
         },
         "prefixBase": {
           "title": "Prefix Base",
-          "description": "The base of the prefix. For example, to express \"kilo\", specify prefixPower=3 and prefixBase=10, and to express \"kibi\", specify prefixPower=10 and prefixBase=2 or prefixPower=1 and prefixBase=1024.",
+          "description": "The base of the prefix. For example, to express \"kilo\", specify prefixPower=3 and prefixBase=10, and to express \"kibi\", specify prefixPower=10 and prefixBase=2 or prefixPower=1 and prefixBase=1024. Absence implies a default value of 10.",
           "type": "integer",
           "default": 10
         }
