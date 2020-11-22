@@ -21,8 +21,8 @@
       "maximum": 65535
     },
     "get_request_subdevice_range": {
-      "$comment": "'subdevices' already contains a title and description.",
-      "$ref": "#/$defs/subdevices",
+      "$comment": "'subdevicesForRequests' already contains a title and description.",
+      "$ref": "#/$defs/subdevicesForRequests",
       "default": [ "root" ]
     },
     "get_request": {
@@ -30,20 +30,30 @@
       "title": "GET Command",
       "$ref": "#/$defs/command"
     },
+    "get_response_subdevice_range": {
+      "$comment": "'subdevicesForResponses' already contains a title and description.",
+      "$ref": "#/$defs/subdevicesForResponses",
+      "default": [ "match" ]
+    },
     "get_response": {
       "$comment": "'command' already contains a description.",
       "title": "GET Command Response",
       "$ref": "#/$defs/command"
     },
     "set_request_subdevice_range": {
-      "$comment": "'subdevices' already contains a title and description.",
-      "$ref": "#/$defs/subdevices",
+      "$comment": "'subdevicesForRequests' already contains a title and description.",
+      "$ref": "#/$defs/subdevicesForRequests",
       "default": [ "root" ]
     },
     "set_request": {
       "$comment": "'command' already contains a description.",
       "title": "SET Command",
       "$ref": "#/$defs/command"
+    },
+    "set_response_subdevice_range": {
+      "$comment": "'subdevicesForResponses' already contains a title and description.",
+      "$ref": "#/$defs/subdevicesForResponses",
+      "default": [ "match" ]
     },
     "set_response": {
       "$comment": "'command' already contains a description.",
@@ -477,15 +487,78 @@
       },
       "required": [ "type" ]
     },
-    "subdevices": {
-      "title": "Subdevices",
+    "subdeviceValue": {
+      "title": "Subdevice Value",
+      "description": "Defines a single subdevice or a range of subdevices.",
+      "anyOf": [
+        {
+          "type": "object",
+          "title": "Subdevice Range",
+          "description": "Defines a range of subdevices. If a bound is undefined then it is assumed to be the bound appropriate for a 16-bit value.",
+          "properties": {
+            "minimum": {
+              "title": "Minimum",
+              "description": "The lower bound, inclusive.",
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            },
+            "maximum": {
+              "title": "Maximum",
+              "description": "The upper bound, inclusive.",
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        },
+        {
+          "title": "Single Subdevice",
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535
+        }
+      ]
+    },
+    "subdevicesForRequests": {
+      "title": "Subdevices in a Request",
       "description": "Acceptable values for the subdevice in a GET or SET command. An empty list means allow nothing.",
       "type": "array",
       "items": {
-        "enum": [
-          "root",
-          "subdevices",
-          "broadcast"
+        "anyOf": [
+          {
+            "enum": [
+              "root",
+              "subdevices",
+              "broadcast"
+            ]
+          },
+          {
+            "$ref": "#/$defs/subdeviceValue"
+          }
+        ]
+      },
+      "uniqueItems": true
+    },
+    "subdevicesForResponses": {
+      "title": "Subdevices in a Response",
+      "description": "Acceptable values for the subdevice in a GET_RESPONSE or SET_RESPONSE. An empty list means allow nothing.",
+      "type": "array",
+      "items": {
+        "anyOf": [
+          {
+            "enum": [
+              "root",
+              "subdevices",
+              "broadcast",
+              "match"
+            ]
+          },
+          {
+            "$ref": "#/$defs/subdeviceValue"
+          }
         ]
       },
       "uniqueItems": true
