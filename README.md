@@ -21,7 +21,8 @@ The schema is subject to change.
    3. [Constraints and errors](#constraints-and-errors)
 4. [Best practices](#best-practices)
 5. [Open questions](#open-questions)
-6. [Resources](#resources)
+6. [TODOs](#todos)
+7. [Resources](#resources)
    1. [References mentioned in the schema](#references-mentioned-in-the-schema)
 
 ## Project intent
@@ -170,6 +171,12 @@ Some open questions:
    We could include the version in the URI. Some possibilities:
    1. https://estalink.us/schemas/v1.0.1/rdm-schema.json
    2. https://estalink.us/schemas/rdm-schema-v1.0.1.json
+
+## TODOs
+
+Work that still needs to be done:
+1. Supply valid PIDs to some of the examples. Currently, they are using an
+   invalid value of -1.
 
 ## Resources
 
