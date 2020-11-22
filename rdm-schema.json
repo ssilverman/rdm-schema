@@ -1,5 +1,5 @@
 {
-  "$id": "http://estalink.us/schemas/v0.33.0/rdm-schema.json",
+  "$id": "http://estalink.us/schemas/v0.34.0/rdm-schema.json",
   "$schema": "https://json-schema.org/draft/2019-09/schema",
   "title": "Parameter Message",
   "description": "The schema for the Parameter Metadata Language from Section 5 of E1.37-5. This schema is subject to change.",
