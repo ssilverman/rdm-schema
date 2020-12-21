@@ -1,6 +1,6 @@
 # README for the RDM Schema Project
 
-Version: 0.33.0
+Version: 0.35.0
 
 This project contains the schema for the Parameter Metadata Language from
 Section 5 of E1.37-5.
