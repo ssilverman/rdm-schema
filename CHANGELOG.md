@@ -11,6 +11,12 @@ and this project adheres to
 ### Added
 * "uint128" and "int128" integer types.
 
+### Fixed
+* Renamed DNS_IPV4_NAMESERVER example to DNS_IPV4_NAME_SERVER, per the
+  E1.37-2 spec.
+* Removed a nonexistent GET parameter from OUTPUT_RESPONSE_TIME_DESCRIPTION and
+  MODULATION_FREQUENCY_DESCRIPTION examples.
+
 ## [0.34.0]
 
 ### Added
