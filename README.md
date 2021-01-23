@@ -137,7 +137,7 @@ be caught after processing a schema instance. Please see the
 [Best practices](#best-practices) section for more details about avoiding these
 kinds of errors.
 
-### Defaults and the "default" annotation.
+### Defaults and the "default" annotation
 
 In JSON Schema, the "default" keyword is merely an annotation that applies to
 the current schema location, if present; it does not describe the value to use
