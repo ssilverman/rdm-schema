@@ -5,21 +5,20 @@
   "version": 1,
   "get_request_subdevice_range": [ "root", "subdevices" ],
   "get_request": [
-        {
+    {
       "name": "setting",
       "type": "uint8",
-      "notes": "The value isn't restricted in the spec, but OUTPUT_RESPONSE restricts this.",
+      "notes": "The value isn't restricted in the spec, but OUTPUT_RESPONSE_TIME restricts this.",
       "ranges": [
         { "minimum": 1, "maximum": 255 }
       ]
-    },
-    { "name": "response_time_setting_count", "type": "uint8" }
+    }
   ],
   "get_response": [
     {
       "name": "setting",
       "type": "uint8",
-      "notes": "The value isn't restricted in the spec, but OUTPUT_RESPONSE restricts this.",
+      "notes": "The value isn't restricted in the spec, but OUTPUT_RESPONSE_TIME restricts this.",
       "ranges": [
         { "minimum": 1, "maximum": 255 }
       ]
