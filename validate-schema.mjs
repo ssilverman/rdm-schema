@@ -6,17 +6,7 @@ import * as path from "path"
 //import RdmSchema from "./rdm-schema.json"
 //const { RdmSchema } = JSON.parse(fs.readFile('./rdm-schema.json'));
 
-const RdmSchema = (async function() {
-      const { data } = JSON.parse(await fs.readFile("./rdm-schema.json"));
-      console.log(data);
-      yield data;
-    })();
-
-const validator = new Validator(RdmSchema);
-// validator.addSchema("https://json-schema.org/draft/2019-09/schema")
-
-
-async function validate(filename) {
+async function validate(validator, filename) {
   // JsonSchema.setShouldMetaValidate(true);
   // JsonSchema.setMetaOutputFormat(JsonSchema.VERBOSE);
 
@@ -41,13 +31,20 @@ async function* walk(dir) {
   }
 }
 
-async function validateAllFiles(exampleDir) {
+async function validateAllFiles(validator, exampleDir) {
   for await (const file of walk(exampleDir)) {
     if (/\.json$/.test(file)) {
-      await validate(file);
+      await validate(validator, file);
     }
   }
 }
 
-validate("/examples/e1.20/BOOT_SOFTWARE_VERSION_ID.json");
-validateAllFiles(__dirname + "/examples/");
+(async function() {
+      const { RdmSchema } = JSON.parse(await fs.readFile("./rdm-schema.json"));
+      console.log(RdmSchema);
+
+const validator = new Validator(RdmSchema);
+// validator.addSchema("https://json-schema.org/draft/2019-09/schema")
+validate(validator, "/examples/e1.20/BOOT_SOFTWARE_VERSION_ID.json");
+validateAllFiles(validator, __dirname + "/examples/");
+    })();
