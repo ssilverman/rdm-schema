@@ -40,12 +40,16 @@ async function validateAllFiles(validator, exampleDir) {
 }
 
 (async function() {
-      const { RdmSchema } = JSON.parse(await fs.readFile("./rdm-schema.json"));
-      console.log(RdmSchema);
+  console.log("Loading schema");
+  const { RdmSchema } = JSON.parse(await fs.readFile("./rdm-schema.json"));
+  console.log(RdmSchema);
 
-const validator = new Validator(RdmSchema);
-// validator.addSchema("https://json-schema.org/draft/2019-09/schema")
+  console.log("Prepping validator");
+  const validator = new Validator(RdmSchema);
+  // validator.addSchema("https://json-schema.org/draft/2019-09/schema")
   
-validate(validator, "/examples/e1.20/BOOT_SOFTWARE_VERSION_ID.json");
-validateAllFiles(validator, "/examples/");
+  console.log("Validating single file");
+  validate(validator, "/examples/e1.20/BOOT_SOFTWARE_VERSION_ID.json");
+  // console.log("Validating all examples");
+  // validateAllFiles(validator, "/examples/");
     })();
