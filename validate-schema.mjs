@@ -15,14 +15,14 @@ async function validate(validator, filename) {
   console.log("Checking file " + path.resolve() + filename);
   console.log("Contents:");
   console.log(JSON.parse(fileContent.toString()));
-  // const output = validator.validate(JSON.parse(fileContent.toString()))
+  const output = validator.validate(JSON.parse(fileContent.toString()))
   // const output = await JsonSchema.validate(schema, "file://" + filename, JsonSchema.VERBOSE);
-  //  console.log(output);
-  /*if (output.valid) {
+  // console.log(output);
+  if (output.valid) {
     console.log("File " + filename + " is valid :-)");
   } else {
     console.log("File " + filename + " is invalid :-(", output.errors); process.exitCode = 1
-  }*/
+  }
 }
 
 //From https://gist.github.com/lovasoa/8691344#file-node-walk-es6
@@ -45,17 +45,17 @@ async function validateAllFiles(validator, exampleDir) {
 (async function() {
   console.log("Loading schema");
   const rawSchema = await fs.readFile(path.resolve() + "/rdm-schema.json");
-  console.log("Got raw schema:");
-  console.log(rawSchema.toString());
-  console.log("Got parsed JSON:");
-  console.log(JSON.parse(rawSchema.toString()))
+  //console.log("Got raw schema:");
+  //console.log(rawSchema.toString());
+  //console.log("Got parsed JSON:");
+  //console.log(JSON.parse(rawSchema.toString()))
   const RdmSchema = JSON.parse(rawSchema.toString());
   console.log("Got schema:");
   console.log(RdmSchema);
 
   console.log("Prepping validator");
   const validator = new Validator(RdmSchema, '2019-09');
-  // validator.addSchema("https://json-schema.org/draft/2019-09/schema")
+  validator.addSchema("https://json-schema.org/draft/2019-09/schema")
   
   console.log("Validating single file");
   validate(validator, "/examples/e1.20/BOOT_SOFTWARE_VERSION_ID.json");
