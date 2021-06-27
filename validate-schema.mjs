@@ -15,7 +15,7 @@ async function validate(validator, filename) {
   console.log("Checking file " + path.resolve() + filename);
   console.log("Contents:");
   console.log(JSON.parse(fileContent.toString()));
-  const output = validator.validate(JSON.parse(fileContent.toString()))
+  // const output = validator.validate(JSON.parse(fileContent.toString()))
   // const output = await JsonSchema.validate(schema, "file://" + filename, JsonSchema.VERBOSE);
   //  console.log(output);
   /*if (output.valid) {
