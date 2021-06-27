@@ -3,7 +3,7 @@ import * as path from "path"
 // const path = require("path");
 // const JsonSchema = require("@cfworker/json-schema");
 //import RdmSchema from "./rdm-schema.json"
-const { RdmSchema } = require('./rdm-schema.json');
+const { RdmSchema } = await JSON.parse(fs.readFile('./rdm-schema.json'));
 import { Validator } from '@cfworker/json-schema';
 
 const validator = new Validator(RdmSchema);
