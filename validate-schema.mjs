@@ -44,7 +44,8 @@ async function validateAllFiles(validator, exampleDir) {
 
 (async function() {
   console.log("Loading schema");
-  const { RdmSchema } = JSON.parse(await fs.readFile("./rdm-schema.json"));
+  const { RdmSchema } = JSON.parse(await fs.readFile(path.resolve() + "/rdm-schema.json"));
+  console.log("Got schema:");
   console.log(RdmSchema);
 
   console.log("Prepping validator");
