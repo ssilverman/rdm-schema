@@ -9,6 +9,6 @@ jobs:
     - uses: peternewman/json-linter@peternewman-attempt-fix
     - run: |
        sudo npm install -g jsonlint
-       sudo npm install -g fd-find
+       sudo apt-get install fd-find
        fd --extension json --list-details -E rdm-schema.json
        fd --extension json -E rdm-schema.json --exec jsonlint --quiet --compact --validate rdm-schema.json
