@@ -13,8 +13,8 @@ async function validate(validator, filename) {
   // Fetch from file
   const fileContent = await fs.readFile(path.resolve() + filename)
   console.log("Checking file " + path.resolve() + filename);
-  console.log("Contents:");
-  console.log(JSON.parse(fileContent.toString()));
+  // console.log("Contents:");
+  // console.log(JSON.parse(fileContent.toString()));
   const output = validator.validate(JSON.parse(fileContent.toString()))
   // const output = await JsonSchema.validate(schema, "file://" + filename, JsonSchema.VERBOSE);
   // console.log(output);
@@ -59,6 +59,6 @@ async function validateAllFiles(validator, exampleDir) {
   
   console.log("Validating single file");
   validate(validator, "/examples/e1.20/BOOT_SOFTWARE_VERSION_ID.json");
-  // console.log("Validating all examples");
-  // validateAllFiles(validator, "/examples/");
+  console.log("Validating all examples");
+  validateAllFiles(validator, "/examples/");
     })();
