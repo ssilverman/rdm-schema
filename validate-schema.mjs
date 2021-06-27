@@ -12,14 +12,15 @@ async function validate(validator, filename) {
 
   // Fetch from file
   const fileContent = await fs.readFile(path.resolve() + filename)
-  const output = validator.validate(JSON.parse(fileContent.toString()))
+  console.log("Checking file " + filename");
+/*  const output = validator.validate(JSON.parse(fileContent.toString()))
   // const output = await JsonSchema.validate(schema, "file://" + filename, JsonSchema.VERBOSE);
   //  console.log(output);
   if (output.valid) {
     console.log("File " + filename + " is valid :-)");
   } else {
     console.log("File " + filename + " is invalid :-(", output.errors); process.exitCode = 1
-  }
+  }*/
 }
 
 //From https://gist.github.com/lovasoa/8691344#file-node-walk-es6
