@@ -24,7 +24,7 @@ async function validate(validator, filename) {
 
 //From https://gist.github.com/lovasoa/8691344#file-node-walk-es6
 async function* walk(dir) {
-  for await (const d of await fs.opendir(dir)) {
+  for await (const d of await fs.opendir(path.resolve() + dir)) {
     const entry = path.join(dir, d.name);
     if (d.isDirectory()) yield* walk(entry);
     else if (d.isFile()) yield entry;
@@ -46,6 +46,6 @@ async function validateAllFiles(validator, exampleDir) {
 const validator = new Validator(RdmSchema);
 // validator.addSchema("https://json-schema.org/draft/2019-09/schema")
   
-validate(validator, "./examples/e1.20/BOOT_SOFTWARE_VERSION_ID.json");
-validateAllFiles(validator, "./examples/");
+validate(validator, "examples/e1.20/BOOT_SOFTWARE_VERSION_ID.json");
+validateAllFiles(validator, "examples/");
     })();
