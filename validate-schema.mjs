@@ -24,7 +24,7 @@ async function validate(validator, filename) {
 
 //From https://gist.github.com/lovasoa/8691344#file-node-walk-es6
 async function* walk(dir) {
-  for await (const d of await fs.promises.opendir(dir)) {
+  for await (const d of await fs.opendir(dir)) {
     const entry = path.join(dir, d.name);
     if (d.isDirectory()) yield* walk(entry);
     else if (d.isFile()) yield entry;
