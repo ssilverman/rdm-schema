@@ -6,9 +6,10 @@ import * as path from "path"
 //import RdmSchema from "./rdm-schema.json"
 //const { RdmSchema } = JSON.parse(fs.readFile('./rdm-schema.json'));
 
-(async function() {
-      const { RdmSchema } = JSON.parse(await fs.readFile("./rdm-schema.json"));
-      console.log(RdmSchema);
+const RdmSchema = (async function() {
+      const { data } = JSON.parse(await fs.readFile("./rdm-schema.json"));
+      console.log(data);
+      yield data;
     })();
 
 const validator = new Validator(RdmSchema);
