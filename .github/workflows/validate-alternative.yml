@@ -10,5 +10,5 @@ jobs:
     - run: |
        sudo npm install -g jsonlint
        sudo apt-get install fd-find
-       fdfind --extension json -X ls -ld -E rdm-schema.json
+       fdfind --extension json -E rdm-schema.json --exec-batch ls -ld
        fdfind --extension json -E rdm-schema.json --exec jsonlint --quiet --compact --validate rdm-schema.json
