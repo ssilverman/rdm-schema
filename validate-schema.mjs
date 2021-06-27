@@ -42,5 +42,5 @@ async function validateAllFiles(exampleDir) {
   }
 }
 
-// validateAllFiles(__dirname + "/examples/");
 validate("/examples/e1.20/BOOT_SOFTWARE_VERSION_ID.json");
+validateAllFiles(__dirname + "/examples/");
