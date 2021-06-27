@@ -48,7 +48,7 @@ async function validateAllFiles(validator, exampleDir) {
   console.log(RdmSchema);
 
   console.log("Prepping validator");
-  const validator = new Validator(RdmSchema);
+  const validator = new Validator(RdmSchema, '2019-09');
   // validator.addSchema("https://json-schema.org/draft/2019-09/schema")
   
   console.log("Validating single file");
