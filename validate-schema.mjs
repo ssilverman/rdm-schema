@@ -47,7 +47,9 @@ async function validateAllFiles(validator, exampleDir) {
   const rawSchema = await fs.readFile(path.resolve() + "/rdm-schema.json");
   console.log("Got raw schema:");
   console.log(rawSchema.toString());
-  const { RdmSchema } = JSON.parse(rawSchema.toString());
+  console.log("Got parsed JSON:");
+  console.log(JSON.parse(rawSchema.toString()))
+  const RdmSchema = JSON.parse(rawSchema.toString());
   console.log("Got schema:");
   console.log(RdmSchema);
 
