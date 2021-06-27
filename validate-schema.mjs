@@ -1,10 +1,15 @@
 import { promises as fs } from 'fs';
+import { Validator } from '@cfworker/json-schema';
 import * as path from "path"
 // const path = require("path");
 // const JsonSchema = require("@cfworker/json-schema");
 //import RdmSchema from "./rdm-schema.json"
-const { RdmSchema } = JSON.parse(fs.readFile('./rdm-schema.json'));
-import { Validator } from '@cfworker/json-schema';
+//const { RdmSchema } = JSON.parse(fs.readFile('./rdm-schema.json'));
+
+(async function() {
+      const data = JSON.parse(await fs.readFile("./rdm-schema.json"));
+      console.log(data);
+    })();
 
 const validator = new Validator(RdmSchema);
 // validator.addSchema("https://json-schema.org/draft/2019-09/schema")
