@@ -2,7 +2,8 @@ import { promises as fs } from 'fs';
 import * as path from "path"
 // const path = require("path");
 // const JsonSchema = require("@cfworker/json-schema");
-import RdmSchema from "./rdm-schema.json"
+//import RdmSchema from "./rdm-schema.json"
+const { RdmSchema } = require('./rdm-schema.json');
 import { Validator } from '@cfworker/json-schema';
 
 const validator = new Validator(RdmSchema);
