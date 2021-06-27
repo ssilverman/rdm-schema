@@ -12,7 +12,7 @@ async function validate(validator, filename) {
 
   // Fetch from file
   const fileContent = await fs.readFile(path.resolve() + filename)
-  console.log("Checking file " + filename");
+  console.log("Checking file " + filename);
 /*  const output = validator.validate(JSON.parse(fileContent.toString()))
   // const output = await JsonSchema.validate(schema, "file://" + filename, JsonSchema.VERBOSE);
   //  console.log(output);
