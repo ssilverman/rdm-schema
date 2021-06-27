@@ -14,4 +14,4 @@ jobs:
           node-version: '12'
       - name: Install dependencies
         run: npm install @hyperjump/json-schema
-      - run: node validate-schema.js
+      - run: node validate-schema.mjs
