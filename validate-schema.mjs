@@ -45,6 +45,7 @@ async function validateAllFiles(validator, exampleDir) {
 
 const validator = new Validator(RdmSchema);
 // validator.addSchema("https://json-schema.org/draft/2019-09/schema")
+  
 validate(validator, "/examples/e1.20/BOOT_SOFTWARE_VERSION_ID.json");
-validateAllFiles(validator, new URL('/examples/', import.meta.url));
+validateAllFiles(validator, "/examples/"));
     })();
