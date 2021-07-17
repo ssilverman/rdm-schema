@@ -8,10 +8,10 @@
   ],
   "get_response": [
     { "name": "sensor", "type": "uint8" },
-    { "name": "value", "type": "uint16" },
-    { "name": "lowest_detected", "type": "uint16" },
-    { "name": "highest_detected", "type": "uint16" },
-    { "name": "recorded_value", "type": "uint16" }
+    { "name": "value", "type": "int16" },
+    { "name": "lowest_detected", "type": "int16" },
+    { "name": "highest_detected", "type": "int16" },
+    { "name": "recorded_value", "type": "int16" }
   ],
   "set_request_subdevice_range": [ "root", "subdevices", "broadcast" ],
   "set_request": "get_request",

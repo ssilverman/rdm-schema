@@ -6,14 +6,53 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.35.0]
+
+### Added
+* "uint128" and "int128" integer types.
+
+### Fixed
+* Renamed DNS_IPV4_NAMESERVER example to DNS_IPV4_NAME_SERVER, per the
+  E1.37-2 spec.
+* Removed a nonexistent GET parameter from OUTPUT_RESPONSE_TIME_DESCRIPTION and
+  MODULATION_FREQUENCY_DESCRIPTION examples.
+
+## [0.34.0]
+
+### Added
+* Added a default prefix power of zero.
+* Added command class labels to PARAMETER_DESCRIPTION.
+* Subdevices in responses can now be specified. To support this, subdevices for
+  responses were split into a new type and a new "match" value was added to the
+  enum list.
+* Subdevices were expanded to include ranges and specific values, where a
+  "subdevice" is defined as a value in the range 0x0001-0xFFF0 (1-65520), in
+  addition to the enum words.
+* Added a "TODOs" section to the README.
+* Added a section to the README explaining how missing properties, defaults, and
+  the "default" keyword are related.
+* For those properties having a defined "default" annotation, added a sentence
+  to their description describing what their value should be assumed to be if
+  the property is absent.
+
+### Fixed
+* Changed some unsigned fields to signed, in SENSOR_DEFINITION, SENSOR_VALUE,
+  and STATUS_MESSAGES.
+
 ## [0.33.0]
 
 ### Added
 * Added a version and "schemas" path section to the schema $id.
 * Added an "Open questions" top-level section to the README.
+* Added a "Best practices" top-level section to the README that describes how to
+  avoid creating ill-defined messages. This replaces the list from the
+  "Constraints and errors" section.
 
 ### Changed
 * Capitalized titles in the schema.
+* Updated the descriptions for the maximum byte lengths for strings and bytes.
+  Added a sentence that suggests setting these values if the responder wishes
+  for controllers to limit the number of bytes sent.
 
 ## [0.32.0]
 

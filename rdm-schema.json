@@ -1,5 +1,5 @@
 {
-  "$id": "http://estalink.us/schemas/v0.33.0/rdm-schema.json",
+  "$id": "http://estalink.us/schemas/v0.35.0/rdm-schema.json",
   "$schema": "https://json-schema.org/draft/2019-09/schema",
   "title": "Parameter Message",
   "description": "The schema for the Parameter Metadata Language from Section 5 of E1.37-5. This schema is subject to change.",
@@ -20,32 +20,46 @@
       "maximum": 65535
     },
     "get_request_subdevice_range": {
-      "$comment": "'subdevices' already contains a title and description.",
-      "$ref": "#/$defs/subdevices",
+      "$comment": "'subdevicesForRequests' already contains a title and description",
+      "description": "Absence implies a default value of [\"root\"]."
+      "$ref": "#/$defs/subdevicesForRequests",
       "default": [ "root" ]
     },
     "get_request": {
-      "$comment": "'command' already contains a description.",
+      "$comment": "'command' already contains a description",
       "title": "GET Command",
       "$ref": "#/$defs/command"
     },
+    "get_response_subdevice_range": {
+      "$comment": "'subdevicesForResponses' already contains a title and description",
+      "description": "Absence implies a default value of [\"match\"]."
+      "$ref": "#/$defs/subdevicesForResponses",
+      "default": [ "match" ]
+    },
     "get_response": {
-      "$comment": "'command' already contains a description.",
+      "$comment": "'command' already contains a description",
       "title": "GET Command Response",
       "$ref": "#/$defs/command"
     },
     "set_request_subdevice_range": {
-      "$comment": "'subdevices' already contains a title and description.",
-      "$ref": "#/$defs/subdevices",
+      "$comment": "'subdevicesForRequests' already contains a title and description",
+      "description": "Absence implies a default value of [\"root\"]."
+      "$ref": "#/$defs/subdevicesForRequests",
       "default": [ "root" ]
     },
     "set_request": {
-      "$comment": "'command' already contains a description.",
+      "$comment": "'command' already contains a description",
       "title": "SET Command",
       "$ref": "#/$defs/command"
     },
+    "set_response_subdevice_range": {
+      "$comment": "'subdevicesForResponses' already contains a title and description",
+      "description": "Absence implies a default value of [\"match\"]."
+      "$ref": "#/$defs/subdevicesForResponses",
+      "default": [ "match" ]
+    },
     "set_response": {
-      "$comment": "'command' already contains a description.",
+      "$comment": "'command' already contains a description",
       "title": "SET Command Response",
       "$ref": "#/$defs/command"
     }
@@ -78,7 +92,7 @@
         },
         "reservedValue": {
           "title": "Reserved Value",
-          "description": "The assumed value when the bit is marked as reserved.",
+          "description": "The assumed value when the bit is marked as reserved. Absence implies a default value of false.",
           "type": "boolean",
           "default": false
         }
@@ -109,7 +123,7 @@
         },
         "valueForUnspecified": {
           "title": "Value for Unspecified",
-          "description": "The default value to use for any unspecified bits.",
+          "description": "The default value to use for any unspecified bits. Absence implies a default value of false.",
           "type": "boolean",
           "default": false
         }
@@ -154,7 +168,7 @@
         },
         "maxLength": {
           "title": "Maximum Length",
-          "description": "The maximum bytes length. Care must be taken to make sure this doesn't contradict any \"minLength\" value. It is an error if there is a contradiction.",
+          "description": "The maximum bytes length. Care must be taken to make sure this doesn't contradict any \"minLength\" value. It is an error if there is a contradiction. If a responder requires a controller to limit the number of bytes sent, then this value should be set.",
           "type": "integer",
           "minimum": 0
         }
@@ -162,7 +176,7 @@
       "required": [ "type" ]
     },
     "command": {
-      "$comment": "The title is specific to where this used, and so no title is defined here.",
+      "$comment": "The title is specific to where this used, and so no title is defined here",
       "description": "The contents of an RDM command: 1. a collection of 'field' items, each a simple or compound type, 2. a single 'field' item, or 3. a duplicate command.",
       "oneOf": [
         {
@@ -194,7 +208,7 @@
       ]
     },
     "commonPropertiesForNamed": {
-      "$comment": "Defines a set of properties common to everything having a name.",
+      "$comment": "Defines a set of properties common to everything having a name",
       "properties": {
         "name": {
           "title": "Name",
@@ -255,10 +269,12 @@
             "int16",
             "int32",
             "int64",
+            "int128",
             "uint8",
             "uint16",
             "uint32",
-            "uint64"
+            "uint64",
+            "uint128"
           ]
         },
         "labels": {
@@ -289,12 +305,13 @@
         },
         "prefixPower": {
           "title": "Prefix Power",
-          "description": "The power of 10 to be used as the prefix for the value. For example, -2 is used to represent 10^(-2) or the prefix centi-.",
-          "type": "integer"
+          "description": "The power of 10 to be used as the prefix for the value. For example, -2 is used to represent 10^(-2) or the prefix centi-. Absence implies a default value of 0.",
+          "type": "integer",
+          "default": 0
         },
         "prefixBase": {
           "title": "Prefix Base",
-          "description": "The base of the prefix. For example, to express \"kilo\", specify prefixPower=3 and prefixBase=10, and to express \"kibi\", specify prefixPower=10 and prefixBase=2 or prefixPower=1 and prefixBase=1024.",
+          "description": "The base of the prefix. For example, to express \"kilo\", specify prefixPower=3 and prefixBase=10, and to express \"kibi\", specify prefixPower=10 and prefixBase=2 or prefixPower=1 and prefixBase=1024. Absence implies a default value of 10.",
           "type": "integer",
           "default": 10
         }
@@ -334,7 +351,7 @@
     "listType": {
       "title": "List Type",
       "description": "A list of objects all having the same type.",
-      "$comment": "The names \"minItems\" and \"maxItems\" were chosen because those match the validation keywords for arrays in the JSON schema spec.",
+      "$comment": "The names \"minItems\" and \"maxItems\" were chosen because those match the validation keywords for arrays in the JSON schema spec",
       "type": "object",
       "$ref": "#/$defs/commonPropertiesForNamed",
       "properties": {
@@ -361,7 +378,7 @@
       "required": [ "type", "itemType" ]
     },
     "oneOfTypes": {
-      "$comment": "One of any of the types. This provides a single location to keep the list. None of the types here specify \"unevaluatedProperties\", so if extra properties are to be disallowed, then that must be specified by the referencer of this schema. This will make sorting through any errors easier.",
+      "$comment": "One of any of the types. This provides a single location to keep the list. None of the types here specify \"unevaluatedProperties\", so if extra properties are to be disallowed, then that must be specified by the referencer of this schema. This will make sorting through any errors easier",
       "oneOf": [
         { "$ref": "#/$defs/bitFieldType" },
         { "$ref": "#/$defs/booleanType" },
@@ -463,7 +480,7 @@
         },
         "maxBytes": {
           "title": "Maximum Length in Bytes",
-          "description": "The maximum UTF-8-encoded length in bytes. In the case that the number of characters in the string is different from the number of bytes after UTF-8 encoding, we may need to specify a maximum encoded length.",
+          "description": "The maximum UTF-8-encoded length in bytes. In the case that the number of characters in the string is different from the number of bytes after UTF-8 encoding, we may need to specify a maximum encoded length. If a responder requires a controller to limit the number of bytes sent, then this value should be set.",
           "type": "integer",
           "minimum": 0
         },
@@ -475,15 +492,79 @@
       },
       "required": [ "type" ]
     },
-    "subdevices": {
-      "title": "Subdevices",
+    "subdeviceType": {
+      "title": "Subdevice Type",
+      "description": "A subdevice value. It is a 16-bit integral type and its range includes the values specified by the ANSI E1.20-202x specification (0x0001-0xFFF0). It does not include the root value (0) or special all-call value (65535).",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 65520
+    },
+    "subdeviceRange": {
+      "title": "Subdevice Range",
+      "description": "Defines a range of subdevices, not including the root or the special all-call value. The complete range is the union of all the ranges in the subdevice array.",
+      "type": "object",
+      "properties": {
+        "minimum": {
+          "$comment": "'subdeviceType' already contains a title and description",
+          "title": "Minimum",
+          "description": "The lower bound, inclusive.",
+          "$ref": "#/$defs/subdeviceType"
+        },
+        "maximum": {
+          "$comment": "'subdeviceType' already contains a title and description",
+          "title": "Maximum",
+          "description": "The upper bound, inclusive.",
+          "$ref": "#/$defs/subdeviceType"
+        }
+      },
+      "required": [ "minimum", "maximum" ],
+      "additionalProperties": false
+    },
+    "subdeviceValue": {
+      "title": "Subdevice Value",
+      "description": "Defines a single subdevice or range of subdevices. Note that a \"subdevice\" here means any valid subdevice that isn't \"root\" or \"broadcast\".",
+      "anyOf": [
+        { "$ref": "#/$defs/subdeviceRange" },
+        { "$ref": "#/$defs/subdeviceType" }
+      ]
+    },
+    "subdevicesForRequests": {
+      "title": "Subdevices in a Request",
       "description": "Acceptable values for the subdevice in a GET or SET command. An empty list means allow nothing.",
       "type": "array",
       "items": {
-        "enum": [
-          "root",
-          "subdevices",
-          "broadcast"
+        "anyOf": [
+          {
+            "enum": [
+              "root",
+              "subdevices",
+              "broadcast"
+            ]
+          },
+          {
+            "$ref": "#/$defs/subdeviceValue"
+          }
+        ]
+      },
+      "uniqueItems": true
+    },
+    "subdevicesForResponses": {
+      "title": "Subdevices in a Response",
+      "description": "Acceptable values for the subdevice in a GET_RESPONSE or SET_RESPONSE. An empty list means allow nothing.",
+      "type": "array",
+      "items": {
+        "anyOf": [
+          {
+            "enum": [
+              "root",
+              "subdevices",
+              "broadcast",
+              "match"
+            ]
+          },
+          {
+            "$ref": "#/$defs/subdeviceValue"
+          }
         ]
       },
       "uniqueItems": true
