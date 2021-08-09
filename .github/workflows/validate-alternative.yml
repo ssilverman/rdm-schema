@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - uses: peternewman/json-linter@peternewman-attempt-fix
+    - uses: ocular-d/json-linter@main
     - run: |
        sudo npm install -g jsonlint
        sudo apt-get install fd-find
