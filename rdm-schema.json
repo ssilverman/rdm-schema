@@ -22,7 +22,7 @@
     },
     "get_request_subdevice_range": {
       "$comment": "'subdevicesForRequests' already contains a title and description",
-      "description": "Absence implies a default value of [\"root\"]."
+      "description": "Absence implies a default value of [\"root\"].",
       "$ref": "#/$defs/subdevicesForRequests",
       "default": [ "root" ]
     },
@@ -33,7 +33,7 @@
     },
     "get_response_subdevice_range": {
       "$comment": "'subdevicesForResponses' already contains a title and description",
-      "description": "Absence implies a default value of [\"match\"]."
+      "description": "Absence implies a default value of [\"match\"].",
       "$ref": "#/$defs/subdevicesForResponses",
       "default": [ "match" ]
     },
@@ -44,7 +44,7 @@
     },
     "set_request_subdevice_range": {
       "$comment": "'subdevicesForRequests' already contains a title and description",
-      "description": "Absence implies a default value of [\"root\"]."
+      "description": "Absence implies a default value of [\"root\"].",
       "$ref": "#/$defs/subdevicesForRequests",
       "default": [ "root" ]
     },
@@ -55,7 +55,7 @@
     },
     "set_response_subdevice_range": {
       "$comment": "'subdevicesForResponses' already contains a title and description",
-      "description": "Absence implies a default value of [\"match\"]."
+      "description": "Absence implies a default value of [\"match\"].",
       "$ref": "#/$defs/subdevicesForResponses",
       "default": [ "match" ]
     },
