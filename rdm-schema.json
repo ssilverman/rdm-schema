@@ -96,11 +96,11 @@
         },
         "reserved": {
           "title": "Reserved",
-          "description": "Indicates that this bit is unused or reserved.",
+          "description": "Indicates that this bit is unused or reserved. Note that this value does not need to be specified for absent bits; they are already assumed to be reserved.",
           "type": "boolean"
         },
-        "reservedValue": {
-          "title": "Reserved Value",
+        "valueIfReserved": {
+          "title": "Value If Reserved",
           "description": "The assumed value when the bit is marked as reserved. Absence implies a default value of false.",
           "type": "boolean",
           "default": false
@@ -111,7 +111,7 @@
     },
     "bitFieldType": {
       "title": "Bit Field Type",
-      "description": "A bit field, a collection of 'bit' items. The \"size\" field is used to specify the number of bits in this bit field, a multiple of 8. It is an error if the size is less than the number of defined bits. Bits that are not specified are assumed to be reserved, with a value equal to the \"valueForUnspecified\" value.",
+      "description": "A bit field, a collection of 'bit' items. The \"size\" field is used to specify the number of bits in this bit field, a multiple of 8. It is an error if the size is less than the number of defined bits. Bits that are not specified are assumed to be reserved, having a value equal to the \"valueForUnspecified\" value.",
       "type": "object",
       "$ref": "#/$defs/commonPropertiesForNamed",
       "properties": {
