@@ -1,5 +1,6 @@
 {
   "name": "RESET_DEVICE",
+  "manufacturer_id": 0,
   "pid": 4097,
   "version": 1,
   "set_request_subdevice_range": [ "root", "subdevices", "broadcast" ],

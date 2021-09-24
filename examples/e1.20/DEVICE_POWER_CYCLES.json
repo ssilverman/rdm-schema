@@ -1,5 +1,6 @@
 {
   "name": "DEVICE_POWER_CYCLES",
+  "manufacturer_id": 0,
   "pid": 1029,
   "version": 1,
   "get_request_subdevice_range": [ "root", "subdevices" ],

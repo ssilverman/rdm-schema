@@ -6,6 +6,14 @@
   "type": "object",
   "$ref": "#/$defs/commonPropertiesForNamed",
   "properties": {
+    "manufacturer_id": {
+      "$comment": "Manufacturer IDs are assigned by ESTA and are commonly expressed in hexadecimal. Users may expect to see these values in the UI as hexadecimal.",
+      "title": "Manufacturer ID",
+      "description": "The manufacturer ID.",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 65535
+    },
     "pid": {
       "title": "PID",
       "description": "The parameter ID.",
@@ -66,7 +74,7 @@
     }
   },
   "unevaluatedProperties": false,
-  "required": [ "pid", "version" ],
+  "required": [ "manufacturer_id", "pid", "version" ],
   "dependentRequired": {
     "get_request": [ "get_response" ],
     "get_response": [ "get_request" ],

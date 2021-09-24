@@ -1,6 +1,7 @@
 {
   "name": "MODULATION_FREQUENCY",
   "notes": "E1.37-1",
+  "manufacturer_id": 0,
   "pid": 839,
   "version": 1,
   "get_request_subdevice_range": [ "root", "subdevices" ],

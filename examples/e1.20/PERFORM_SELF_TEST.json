@@ -1,5 +1,6 @@
 {
   "name": "PERFORM_SELF_TEST",
+  "manufacturer_id": 0,
   "pid": 4128,
   "version": 1,
   "get_request_subdevice_range": [ "root", "subdevices" ],

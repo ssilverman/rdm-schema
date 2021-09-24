@@ -1,5 +1,6 @@
 {
   "name": "STATUS_ID_DESCRIPTION",
+  "manufacturer_id": 0,
   "pid": 49,
   "version": 1,
   "get_request_subdevice_range": [ "root" ],

@@ -1,6 +1,7 @@
 {
   "name": "LOCK_PIN",
   "notes": "E1.37-1",
+  "manufacturer_id": 0,
   "pid": 1600,
   "version": 1,
   "get_request_subdevice_range": [ "root", "subdevices" ],
