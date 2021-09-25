@@ -9,7 +9,16 @@ and this project adheres to
 ## [0.36.0]
 
 ### Added
-* Added a required `"manufacturer_id"` property to the parameter message.
+* Added a required `"manufacturer_id"` property to the parameter message. It's a
+  16-bit value having a minimum of 1.
+* Added a note to the `"bit/properties/reserved"` description clarifying that
+  absent bits are assumed to be reserved.
+* Added a "Notes on the examples" section to the README. There's currently one
+  subsection: "Manufacturer ID zero".
+
+### Changed
+* Changed `"reservedValue"` to `"valueIfReserved"` for consistency with
+  `"bitFieldType/properties/valueForUnspecified"`.
 
 ## [0.35.0]
 
