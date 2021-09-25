@@ -21,9 +21,11 @@ The schema is subject to change.
    3. [Constraints and errors](#constraints-and-errors)
    4. [Defaults and the "default" annotation](#defaults-and-the-"default"-annotation)
 4. [Best practices](#best-practices)
-5. [Open questions](#open-questions)
-6. [TODOs](#todos)
-7. [Resources](#resources)
+5. [Notes on the examples](#notes-on-the-examples)
+   1. [Manufacturer ID zero](#manufacturer-id-zero)
+6. [Open questions](#open-questions)
+7. [TODOs](#todos)
+8. [Resources](#resources)
    1. [References mentioned in the schema](#references-mentioned-in-the-schema)
 
 ## Project intent
@@ -178,6 +180,21 @@ of problems.
    vice versa.
 7. The `"format"` value for bytes or strings, if a fixed-size type, should not
    contradict any minimum or maximum lengths.
+
+## Notes on the examples
+
+### Manufacturer ID zero
+
+All the example messages use a manufacturer ID of zero, even though that will
+not validate against the schema. There was some discussion on this and these are
+the reasons:
+1. It is stated in several places that manufacturer IDs must be >= 1. See:
+   1. [ANSI E1.20](https://tsp.esta.org/tsp/documents/public_review_docs.php)
+   2. [Control Protocols Working Group - Manufacturer IDs](https://tsp.esta.org/tsp/working_groups/CP/mfctrIDs.php)
+2. It will ensure that even if someone uses the example messages as a base for
+   their own messages, say using cut & paste, they will still need to choose
+   their own manufacturer ID.
+3. Zero is ESTA's manufacturer ID.
 
 ## Open questions
 
