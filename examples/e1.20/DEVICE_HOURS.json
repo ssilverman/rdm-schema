@@ -1,5 +1,6 @@
 {
   "name": "DEVICE_HOURS",
+  "manufacturer_id": 0,
   "pid": 1024,
   "version": 1,
   "get_request_subdevice_range": [ "root", "subdevices" ],

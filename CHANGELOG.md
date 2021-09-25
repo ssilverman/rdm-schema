@@ -6,6 +6,20 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.36.0]
+
+### Added
+* Added a required `"manufacturer_id"` property to the parameter message. It's a
+  16-bit value having a minimum of 1.
+* Added a note to the `"bit/properties/reserved"` description clarifying that
+  absent bits are assumed to be reserved.
+* Added a "Notes on the examples" section to the README. There's currently one
+  subsection: "Manufacturer ID zero".
+
+### Changed
+* Changed `"reservedValue"` to `"valueIfReserved"` for consistency with
+  `"bitFieldType/properties/valueForUnspecified"`.
+
 ## [0.35.0]
 
 ### Added
