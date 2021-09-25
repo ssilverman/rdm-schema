@@ -1,5 +1,6 @@
 {
   "name": "BOOT_SOFTWARE_VERSION_ID",
+  "manufacturer_id": 0,
   "pid": 193,
   "version": 1,
   "get_request_subdevice_range": [ "root", "subdevices" ],

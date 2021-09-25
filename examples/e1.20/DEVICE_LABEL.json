@@ -1,5 +1,6 @@
 {
   "name": "DEVICE_LABEL",
+  "manufacturer_id": 0,
   "pid": 130,
   "version": 1,
   "get_request_subdevice_range": [ "root", "subdevices" ],

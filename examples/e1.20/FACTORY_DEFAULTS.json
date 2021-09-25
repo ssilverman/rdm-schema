@@ -1,5 +1,6 @@
 {
   "name": "FACTORY_DEFAULTS",
+  "manufacturer_id": 0,
   "pid": 144,
   "version": 1,
   "get_request_subdevice_range": [ "root", "subdevices" ],
