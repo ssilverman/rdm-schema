@@ -1,7 +1,7 @@
 {
   "name": "SHIPPING_LOCK",
   "notes": "E1.37-5",
-  "manufacturer_id": 0,
+  "manufacturer_id": 32767,
   "pid": -1,
   "version": 1,
   "get_request_subdevice_range": [ "root" ],

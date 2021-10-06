@@ -1,6 +1,6 @@
 {
   "name": "RECORD_SENSORS",
-  "manufacturer_id": 0,
+  "manufacturer_id": 32767,
   "pid": 514,
   "version": 1,
   "set_request_subdevice_range": [ "root", "subdevices", "broadcast" ],

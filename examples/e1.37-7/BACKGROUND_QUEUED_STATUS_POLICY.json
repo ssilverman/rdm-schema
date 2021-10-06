@@ -1,6 +1,7 @@
 {
   "name": "BACKGROUND_QUEUED_STATUS_POLICY",
   "notes": "E1.37-7",
+  "manufacturer_id": 32767,
   "pid": 2318,
   "version": 1,
   "get_request_subdevice_range": [ "root", "subdevices" ],

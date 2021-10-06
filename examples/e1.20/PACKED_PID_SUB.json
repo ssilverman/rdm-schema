@@ -1,6 +1,6 @@
 {
   "name": "PACKED_PID_SUB",
-  "manufacturer_id": 0,
+  "manufacturer_id": 32767,
   "pid": -1,
   "version": 1,
   "get_request_subdevice_range": [ "root" ],

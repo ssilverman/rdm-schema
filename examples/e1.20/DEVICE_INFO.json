@@ -1,6 +1,6 @@
 {
   "name": "DEVICE_INFO",
-  "manufacturer_id": 0,
+  "manufacturer_id": 32767,
   "pid": 96,
   "version": 1,
   "get_request_subdevice_range": [ "root", "subdevices" ],

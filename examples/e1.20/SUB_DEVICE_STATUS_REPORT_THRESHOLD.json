@@ -1,6 +1,6 @@
 {
   "name": "SUB_DEVICE_STATUS_REPORT_THRESHOLD",
-  "manufacturer_id": 0,
+  "manufacturer_id": 32767,
   "pid": 51,
   "version": 1,
   "get_request_subdevice_range": [ "subdevices" ],
