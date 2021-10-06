@@ -10,7 +10,7 @@ and this project adheres to
 
 ### Added
 * Added a required `"manufacturer_id"` property to the parameter message. It's a
-  16-bit value having a minimum of 1.
+  16-bit value having a minimum of 1 and a maximum of 0x7FFF.
 * Added a note to the `"bit/properties/reserved"` description clarifying that
   absent bits are assumed to be reserved.
 * Added a "Notes on the examples" section to the README. There's currently one
