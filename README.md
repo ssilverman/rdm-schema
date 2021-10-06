@@ -22,7 +22,7 @@ The schema is subject to change.
    4. [Defaults and the "default" annotation](#defaults-and-the-"default"-annotation)
 4. [Best practices](#best-practices)
 5. [Notes on the examples](#notes-on-the-examples)
-   1. [Manufacturer ID zero](#manufacturer-id-zero)
+   1. [Manufacturer ID](#manufacturer-id)
 6. [Open questions](#open-questions)
 7. [TODOs](#todos)
 8. [Resources](#resources)
@@ -183,18 +183,37 @@ of problems.
 
 ## Notes on the examples
 
-### Manufacturer ID zero
+### Manufacturer ID
 
-All the example messages use a manufacturer ID of zero, even though that will
-not validate against the schema. There was some discussion on this and these are
-the reasons:
-1. It is stated in several places that manufacturer IDs must be >= 1. See:
+All the example messages should use a manufacturer ID of zero or 0xFFFF because
+those are ESTA's. However, those will not validate against the schema. There was
+some discussion on this:
+1. It is stated in several places that manufacturer IDs must be in the range
+   0x0001-0x7FFF, so we must restrict the range. See:
    1. [ANSI E1.20](https://tsp.esta.org/tsp/documents/public_review_docs.php)
-   2. [Control Protocols Working Group - Manufacturer IDs](https://tsp.esta.org/tsp/working_groups/CP/mfctrIDs.php)
-2. It will ensure that even if someone uses the example messages as a base for
-   their own messages, say using cut & paste, they will still need to choose
-   their own manufacturer ID.
-3. Zero is ESTA's manufacturer ID.
+   2. [ANSI E1.33](https://tsp.esta.org/tsp/documents/public_review_docs.php)
+   3. [Control Protocols Working Group - Manufacturer IDs](https://tsp.esta.org/tsp/working_groups/CP/mfctrIDs.php)
+2. There was some concern that developers will copy & paste the examples and not
+   choose their own manufacturer ID, so keeping the examples from validating
+   will prevent this.
+
+It is the opinion of the author of this document that it is not reasonable to
+restrict the schema just to prevent possible misuse. Considering that the
+manufacturer ID is required (currently), that it must be in the range
+0x0001-0x7FFF, and that the examples should validate, there are two possible
+ways to express ESTA examples. Either:
+1. Remove `"manufacturer_id"` from the examples and remove the field from the
+   list of required fields, or
+2. Use a valid manufacturer ID in the examples, such as 0x7FFF from the
+   prototyping/experimental use region.
+
+In other words, we can't simultaneously have all the following things:
+1. Examples having manufacturer ID zero.
+2. Manufacturer ID's limited to the range 0x0001-0x7FFF.
+3. Examples that validate.
+4. `"manufacturer_id"` being a required property.
+
+For now, the value in all the examples is set to 32767 (0x7FFF).
 
 ## Open questions
 
@@ -203,6 +222,10 @@ Some open questions:
    We could include the version in the URI. Some possibilities:
    1. https://estalink.us/schemas/v1.0.1/rdm-schema.json
    2. https://estalink.us/schemas/rdm-schema-v1.0.1.json
+2. How to have examples with the ESTA manufacturer ID (zero), while at the same
+   time having them validate and requiring the manufacturer ID be a required
+   property. The temporary solution is the change all the example manufacturer
+   ID's to something in the prototyping/experimental use region (0x7FF0-0x7FFF).
 
 ## TODOs
 

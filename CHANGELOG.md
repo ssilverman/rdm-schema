@@ -14,7 +14,10 @@ and this project adheres to
 * Added a note to the `"bit/properties/reserved"` description clarifying that
   absent bits are assumed to be reserved.
 * Added a "Notes on the examples" section to the README. There's currently one
-  subsection: "Manufacturer ID zero".
+  subsection: "Manufacturer ID".
+* Added manufacturer ID 0x7FFF to all the ESTA examples. (See the README for a
+  discussion of why it isn't zero or 0xFFFF, and why it exists in the examples
+  at all.)
 
 ### Changed
 * Changed `"reservedValue"` to `"valueIfReserved"` for consistency with
