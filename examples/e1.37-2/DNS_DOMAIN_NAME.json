@@ -1,7 +1,7 @@
 {
   "name": "DNS_DOMAIN_NAME",
   "notes": "E1.37-2. This the domain of an internet host; it is appended to the hostname using a dot ('.') to create a fully qualified domain name (FQDN).",
-  "manufacturer_id": 32767,
+  "manufacturer_id": 0,
   "pid": 1805,
   "version": 1,
   "get_request_subdevice_range": [ "root", "subdevices" ],

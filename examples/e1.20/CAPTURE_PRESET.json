@@ -1,7 +1,7 @@
 {
   "name": "CAPTURE_PRESET",
   "notes": "Either the first field or all four fields can be given.",
-  "manufacturer_id": 32767,
+  "manufacturer_id": 0,
   "pid": 4144,
   "version": 1,
   "set_request_subdevice_range": [ "root", "subdevices", "broadcast" ],

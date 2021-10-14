@@ -1,6 +1,6 @@
 {
   "name": "CLEAR_STATUS_ID",
-  "manufacturer_id": 32767,
+  "manufacturer_id": 0,
   "pid": 50,
   "version": 1,
   "set_request_subdevice_range": [ "root", "subdevices", "broadcast" ],

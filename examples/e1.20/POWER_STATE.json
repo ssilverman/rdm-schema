@@ -1,6 +1,6 @@
 {
   "name": "POWER_STATE",
-  "manufacturer_id": 32767,
+  "manufacturer_id": 0,
   "pid": 4112,
   "version": 1,
   "get_request_subdevice_range": [ "root", "subdevices" ],

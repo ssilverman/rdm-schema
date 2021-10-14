@@ -1,7 +1,7 @@
 {
   "name": "PRODUCT_URL",
   "notes": "E1.37-5",
-  "manufacturer_id": 32767,
+  "manufacturer_id": 0,
   "pid": -1,
   "version": 1,
   "get_request_subdevice_range": [ "root", "subdevices" ],

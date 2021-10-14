@@ -1,6 +1,6 @@
 {
   "name": "LAMP_ON_MODE",
-  "manufacturer_id": 32767,
+  "manufacturer_id": 0,
   "pid": 1028,
   "version": 1,
   "get_request_subdevice_range": [ "root", "subdevices" ],
