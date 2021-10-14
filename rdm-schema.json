@@ -11,8 +11,8 @@
       "title": "Manufacturer ID",
       "description": "The manufacturer ID.",
       "type": "integer",
-      "minimum": 1,
-      "maximum": 32767
+      "minimum": 0,
+      "maximum": 65535
     },
     "pid": {
       "title": "PID",
