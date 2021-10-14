@@ -186,10 +186,11 @@ of problems.
 ### Manufacturer ID
 
 All the example messages should use a manufacturer ID of zero or 0xFFFF because
-those are ESTA's. However, those will not validate against the schema. There was
-some discussion on this:
+those are ESTA's. However, those will not validate against the schema if the
+value is restricted to the range 0x0001-0x7FFFF. There was some discussion
+on this:
 1. It is stated in several places that manufacturer IDs must be in the range
-   0x0001-0x7FFF, so we must restrict the range. See:
+   0x0001-0x7FFF, so we should restrict the range. See:
    1. [ANSI E1.20](https://tsp.esta.org/tsp/documents/public_review_docs.php)
    2. [ANSI E1.33](https://tsp.esta.org/tsp/documents/public_review_docs.php)
    3. [Control Protocols Working Group - Manufacturer IDs](https://tsp.esta.org/tsp/working_groups/CP/mfctrIDs.php)
@@ -198,10 +199,14 @@ some discussion on this:
    will prevent this.
 
 It is the opinion of the author of this document that it is not reasonable to
-restrict the schema just to prevent possible misuse. Considering that the
-manufacturer ID is required (currently), that it must be in the range
-0x0001-0x7FFF, and that the examples should validate, there are two possible
-ways to express ESTA examples. Either:
+restrict the schema just to prevent possible misuse. In addition, it's defined
+as a 16-bit value. Using the schema to restrict the value will cause future
+changes and uses to be invalid. It may be beyond the scope of the schema to
+accomplish any restriction.
+
+If the manufacturer ID is required, if it is restricted to 0x0001-0x7FFF, and if
+the examples should validate, then there are two possible ways to express ESTA
+examples. Either:
 1. Remove `"manufacturer_id"` from the examples and remove the field from the
    list of required fields, or
 2. Use a valid manufacturer ID in the examples, such as 0x7FFF from the
@@ -213,7 +218,7 @@ In other words, we can't simultaneously have all the following things:
 3. Examples that validate.
 4. `"manufacturer_id"` being a required property.
 
-For now, the value in all the examples is set to 32767 (0x7FFF).
+For now, the value in all the examples is set to 0 (0x7FFF).
 
 ## Open questions
 

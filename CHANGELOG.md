@@ -10,14 +10,13 @@ and this project adheres to
 
 ### Added
 * Added a required `"manufacturer_id"` property to the parameter message. It's a
-  16-bit value having a minimum of 1 and a maximum of 0x7FFF.
+  16-bit value having a minimum of 0 and a maximum of 65535 (0xFFFF).
 * Added a note to the `"bit/properties/reserved"` description clarifying that
   absent bits are assumed to be reserved.
 * Added a "Notes on the examples" section to the README. There's currently one
   subsection: "Manufacturer ID".
-* Added manufacturer ID 0x7FFF to all the ESTA examples. (See the README for a
-  discussion of why it isn't zero or 0xFFFF, and why it exists in the examples
-  at all.)
+* Added manufacturer ID 0 to all the ESTA examples. See the README for
+  a discussion.
 
 ### Changed
 * Changed `"reservedValue"` to `"valueIfReserved"` for consistency with
