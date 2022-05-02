@@ -6,7 +6,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.36.0]
+## [Unreleased]
 
 ### Added
 * Added a required `"manufacturer_id"` property to the parameter message. It's a
