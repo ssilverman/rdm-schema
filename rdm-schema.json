@@ -320,7 +320,7 @@
         },
         "prefixBase": {
           "title": "Prefix Base",
-          "description": "The base of the prefix. For example, to express \"kilo\", specify prefixPower=3 and prefixBase=10, and to express \"kibi\", specify prefixPower=10 and prefixBase=2 or prefixPower=1 and prefixBase=1024. Absence implies a default value of 10.",
+          "description": "The base of the prefix. For example, to express \"kilo\", specify prefixBase=10 and prefixPower=3, and to express \"kibi\", specify prefixBase=2 and prefixPower=10 or prefixBase=1024 and prefixPower=1. Absence implies a default value of 10.",
           "type": "integer",
           "default": 10
         }

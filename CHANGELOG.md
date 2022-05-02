@@ -21,6 +21,9 @@ and this project adheres to
 ### Changed
 * Changed `"reservedValue"` to `"valueIfReserved"` for consistency with
   `"bitFieldType/properties/valueForUnspecified"`.
+* Changed the order of "prefixPower" and "prefixBase" mentions in the
+  description for $defs/integerType/properties/prefixBase. For more clarity,
+  "prefixBase" now precedes "prefixPower".
 
 ## [0.35.0]
 
