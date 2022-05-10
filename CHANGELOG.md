@@ -6,19 +6,24 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to
 [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.36.0]
+## [Unreleased]
 
 ### Added
 * Added a required `"manufacturer_id"` property to the parameter message. It's a
-  16-bit value having a minimum of 1.
+  16-bit value having a minimum of 0 and a maximum of 65535 (0xFFFF).
 * Added a note to the `"bit/properties/reserved"` description clarifying that
   absent bits are assumed to be reserved.
 * Added a "Notes on the examples" section to the README. There's currently one
-  subsection: "Manufacturer ID zero".
+  subsection: "Manufacturer ID".
+* Added manufacturer ID 0 to all the ESTA examples. See the README for
+  a discussion.
 
 ### Changed
 * Changed `"reservedValue"` to `"valueIfReserved"` for consistency with
   `"bitFieldType/properties/valueForUnspecified"`.
+* Changed the order of "prefixPower" and "prefixBase" mentions in the
+  description for $defs/integerType/properties/prefixBase. For more clarity,
+  "prefixBase" now precedes "prefixPower".
 
 ## [0.35.0]
 
