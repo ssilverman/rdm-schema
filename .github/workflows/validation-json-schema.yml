@@ -1,6 +1,6 @@
 # GitHub Action to validate schema and example files
 # https://github.com/codespell-project/actions-codespell
-name: JSON-Schema Validation
+name: Validation - JSON-Schema
 on: [push, pull_request]
 jobs:
   validate-schema:
