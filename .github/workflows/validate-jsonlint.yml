@@ -1,4 +1,4 @@
-name: Validate JSONs Alternative
+name: Validate JSONs - jsonlint
 
 on: [push, pull_request]
 jobs:
