@@ -12,8 +12,7 @@
       "labels": [
         { "name": "Off", "value": 0 },
         { "name": "Full", "value": 255 }
-      ],
-      "restrictToLabeled": true
+      ]
     }
   ],
   "set_request_subdevice_range": [ "root", "subdevices", "broadcast" ],
