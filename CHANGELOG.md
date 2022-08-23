@@ -8,6 +8,9 @@ and this project adheres to
 
 ## [Unreleased]
 
+### Changed
+* Changed `"manufacturer_id"` to optional.
+
 ## [0.36.0]
 
 ### Added
