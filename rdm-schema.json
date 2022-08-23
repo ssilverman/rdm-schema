@@ -9,7 +9,7 @@
     "manufacturer_id": {
       "$comment": "Manufacturer IDs are assigned by ESTA and are commonly expressed in hexadecimal. Users may expect to see these values in the UI as hexadecimal.",
       "title": "Manufacturer ID",
-      "description": "The manufacturer ID.",
+      "description": "The Manufacturer ID.",
       "type": "integer",
       "minimum": 0,
       "maximum": 65535
