@@ -1,0 +1,14 @@
+name: Validation - jsonlint
+
+on: [push, pull_request]
+jobs:
+  linting:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ocular-d/json-linter@main
+    - run: |
+       sudo npm install -g jsonlint
+       sudo apt-get install fd-find
+       fdfind --extension json -E rdm-schema.json --exec-batch ls -ld
+       fdfind --extension json -E rdm-schema.json --exec jsonlint --quiet --compact --validate rdm-schema.json
