@@ -1,0 +1,17 @@
+# GitHub Action to validate schema and example files
+# https://github.com/codespell-project/actions-codespell
+name: Validation - JSON-Schema
+on: [push, pull_request]
+jobs:
+  validate-schema:
+    name: Validate our Schema
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12'
+      - name: Install dependencies
+        run: npm install @cfworker/json-schema
+      - run: node --unhandled-rejections=strict validate-schema.mjs
