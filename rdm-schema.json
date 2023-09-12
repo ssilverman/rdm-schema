@@ -74,7 +74,7 @@
     }
   },
   "unevaluatedProperties": false,
-  "required": [ "pid", "version" ],
+  "required": [ "manufacturer_id", "pid", "version" ],
   "dependentRequired": {
     "get_request": [ "get_response" ],
     "get_response": [ "get_request" ],
