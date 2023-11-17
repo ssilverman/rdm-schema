@@ -141,7 +141,7 @@
     },
     "booleanType": {
       "title": "Boolean Type",
-      "description": "A Boolean value. This corresponds to the intent of DS_BOOLEAN in \"Table A-15: Data Type Defines\" of the ANSI E1.20-202x specification, a 1-byte zero-or-one value.",
+      "description": "A Boolean value. This corresponds to the intent of DS_BOOLEAN in \"Table A-15: Data Type Defines\" of the ANSI E1.20-2010 specification, a 1-byte zero-or-one value.",
       "type": "object",
       "$ref": "#/$defs/commonPropertiesForNamed",
       "properties": {
@@ -159,14 +159,14 @@
     },
     "bytesType": {
       "title": "Bytes Type",
-      "description": "An array of bytes. The minimum and maximum length properties are not required, but it is a good idea to specify their values for unknown bytes types. This corresponds to the intent of DS_UINT8 in \"Table A-15: Data Type Defines\" of the ANSI E1.20-202x specification.",
+      "description": "An array of bytes. The minimum and maximum length properties are not required, but it is a good idea to specify their values for unknown bytes types. This corresponds to the intent of DS_UNSIGNED_BYTE in \"Table A-15: Data Type Defines\" of the ANSI E1.20-2010 specification.",
       "type": "object",
       "$ref": "#/$defs/commonPropertiesForNamed",
       "properties": {
         "type": { "const": "bytes" },
         "format": {
           "title": "Interpretation Format",
-          "description": "This field describes how to interpret the value. It can be one of the bytes types defined in \"Table A-15: Data Type Defines\" of the ANSI E1.20-202x specification (or other add-on specifications), or it can be something manufacturer-specific. Be aware, however, that anything not defined here may not be understood by a controller or UI. The known bytes types include: ipv4 (4 bytes), ipv6 (16 bytes), mac-address (6 bytes), uid (6 bytes), and uuid (16 bytes).",
+          "description": "This field describes how to interpret the value. It can be one of the bytes types defined in \"Table A-15: Data Type Defines\" of the ANSI E1.20-2010 specification (or other add-on specifications), or it can be something manufacturer-specific. Be aware, however, that anything not defined here may not be understood by a controller or UI. The known bytes types include: ipv4 (4 bytes), ipv6 (16 bytes), mac-address (6 bytes), uid (6 bytes), and uuid (16 bytes).",
           "type": "string"
         },
         "minLength": {
@@ -249,7 +249,7 @@
     },
     "compoundType": {
       "title": "Compound Type",
-      "description": "Defines a compound type, a type used to combine other types. This is useful for including in lists. This corresponds to the intent of DS_GROUP in \"Table A-15: Data Type Defines\" of the ANSI E1.20-202x specification.",
+      "description": "Defines a compound type, a type used to combine other types. This is useful for including in lists. This corresponds to the intent of DS_GROUP in \"Table A-15: Data Type Defines\" of the ANSI E1.20-2010 specification.",
       "type": "object",
       "$ref": "#/$defs/commonPropertiesForNamed",
       "properties": {
@@ -268,7 +268,7 @@
     },
     "integerType": {
       "title": "Integer Type",
-      "description": "A signed or unsigned integer, can have an optional prefix, unit, and range. This corresponds to the intent of any of the integer types in \"Table A-15: Data Type Defines\" of the ANSI E1.20-202x specification.",
+      "description": "A signed or unsigned integer, can have an optional prefix, unit, and range. This corresponds to the intent of any of the integer types in \"Table A-15: Data Type Defines\" of the ANSI E1.20-2010 specification.",
       "type": "object",
       "$ref": "#/$defs/commonPropertiesForNamed",
       "properties": {
@@ -307,7 +307,7 @@
         },
         "units": {
           "title": "Units",
-          "description": "The units type, defined in Table A-13 of ANSI E1.20-202x.",
+          "description": "The units type, defined in Table A-13 of ANSI E1.20-2010.",
           "type": "integer",
           "minimum": 0,
           "maximum": 255
@@ -453,14 +453,14 @@
     },
     "stringType": {
       "title": "String Type",
-      "description": "A UTF-8-encoded string having a possibly bounded size. Implementations may need to use either a NUL terminator or another \"length\" field for multi-field messages where a string is followed by another field, so that its boundary can be determined. This corresponds to the intent of DS_STRING in \"Table A-15: Data Type Defines\" of the ANSI E1.20-202x specification. Characters are defined by the [JSON specification](https://www.rfc-editor.org/rfc/rfc8259.html) (see [Section 7: Strings](https://www.rfc-editor.org/rfc/rfc8259.html#section-7) and [Section 8: String and Character Issues](https://www.rfc-editor.org/rfc/rfc8259.html#section-8)). Note that characters are either encoded directly in UTF-8 or escaped using the scheme described by the specification.",
+      "description": "A UTF-8-encoded string having a possibly bounded size. Implementations may need to use either a NUL terminator or another \"length\" field for multi-field messages where a string is followed by another field, so that its boundary can be determined. This corresponds to the intent of DS_STRING in \"Table A-15: Data Type Defines\" of the ANSI E1.20-2010 specification. Characters are defined by the [JSON specification](https://www.rfc-editor.org/rfc/rfc8259.html) (see [Section 7: Strings](https://www.rfc-editor.org/rfc/rfc8259.html#section-7) and [Section 8: String and Character Issues](https://www.rfc-editor.org/rfc/rfc8259.html#section-8)). Note that characters are either encoded directly in UTF-8 or escaped using the scheme described by the specification.",
       "type": "object",
       "$ref": "#/$defs/commonPropertiesForNamed",
       "properties": {
         "type": { "const": "string" },
         "format": {
           "title": "Interpretation Format",
-          "description": "This field describes how to interpret the string value. It can be one of the string types defined in \"Table A-15: Data Type Defines\" of the ANSI E1.20-202x specification (or other add-on specifications), one of the defined formats from the [JSON Schema Validation specification](https://json-schema.org/draft/2019-09/json-schema-validation.html#rfc.section.7.3), or it can be something manufacturer-specific. It is suggested that a URI or other unique naming convention be used to uniquely identify these. Be aware, however, that anything not defined here may not be understood by a controller or UI. The known string types from ANSI E1.20-202x (and add-ons) include: \"hostname\" (https://www.rfc-editor.org/rfc/rfc1123.html#section-2, https://www.rfc-editor.org/rfc/rfc3696.html#section-2, https://www.rfc-editor.org/rfc/rfc5890.html), \"json\" (https://www.rfc-editor.org/rfc/rfc8259.html), \"string\", and \"url\" (the intent of DS_URL in \"Table A-15\") (https://www.rfc-editor.org/rfc/rfc3986.html, https://www.rfc-editor.org/rfc/rfc1738.html).",
+          "description": "This field describes how to interpret the string value. It can be one of the string types defined in \"Table A-15: Data Type Defines\" of the ANSI E1.20-2010 specification (or other add-on specifications), one of the defined formats from the [JSON Schema Validation specification](https://json-schema.org/draft/2019-09/json-schema-validation.html#rfc.section.7.3), or it can be something manufacturer-specific. It is suggested that a URI or other unique naming convention be used to uniquely identify these. Be aware, however, that anything not defined here may not be understood by a controller or UI. The known string types from ANSI E1.20-2010 (and add-ons) include: \"hostname\" (https://www.rfc-editor.org/rfc/rfc1123.html#section-2, https://www.rfc-editor.org/rfc/rfc3696.html#section-2, https://www.rfc-editor.org/rfc/rfc5890.html), \"json\" (https://www.rfc-editor.org/rfc/rfc8259.html), \"string\", and \"url\" (the intent of DS_URL in \"Table A-15\") (https://www.rfc-editor.org/rfc/rfc3986.html, https://www.rfc-editor.org/rfc/rfc1738.html).",
           "type": "string"
         },
         "pattern": {
@@ -503,7 +503,7 @@
     },
     "subdeviceType": {
       "title": "Subdevice Type",
-      "description": "A subdevice value. It is a 16-bit integral type and its range includes the values specified by the ANSI E1.20-202x specification (0x0001-0xFFF0). It does not include the root value (0) or special all-call value (65535).",
+      "description": "A subdevice value. It is a 16-bit integral type and its range includes the values specified by the ANSI E1.20-2010 specification (0x0001-0x0200). It does not include the root value (0) or special all-call value (65535).",
       "type": "integer",
       "minimum": 1,
       "maximum": 65520
