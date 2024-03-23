@@ -236,7 +236,7 @@ Some open questions:
 
 Work that still needs to be done:
 1. Supply valid PIDs to some of the examples. Currently, they are using an
-   invalid value of -1.
+   invalid value of -1 because the PIDs are unassigned.
 
 ## Resources
 
