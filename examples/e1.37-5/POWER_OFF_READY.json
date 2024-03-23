@@ -1,8 +1,8 @@
 {
-  "name": "POWER_OFF_SAFE",
+  "name": "POWER_OFF_READY",
   "notes": "E1.37-5",
   "manufacturer_id": 0,
-  "pid": -1,
+  "pid": 4177,
   "version": 1,
   "get_request_subdevice_range": [ "root", "subdevices" ],
   "get_request": [],
@@ -11,8 +11,8 @@
       "name": "state",
       "type": "boolean",
       "labels": [
-        { "name": "Not Safe", "value": false },
-        { "name": "Safe", "value": true }
+        { "name": "Not Ready", "value": false },
+        { "name": "Ready", "value": true }
       ]
     }
   ]
