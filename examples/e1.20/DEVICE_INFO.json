@@ -85,7 +85,7 @@
       ]
     },
     {
-      "name": "current_personality",
+      "name": "personality",
       "type": "uint8",
       "ranges": [
         { "minimum": 1, "maximum": 255 }
@@ -93,7 +93,7 @@
     },
     { "name": "personality_count", "type": "uint8" },
     {
-      "name": "dmx_start_address",
+      "name": "dmx_address",
       "type": "uint16",
       "ranges": [
         { "minimum": 1, "maximum": 512 },
